@@ -18,8 +18,18 @@ import com.lapsa.kz.economic.KZEconomicSector;
 public class MessagesBundleTest {
 
     @Test
-    public void testNoExcessRecords() {
+    public void testNoExcessRecordsRussian() {
 	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ru"));
+	testBundle(resources);
+    }
+
+    @Test
+    public void testNoExcessRecordsKazakh() {
+	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ka"));
+	testBundle(resources);
+    }
+
+    private void testBundle(ResourceBundle resources) {
 	assertThat(resources, not(nullValue()));
 	Enumeration<String> keys = resources.getKeys();
 	while (keys.hasMoreElements()) {
