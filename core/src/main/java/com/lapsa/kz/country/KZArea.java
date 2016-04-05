@@ -1,5 +1,8 @@
 package com.lapsa.kz.country;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum KZArea {
     GAST("01"), // Астана - код 01
     GALM("02"), // Алматы - код 02
@@ -18,6 +21,8 @@ public enum KZArea {
     OSK("15"), // Северо-Казахстанская область - код 15
     OVK("16"), // Восточно-Казахстанская область - код 16
     RUSAGEN("--");
+
+    public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
     private final String code;
 

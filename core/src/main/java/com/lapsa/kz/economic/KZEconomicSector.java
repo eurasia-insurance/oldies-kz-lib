@@ -16,6 +16,8 @@ public enum KZEconomicSector {
     HOUSEHOLDS("9"), // Домашние хозяйства
     INTERNATIONAL_COMPANIES("А"); // Международные организации
 
+    public static final String BUNDLE_BASENAME = "KZLibLocalization";
+
     private final String code;
 
     KZEconomicSector(String code) {

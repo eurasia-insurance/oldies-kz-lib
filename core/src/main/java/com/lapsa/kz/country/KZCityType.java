@@ -6,4 +6,6 @@ public enum KZCityType {
     REGION_SUB, // 3 — город областного подчинения
     DIST_CENTER, // 4 — районный центр
     DIST_SUB; // 5 — город районного подчинения
+
+    public static final String BUNDLE_BASENAME = "KZLibLocalization";
 }

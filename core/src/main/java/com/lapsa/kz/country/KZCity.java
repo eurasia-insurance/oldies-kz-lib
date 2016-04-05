@@ -89,6 +89,8 @@ public enum KZCity {
     EKIB(KZCityType.REGION_SUB, KZArea.OPVL),
     EMBA(KZCityType.DIST_SUB, KZArea.OAKT);
 
+    public static final String BUNDLE_BASENAME = "KZLibLocalization";
+
     private final KZCityType type;
     private final KZArea area;
 
