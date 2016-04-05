@@ -1,8 +1,5 @@
 package com.lapsa.kz.country;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum KZArea {
     GAST("01"), // Астана - код 01
     GALM("02"), // Алматы - код 02
