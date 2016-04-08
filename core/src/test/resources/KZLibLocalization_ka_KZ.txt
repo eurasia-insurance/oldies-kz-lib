@@ -1,8 +1,8 @@
 com.lapsa.kz.country.KZCityType.MAJOR = Республикалық маңызы бар қаланың
-com.lapsa.kz.country.KZCityType.REGION_CENTER = Облыс орталығы
-com.lapsa.kz.country.KZCityType.REGION_SUB = Облысқа бағынышты қалалық
-com.lapsa.kz.country.KZCityType.DIST_CENTER = Аудан орталығы
-com.lapsa.kz.country.KZCityType.DIST_SUB = Облысқа бағынышты қалалық
+com.lapsa.kz.country.KZCityType.REGIONAL_CENTER = Облыс орталығы
+com.lapsa.kz.country.KZCityType.REGIONAL_SUBORDINATION = Облысқа бағынышты қалалық
+com.lapsa.kz.country.KZCityType.DISTINCT_CENTER = Аудан орталығы
+com.lapsa.kz.country.KZCityType.DISTINCT_SUBORDINATION = Облысқа бағынышты қалалық
 
 com.lapsa.kz.country.KZArea.GAST = Астана қаласы
 com.lapsa.kz.country.KZArea.GALM = Алматы қаласы

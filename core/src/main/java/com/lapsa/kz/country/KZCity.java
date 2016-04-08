@@ -1,93 +1,94 @@
 package com.lapsa.kz.country;
 
 public enum KZCity {
-    ABAI(KZCityType.DIST_CENTER, KZArea.OKGD),
-    AKKOL(KZCityType.DIST_CENTER, KZArea.OAKM),
-    AKSAI(KZCityType.DIST_CENTER, KZArea.OZK),
-    AKSU(KZCityType.REGION_SUB, KZArea.OPVL),
-    AKTAU(KZCityType.REGION_CENTER, KZArea.OMNG),
-    AKTOBE(KZCityType.REGION_CENTER, KZArea.OAKT),
-    ALGA(KZCityType.DIST_CENTER, KZArea.OAKT),
-    ALM(KZCityType.MAJOR, KZArea.GALM),
-    ARAL(KZCityType.DIST_CENTER, KZArea.OKZL),
-    ARKAL(KZCityType.REGION_SUB, KZArea.OKST),
-    ARYS(KZCityType.REGION_SUB, KZArea.OUK),
-    AST(KZCityType.MAJOR, KZArea.GAST),
-    ATB(KZCityType.DIST_CENTER, KZArea.OAKM),
-    ATY(KZCityType.REGION_CENTER, KZArea.OATY),
-    AYAG(KZCityType.DIST_CENTER, KZArea.OVK),
-    BAIKON(KZCityType.MAJOR, KZArea.RUSAGEN),
-    BALH(KZCityType.REGION_SUB, KZArea.OKGD),
-    BULA(KZCityType.DIST_CENTER, KZArea.OSK),
-    DERZH(KZCityType.DIST_CENTER, KZArea.OAKM),
-    EREIM(KZCityType.DIST_CENTER, KZArea.OAKM),
-    ESIK(KZCityType.DIST_CENTER, KZArea.OALM),
-    ESIL(KZCityType.DIST_CENTER, KZArea.OAKM),
-    ZHANO(KZCityType.REGION_SUB, KZArea.OMNG),
-    ZHANAT(KZCityType.DIST_CENTER, KZArea.OZHM),
-    ZHARK(KZCityType.DIST_CENTER, KZArea.OALM),
-    ZHZKZ(KZCityType.REGION_SUB, KZArea.OKGD),
-    ZHEM(KZCityType.DIST_SUB, KZArea.OAKT),
-    ZHETYSAY(KZCityType.DIST_CENTER, KZArea.OUK),
-    ZHITIKARA(KZCityType.DIST_CENTER, KZArea.OKST),
-    ZAISAN(KZCityType.DIST_CENTER, KZArea.OVK),
-    ZYRIAN(KZCityType.REGION_SUB, KZArea.OVK),
-    KAZAL(KZCityType.DIST_SUB, KZArea.OKZL),
-    KANDYA(KZCityType.DIST_CENTER, KZArea.OAKT),
-    KAPCH(KZCityType.DIST_CENTER, KZArea.OALM),
-    KGND(KZCityType.REGION_CENTER, KZArea.OKGD),
-    KARAZH(KZCityType.REGION_SUB, KZArea.OKGD),
-    KARAT(KZCityType.DIST_CENTER, KZArea.OZHM),
-    KARKAR(KZCityType.DIST_CENTER, KZArea.OKGD),
-    KASKEL(KZCityType.DIST_CENTER, KZArea.OALM),
-    KENTAU(KZCityType.DIST_CENTER, KZArea.OUK),
-    KOKSH(KZCityType.REGION_CENTER, KZArea.OAKM),
-    KOSTN(KZCityType.REGION_CENTER, KZArea.OKST),
-    KYLSAR(KZCityType.DIST_CENTER, KZArea.OATY),
-    KURCH(KZCityType.REGION_SUB, KZArea.OVK),
-    KYZYL(KZCityType.REGION_CENTER, KZArea.OKZL),
-    LENGER(KZCityType.DIST_CENTER, KZArea.OUK),
-    LISAK(KZCityType.DIST_CENTER, KZArea.OKST),
-    MAKIN(KZCityType.DIST_CENTER, KZArea.OAKM),
-    MAMLY(KZCityType.DIST_CENTER, KZArea.OSK),
-    PAVL(KZCityType.REGION_CENTER, KZArea.OPVL),
-    PETRP(KZCityType.REGION_CENTER, KZArea.OSK),
-    PRIOZ(KZCityType.REGION_SUB, KZArea.OKGD),
-    RIDDR(KZCityType.REGION_SUB, KZArea.OVK),
-    RUDNI(KZCityType.REGION_SUB, KZArea.OKST),
-    SARAN(KZCityType.REGION_SUB, KZArea.OKGD),
-    SARKND(KZCityType.DIST_CENTER, KZArea.OALM),
-    SARYAG(KZCityType.DIST_CENTER, KZArea.OUK),
-    SATP(KZCityType.REGION_SUB, KZArea.OKGD),
-    SEMEI(KZCityType.REGION_SUB, KZArea.OVK),
-    SERGEE(KZCityType.DIST_CENTER, KZArea.OSK),
-    SEREBR(KZCityType.REGION_SUB, KZArea.OVK),
-    STEPNOG(KZCityType.REGION_SUB, KZArea.OAKM),
-    STEPNY(KZCityType.DIST_CENTER, KZArea.OAKM),
-    TAIYN(KZCityType.DIST_CENTER, KZArea.OSK),
-    TALGAR(KZCityType.DIST_CENTER, KZArea.OALM),
-    TALDYK(KZCityType.REGION_CENTER, KZArea.OALM),
-    TARAZ(KZCityType.REGION_CENTER, KZArea.OZHM),
-    TEKEL(KZCityType.REGION_SUB, KZArea.OALM),
-    TEMIR(KZCityType.DIST_SUB, KZArea.OAKT),
-    TEMRT(KZCityType.REGION_SUB, KZArea.OKGD),
-    TURK(KZCityType.REGION_SUB, KZArea.OUK),
-    URALS(KZCityType.REGION_CENTER, KZArea.OZK),
-    UKAM(KZCityType.REGION_CENTER, KZArea.OVK),
-    USHAR(KZCityType.DIST_CENTER, KZArea.OALM),
-    USHTB(KZCityType.DIST_CENTER, KZArea.OALM),
-    FRSH(KZCityType.REGION_SUB, KZArea.OMNG),
-    HROM(KZCityType.DIST_CENTER, KZArea.OAKT),
-    SHARD(KZCityType.DIST_CENTER, KZArea.OUK),
-    SHALK(KZCityType.DIST_CENTER, KZArea.OAKT),
-    SHAR(KZCityType.REGION_SUB, KZArea.OVK),
-    SHKH(KZCityType.REGION_SUB, KZArea.OKGD),
-    SHMN(KZCityType.DIST_CENTER, KZArea.OVK),
-    SHU(KZCityType.DIST_CENTER, KZArea.OZHM),
-    SHYM(KZCityType.REGION_CENTER, KZArea.OUK),
-    SCHU(KZCityType.DIST_CENTER, KZArea.OAKM),
-    EKIB(KZCityType.REGION_SUB, KZArea.OPVL),
-    EMBA(KZCityType.DIST_SUB, KZArea.OAKT);
+    ABAI(KZCityType.DISTINCT_CENTER, KZArea.OKGD), // Абай
+    AKKOL(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Акколь
+    AKSAI(KZCityType.DISTINCT_CENTER, KZArea.OZK), // Аксай
+    AKSU(KZCityType.REGIONAL_SUBORDINATION, KZArea.OPVL), // Аксу
+    AKTAU(KZCityType.REGIONAL_CENTER, KZArea.OMNG), // Актау
+    AKTOBE(KZCityType.REGIONAL_CENTER, KZArea.OAKT), // Актобе
+    ALGA(KZCityType.DISTINCT_CENTER, KZArea.OAKT), // Алга
+    ALM(KZCityType.MAJOR, KZArea.GALM), // Алматы
+    ARAL(KZCityType.DISTINCT_CENTER, KZArea.OKZL), // Аральск
+    ARKAL(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKST), // Аркалык
+    ARYS(KZCityType.REGIONAL_SUBORDINATION, KZArea.OUK), // Арысь
+    AST(KZCityType.MAJOR, KZArea.GAST), // Астана
+    ATB(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Атбасар
+    ATY(KZCityType.REGIONAL_CENTER, KZArea.OATY), // Атырау
+    AYAG(KZCityType.DISTINCT_CENTER, KZArea.OVK), // Аягоз
+    BAIKON(KZCityType.MAJOR, KZArea.OKZL), // Байконыр
+    BALH(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Балхаш
+    BULA(KZCityType.DISTINCT_CENTER, KZArea.OSK), // Булаево
+    DERZH(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Державинск
+    EREIM(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Ерейментау
+    ESIK(KZCityType.DISTINCT_CENTER, KZArea.OALM), // Есик
+    ESIL(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Есиль
+    ZHANO(KZCityType.REGIONAL_SUBORDINATION, KZArea.OMNG), // Жанаозен
+    ZHANAT(KZCityType.DISTINCT_CENTER, KZArea.OZHM), // Жанатас
+    ZHARK(KZCityType.DISTINCT_CENTER, KZArea.OALM), // Жаркент
+    ZHZKZ(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Жезказган
+    ZHEM(KZCityType.DISTINCT_SUBORDINATION, KZArea.OAKT), // Жем
+    ZHETYSAY(KZCityType.DISTINCT_CENTER, KZArea.OUK), // Жетысай
+    ZHITIKARA(KZCityType.DISTINCT_CENTER, KZArea.OKST), // Житикара
+    ZAISAN(KZCityType.DISTINCT_CENTER, KZArea.OVK), // Зайсан
+    ZYRIAN(KZCityType.DISTINCT_SUBORDINATION, KZArea.OVK), // Зыряновск
+    KAZAL(KZCityType.DISTINCT_SUBORDINATION, KZArea.OKZL), // Казалинск
+    KANDYA(KZCityType.DISTINCT_CENTER, KZArea.OAKT), // Кандыагаш
+    KAPCH(KZCityType.REGIONAL_SUBORDINATION, KZArea.OALM), // Капчагай
+    KGND(KZCityType.REGIONAL_CENTER, KZArea.OKGD), // Караганда
+    KARAZH(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Каражал
+    KARAT(KZCityType.DISTINCT_CENTER, KZArea.OZHM), // Каратау
+    KARKAR(KZCityType.DISTINCT_CENTER, KZArea.OKGD), // Каркаралинск
+    KASKEL(KZCityType.DISTINCT_CENTER, KZArea.OALM), // Каскелен
+    KENTAU(KZCityType.REGIONAL_SUBORDINATION, KZArea.OUK), // Кентау
+    KOKSH(KZCityType.REGIONAL_CENTER, KZArea.OAKM), // Кокшетау
+    KOSTN(KZCityType.REGIONAL_CENTER, KZArea.OKST), // Костанай
+    KYLSAR(KZCityType.DISTINCT_CENTER, KZArea.OATY), // Кульсары
+    KURCH(KZCityType.REGIONAL_SUBORDINATION, KZArea.OVK), // Курчатов
+    KYZYL(KZCityType.REGIONAL_CENTER, KZArea.OKZL), // Кызылорда
+    LENGER(KZCityType.DISTINCT_CENTER, KZArea.OUK), // Ленгер
+    LISAK(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKST), // Лисаковск
+    MAKIN(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Макинск
+    MAMLY(KZCityType.DISTINCT_CENTER, KZArea.OSK), // Мамлютка
+    PAVL(KZCityType.REGIONAL_CENTER, KZArea.OPVL), // Павлодар
+    PETRP(KZCityType.REGIONAL_CENTER, KZArea.OSK), // Петропавловск
+    PRIOZ(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Приозёрск
+    RIDDR(KZCityType.REGIONAL_SUBORDINATION, KZArea.OVK), // Риддер
+    RUDNI(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKST), // Рудный
+    SARAN(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Сарань
+    SARKND(KZCityType.DISTINCT_CENTER, KZArea.OALM), // Сарканд
+    SARYAG(KZCityType.DISTINCT_CENTER, KZArea.OUK), // Сарыагаш
+    SATP(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Сатпаев
+    SEMEI(KZCityType.REGIONAL_SUBORDINATION, KZArea.OVK), // Семей
+    SERGEE(KZCityType.DISTINCT_CENTER, KZArea.OSK), // Сергеевка
+    SEREBR(KZCityType.REGIONAL_SUBORDINATION, KZArea.OVK), // Серебрянск
+    STEPNOG(KZCityType.REGIONAL_SUBORDINATION, KZArea.OAKM), // Степногорск
+    STEPNY(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Степняк
+    TAIYN(KZCityType.DISTINCT_CENTER, KZArea.OSK), // Тайынша
+    TALGAR(KZCityType.DISTINCT_CENTER, KZArea.OALM), // Талгар
+    TALDYK(KZCityType.REGIONAL_CENTER, KZArea.OALM), // Талдыкорган
+    TARAZ(KZCityType.REGIONAL_CENTER, KZArea.OZHM), // Тараз
+    TEKEL(KZCityType.REGIONAL_SUBORDINATION, KZArea.OALM), // Текели
+    TEMIR(KZCityType.DISTINCT_SUBORDINATION, KZArea.OAKT), // Темир
+    TEMRT(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Темиртау
+    TURK(KZCityType.REGIONAL_SUBORDINATION, KZArea.OUK), // Туркестан
+    URALS(KZCityType.REGIONAL_CENTER, KZArea.OZK), // Уральск
+    UKAM(KZCityType.REGIONAL_CENTER, KZArea.OVK), // Усть-Каменогорск
+    USHAR(KZCityType.DISTINCT_CENTER, KZArea.OALM), // Ушарал
+    USHTB(KZCityType.DISTINCT_CENTER, KZArea.OALM), // Уштобе
+    FRSH(KZCityType.REGIONAL_SUBORDINATION, KZArea.OMNG), // Форт-Шевченко
+    HROM(KZCityType.DISTINCT_CENTER, KZArea.OAKT), // Хромтау
+    SHARD(KZCityType.DISTINCT_CENTER, KZArea.OUK), // Шардара
+    SHALK(KZCityType.DISTINCT_CENTER, KZArea.OAKT), // Шалкар
+    SHAR(KZCityType.REGIONAL_SUBORDINATION, KZArea.OVK), // Шар
+    SHKH(KZCityType.REGIONAL_SUBORDINATION, KZArea.OKGD), // Шахтинск
+    SHMN(KZCityType.DISTINCT_CENTER, KZArea.OVK), // Шемонаиха
+    SHU(KZCityType.DISTINCT_CENTER, KZArea.OZHM), // Шу
+    SHYM(KZCityType.REGIONAL_CENTER, KZArea.OUK), // Шымкент
+    SCHU(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Щучинск
+    EKIB(KZCityType.REGIONAL_SUBORDINATION, KZArea.OPVL), // Экибастуз
+    EMBA(KZCityType.DISTINCT_SUBORDINATION, KZArea.OAKT), // Эмба
+    ;
 
     public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
