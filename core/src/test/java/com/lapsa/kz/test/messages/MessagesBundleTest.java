@@ -19,18 +19,27 @@ public class MessagesBundleTest {
 
     @Test
     public void testNoExcessRecordsRussian() {
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ru"));
+	Locale locale = Locale.forLanguageTag("ru");
+	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("ru")));
+	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, locale);
+	assertThat(resources, not(nullValue()));
+	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
+		allOf(not(nullValue()), is("город Алматы")));
 	testBundle(resources);
     }
 
     @Test
     public void testNoExcessRecordsKazakh() {
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ka"));
+	Locale locale = Locale.forLanguageTag("kk");
+	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("kk")));
+	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, locale);
+	assertThat(resources, not(nullValue()));
+	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
+		allOf(not(nullValue()), is("Алматы қаласы")));
 	testBundle(resources);
     }
 
     private void testBundle(ResourceBundle resources) {
-	assertThat(resources, not(nullValue()));
 	Enumeration<String> keys = resources.getKeys();
 	while (keys.hasMoreElements()) {
 	    String key = keys.nextElement();
@@ -41,10 +50,10 @@ public class MessagesBundleTest {
 	    if (area != null)
 		continue;
 	    KZCityType cityType = findByFullName(KZCityType.values(), key);
-	    if (cityType == null)
+	    if (cityType != null)
 		continue;
 	    KZEconomicSector economicSector = findByFullName(KZEconomicSector.values(), key);
-	    if (economicSector == null)
+	    if (economicSector != null)
 		continue;
 	    fail(String.format("Resource bunddle key '%1$s' is not present", key));
 	}

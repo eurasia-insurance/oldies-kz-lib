@@ -1,8 +1,8 @@
 com.lapsa.kz.country.KZCityType.MAJOR = Город республиканского значения
-com.lapsa.kz.country.KZCityType.REGION_CENTER = Областной центр
-com.lapsa.kz.country.KZCityType.REGION_SUB = Город областного подчинения
-com.lapsa.kz.country.KZCityType.DIST_CENTER = Районный центр
-com.lapsa.kz.country.KZCityType.DIST_SUB = Город районного подчинения
+com.lapsa.kz.country.KZCityType.REGIONAL_CENTER = Областной центр
+com.lapsa.kz.country.KZCityType.REGIONAL_SUBORDINATION = Город областного подчинения
+com.lapsa.kz.country.KZCityType.DISTINCT_CENTER = Районный центр
+com.lapsa.kz.country.KZCityType.DISTINCT_SUBORDINATION = Город районного подчинения
 
 com.lapsa.kz.country.KZArea.GAST = город Астана
 com.lapsa.kz.country.KZArea.GALM = город Алматы
@@ -20,7 +20,6 @@ com.lapsa.kz.country.KZArea.OUK = Южно-Казахстанская облас
 com.lapsa.kz.country.KZArea.OPVL = Павлодарская область
 com.lapsa.kz.country.KZArea.OSK = Северо-Казахстанская область
 com.lapsa.kz.country.KZArea.OVK = Восточно-Казахстанская область
-com.lapsa.kz.country.KZArea.RUSAGEN = Арендованная территория РФ
 
 com.lapsa.kz.country.KZCity.ABAI = Абай
 com.lapsa.kz.country.KZCity.AKKOL = Акколь
@@ -109,6 +108,7 @@ com.lapsa.kz.country.KZCity.SHYM = Шымкент
 com.lapsa.kz.country.KZCity.SCHU = Щучинск
 com.lapsa.kz.country.KZCity.EKIB = Экибастуз
 com.lapsa.kz.country.KZCity.EMBA = Эмба
+com.lapsa.kz.country.KZCity.OTHER = Другой населенный пункт
 
 com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Правительство Республики Казахстан
 com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Региональные и местные органы управления

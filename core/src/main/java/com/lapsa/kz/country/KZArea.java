@@ -17,7 +17,7 @@ public enum KZArea {
     OPVL("14"), // Павлодарская область - код 14
     OSK("15"), // Северо-Казахстанская область - код 15
     OVK("16"), // Восточно-Казахстанская область - код 16
-    RUSAGEN("--");
+    ;
 
     public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
