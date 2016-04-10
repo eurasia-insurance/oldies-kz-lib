@@ -20,7 +20,6 @@ com.lapsa.kz.country.KZArea.OUK = Оңтүстік Қазақстан облыс
 com.lapsa.kz.country.KZArea.OPVL = Павлодар облысы
 com.lapsa.kz.country.KZArea.OSK = Солтүстік Қазақстан облысы
 com.lapsa.kz.country.KZArea.OVK = Шығыс Қазақстан облысы
-com.lapsa.kz.country.KZArea.RUSAGEN = Ресей Федерациясының жалға алған аумақта
 
 com.lapsa.kz.country.KZCity.ABAI = Абай
 com.lapsa.kz.country.KZCity.AKKOL = Ақкөл
@@ -109,6 +108,7 @@ com.lapsa.kz.country.KZCity.SHYM = Шымкент
 com.lapsa.kz.country.KZCity.SCHU = Щучинск
 com.lapsa.kz.country.KZCity.EKIB = Екібастұз
 com.lapsa.kz.country.KZCity.EMBA = Эмбі
+com.lapsa.kz.country.KZCity.OTHER = Басқа
 
 com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Қазақстан Республикасының Үкіметі
 com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Аймақтық және жергілікті басқару органдары
