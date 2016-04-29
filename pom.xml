@@ -21,6 +21,12 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- own -->
+			<dependency>
+				<groupId>com.lapsa.kzlib</groupId>
+				<artifactId>kzlib-core</artifactId>
+				<version>1.0.2-SNAPSHOT</version>
+			</dependency>
 			<!-- JavaEE -->
 			<dependency>
 				<groupId>javax.enterprise</groupId>
