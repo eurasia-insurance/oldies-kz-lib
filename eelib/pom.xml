@@ -8,22 +8,29 @@
 		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>kzlib-core</artifactId>
+	<artifactId>kzlib-eelib</artifactId>
 	<packaging>jar</packaging>
 
-	<name>KZ Lib : Core</name>
+	<name>KZ Lib : Java EE library</name>
 
 	<dependencies>
-		<!-- test -->
+		<!-- own -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
+			<groupId>com.lapsa.kzlib</groupId>
+			<artifactId>kzlib-core</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<!-- Java EE -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<scope>test</scope>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>
