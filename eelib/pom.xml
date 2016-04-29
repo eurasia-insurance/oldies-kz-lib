@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.lapsa.kzlib</groupId>
+		<groupId>com.lapsa.kz-lib</groupId>
 		<artifactId>parent</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>kzlib-eelib</artifactId>
+	<artifactId>kz-eelib</artifactId>
 	<packaging>jar</packaging>
 
 	<name>KZ Lib : Java EE library</name>
@@ -16,8 +16,8 @@
 	<dependencies>
 		<!-- own -->
 		<dependency>
-			<groupId>com.lapsa.kzlib</groupId>
-			<artifactId>kzlib-core</artifactId>
+			<groupId>com.lapsa.kz-lib</groupId>
+			<artifactId>kz-core</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>

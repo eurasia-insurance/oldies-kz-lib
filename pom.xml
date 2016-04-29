@@ -8,7 +8,7 @@
 		<version>1.1.1</version>
 	</parent>
 
-	<groupId>com.lapsa.kzlib</groupId>
+	<groupId>com.lapsa.kz-lib</groupId>
 	<artifactId>parent</artifactId>
 	<version>1.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -24,13 +24,13 @@
 		<dependencies>
 			<!-- own -->
 			<dependency>
-				<groupId>com.lapsa.kzlib</groupId>
-				<artifactId>kzlib-core</artifactId>
+				<groupId>com.lapsa.kz-lib</groupId>
+				<artifactId>kz-core</artifactId>
 				<version>1.0.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.lapsa.kzlib</groupId>
-				<artifactId>kzlib-eelib</artifactId>
+				<groupId>com.lapsa.kz-lib</groupId>
+				<artifactId>kz-eelib</artifactId>
 				<version>1.0.2-SNAPSHOT</version>
 			</dependency>
 			<!-- JavaEE -->
@@ -50,8 +50,8 @@
 	</dependencyManagement>
 
 	<scm>
-		<connection>scm:git:https://gitrepo.theeurasia.kz/vadim.isaev/kzlib.git</connection>
-		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/vadim.isaev/kzlib.git</developerConnection>
+		<connection>scm:git:https://gitrepo.theeurasia.kz/vadim.isaev/kz-lib.git</connection>
+		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/vadim.isaev/kz-lib.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
