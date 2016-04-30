@@ -16,12 +16,21 @@ public class KZAreaMessagesBundleTest {
     @Test
     public void testRussianBundle() {
 	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ru"));
+	assertThat(resources, not(nullValue()));
 	testBundle(resources);
     }
 
     @Test
     public void testKazakhBundle() {
 	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ka"));
+	assertThat(resources, not(nullValue()));
+	testBundle(resources);
+    }
+
+    @Test
+    public void testEnglishBundle() {
+	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("en"));
+	assertThat(resources, not(nullValue()));
 	testBundle(resources);
     }
 

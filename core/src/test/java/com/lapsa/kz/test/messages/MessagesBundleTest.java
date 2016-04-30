@@ -39,6 +39,17 @@ public class MessagesBundleTest {
 	testBundle(resources);
     }
 
+    @Test
+    public void testNoExcessRecordsEnglish() {
+	Locale locale = Locale.forLanguageTag("en");
+	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("en")));
+	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, locale);
+	assertThat(resources, not(nullValue()));
+	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
+		allOf(not(nullValue()), is("Almaty")));
+	testBundle(resources);
+    }
+
     private void testBundle(ResourceBundle resources) {
 	Enumeration<String> keys = resources.getKeys();
 	while (keys.hasMoreElements()) {

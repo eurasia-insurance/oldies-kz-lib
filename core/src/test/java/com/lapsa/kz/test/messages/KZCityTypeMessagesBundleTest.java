@@ -25,6 +25,12 @@ public class KZCityTypeMessagesBundleTest {
 	testBundle(resources);
     }
 
+    @Test
+    public void testEnglishBundle() {
+	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("en"));
+	testBundle(resources);
+    }
+
     private void testBundle(ResourceBundle resources) {
 	assertThat(resources, not(nullValue()));
 	for (KZCityType c : KZCityType.values()) {
