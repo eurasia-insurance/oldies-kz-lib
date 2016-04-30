@@ -11,6 +11,7 @@ import com.lapsa.kz.idnumber.IDNumberValidator;
 public class IDNumberValidatorDefault implements IDNumberValidator {
 
     private static final String ID_NUMBER_PATTERN = "^[0-9]{12}?$";
+
     private Pattern pattern;
 
     @PostConstruct
@@ -19,9 +20,16 @@ public class IDNumberValidatorDefault implements IDNumberValidator {
     }
 
     @Override
-    public boolean isValid(String idNumber) {
-	if (!pattern.matcher(idNumber.toString()).matches())
+    public boolean isValid(final String idNumber) {
+	return isValid(idNumber, true);
+    }
+
+    @Override
+    public boolean isValid(final String idNumber, final boolean checkDigit) {
+	if (!pattern.matcher(idNumber).matches())
 	    return false;
+	if (!checkDigit)
+	    return true;
 	return checkDigit(idNumber);
     }
 
@@ -58,7 +66,7 @@ public class IDNumberValidatorDefault implements IDNumberValidator {
     private static byte[][] weights = new byte[][] { new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 },
 	    new byte[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2 } };
 
-    private static boolean checkDigit(String value) {
+    private static boolean checkDigit(final String value) {
 	byte[] iin = new byte[12];
 	for (int i = 0; i < 12; i++)
 	    iin[i] = Byte.parseByte(Character.toString(value.charAt(i)));

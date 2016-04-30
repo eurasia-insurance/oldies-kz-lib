@@ -20,8 +20,6 @@ public class ValidIdNumberConstraintValidator implements ConstraintValidator<Val
     public boolean isValid(String value, ConstraintValidatorContext cvc) {
 	if (value == null)
 	    return true;
-	if (!checkDigit)
-	    return true;
-	return validator.isValid(value);
+	return validator.isValid(value, checkDigit);
     }
 }
