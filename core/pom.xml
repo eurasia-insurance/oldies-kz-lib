@@ -11,7 +11,7 @@
 	<artifactId>kz-core</artifactId>
 	<packaging>jar</packaging>
 
-	<name>KZ Lib : Core</name>
+	<name>KZ Lib : Core POJOs</name>
 
 	<dependencies>
 		<!-- test -->
