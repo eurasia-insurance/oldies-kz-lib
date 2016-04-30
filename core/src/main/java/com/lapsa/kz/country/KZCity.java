@@ -88,7 +88,7 @@ public enum KZCity {
     SCHU(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Щучинск
     EKIB(KZCityType.REGIONAL_SUBORDINATION, KZArea.OPVL), // Экибастуз
     EMBA(KZCityType.DISTINCT_SUBORDINATION, KZArea.OAKT), // Эмба
-    OTHER(null, null);
+    ;
 
     public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
