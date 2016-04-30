@@ -108,6 +108,7 @@ com.lapsa.kz.country.KZCity.SHYM = Шымкент
 com.lapsa.kz.country.KZCity.SCHU = Щучинск
 com.lapsa.kz.country.KZCity.EKIB = Экибастуз
 com.lapsa.kz.country.KZCity.EMBA = Эмба
+com.lapsa.kz.country.KZCity.OTHER = Другие города и населенные пункты
 
 com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Правительство Республики Казахстан
 com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Региональные и местные органы управления

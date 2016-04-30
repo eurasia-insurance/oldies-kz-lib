@@ -88,7 +88,7 @@ public enum KZCity {
     SCHU(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Щучинск
     EKIB(KZCityType.REGIONAL_SUBORDINATION, KZArea.OPVL), // Экибастуз
     EMBA(KZCityType.DISTINCT_SUBORDINATION, KZArea.OAKT), // Эмба
-    ;
+    OTHER(null, null); //TODO найти решение для того, чтобы от этого значения энумерации можно было бы избавиться. Сейчас это введено для JSF движка
 
     public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
