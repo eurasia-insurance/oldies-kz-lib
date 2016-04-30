@@ -4,12 +4,10 @@ import java.util.regex.Pattern;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Default;
-import javax.inject.Singleton;
 
 import com.lapsa.kz.idnumber.IDNumberValidator;
 
 @Default
-@Singleton
 public class IDNumberValidatorDefault implements IDNumberValidator {
 
     private static final String ID_NUMBER_PATTERN = "^[0-9]{12}?$";
