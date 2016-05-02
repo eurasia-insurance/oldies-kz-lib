@@ -1,6 +1,8 @@
 package com.lapsa.kz.economic;
 
-public enum KZEconomicSector {
+import com.lapsa.kz.BundleBase;
+
+public enum KZEconomicSector implements BundleBase {
     GOVERNMENT("1"), // Правительство Республики Казахстан
     ADMINISTRATION("2"), // Региональные и местные органы управления
     CENTRAL_BANK("3"), // Национальный банк РК и Центральные Банки других
@@ -15,8 +17,6 @@ public enum KZEconomicSector {
 				   // обслуживающие домашние хозяйства
     HOUSEHOLDS("9"), // Домашние хозяйства
     INTERNATIONAL_COMPANIES("А"); // Международные организации
-
-    public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
     private final String code;
 

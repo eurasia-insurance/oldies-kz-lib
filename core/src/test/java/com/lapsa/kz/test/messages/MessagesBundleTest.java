@@ -1,6 +1,5 @@
 package com.lapsa.kz.test.messages;
 
-import static com.lapsa.kz.test.messages.TestConstants.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
@@ -10,6 +9,7 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
+import com.lapsa.kz.BundleBase;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 import com.lapsa.kz.country.KZCityType;
@@ -21,7 +21,7 @@ public class MessagesBundleTest {
     public void testNoExcessRecordsRussian() {
 	Locale locale = Locale.forLanguageTag("ru");
 	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("ru")));
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, locale);
+	ResourceBundle resources = ResourceBundle.getBundle(BundleBase.BUNDLE_BASENAME, locale);
 	assertThat(resources, not(nullValue()));
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
 		allOf(not(nullValue()), is("город Алматы")));
@@ -32,7 +32,7 @@ public class MessagesBundleTest {
     public void testNoExcessRecordsKazakh() {
 	Locale locale = Locale.forLanguageTag("kk");
 	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("kk")));
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, locale);
+	ResourceBundle resources = ResourceBundle.getBundle(BundleBase.BUNDLE_BASENAME, locale);
 	assertThat(resources, not(nullValue()));
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
 		allOf(not(nullValue()), is("Алматы қаласы")));
@@ -43,10 +43,9 @@ public class MessagesBundleTest {
     public void testNoExcessRecordsEnglish() {
 	Locale locale = Locale.forLanguageTag("en");
 	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("en")));
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, locale);
+	ResourceBundle resources = ResourceBundle.getBundle(BundleBase.BUNDLE_BASENAME, locale);
 	assertThat(resources, not(nullValue()));
-	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
-		allOf(not(nullValue()), is("Almaty")));
+	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"), allOf(not(nullValue()), is("Almaty")));
 	testBundle(resources);
     }
 
@@ -54,17 +53,13 @@ public class MessagesBundleTest {
 	Enumeration<String> keys = resources.getKeys();
 	while (keys.hasMoreElements()) {
 	    String key = keys.nextElement();
-	    KZCity city = findByFullName(KZCity.values(), key);
-	    if (city != null)
+	    if (findByFullName(KZCity.values(), key) != null)
 		continue;
-	    KZArea area = findByFullName(KZArea.values(), key);
-	    if (area != null)
+	    if (findByFullName(KZArea.values(), key) != null)
 		continue;
-	    KZCityType cityType = findByFullName(KZCityType.values(), key);
-	    if (cityType != null)
+	    if (findByFullName(KZCityType.values(), key) != null)
 		continue;
-	    KZEconomicSector economicSector = findByFullName(KZEconomicSector.values(), key);
-	    if (economicSector != null)
+	    if (findByFullName(KZEconomicSector.values(), key) != null)
 		continue;
 	    fail(String.format("Resource bunddle key '%1$s' is not present", key));
 	}

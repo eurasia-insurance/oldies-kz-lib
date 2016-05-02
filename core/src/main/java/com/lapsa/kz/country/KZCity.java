@@ -1,6 +1,8 @@
 package com.lapsa.kz.country;
 
-public enum KZCity {
+import com.lapsa.kz.BundleBase;
+
+public enum KZCity implements BundleBase {
     ABAI(KZCityType.DISTINCT_CENTER, KZArea.OKGD), // Абай
     AKKOL(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Акколь
     AKSAI(KZCityType.DISTINCT_CENTER, KZArea.OZK), // Аксай
@@ -89,8 +91,6 @@ public enum KZCity {
     EKIB(KZCityType.REGIONAL_SUBORDINATION, KZArea.OPVL), // Экибастуз
     EMBA(KZCityType.DISTINCT_SUBORDINATION, KZArea.OAKT), // Эмба
     OTHER(null, null); //TODO найти решение для того, чтобы от этого значения энумерации можно было бы избавиться. Сейчас это введено для JSF движка
-
-    public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
     private final KZCityType type;
     private final KZArea area;

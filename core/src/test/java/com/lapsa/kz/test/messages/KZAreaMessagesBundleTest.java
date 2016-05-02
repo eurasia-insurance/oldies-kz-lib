@@ -1,6 +1,5 @@
 package com.lapsa.kz.test.messages;
 
-import static com.lapsa.kz.test.messages.TestConstants.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
@@ -15,21 +14,21 @@ public class KZAreaMessagesBundleTest {
 
     @Test
     public void testRussianBundle() {
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ru"));
+	ResourceBundle resources = ResourceBundle.getBundle(KZArea.BUNDLE_BASENAME, Locale.forLanguageTag("ru"));
 	assertThat(resources, not(nullValue()));
 	testBundle(resources);
     }
 
     @Test
     public void testKazakhBundle() {
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("ka"));
+	ResourceBundle resources = ResourceBundle.getBundle(KZArea.BUNDLE_BASENAME, Locale.forLanguageTag("ka"));
 	assertThat(resources, not(nullValue()));
 	testBundle(resources);
     }
 
     @Test
     public void testEnglishBundle() {
-	ResourceBundle resources = ResourceBundle.getBundle(MESSAGES_BUNDLE_BASENAME, Locale.forLanguageTag("en"));
+	ResourceBundle resources = ResourceBundle.getBundle(KZArea.BUNDLE_BASENAME, Locale.forLanguageTag("en"));
 	assertThat(resources, not(nullValue()));
 	testBundle(resources);
     }

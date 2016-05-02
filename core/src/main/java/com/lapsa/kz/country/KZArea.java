@@ -1,6 +1,8 @@
 package com.lapsa.kz.country;
 
-public enum KZArea {
+import com.lapsa.kz.BundleBase;
+
+public enum KZArea implements BundleBase {
     GAST("01"), // Астана - код 01
     GALM("02"), // Алматы - код 02
     OAKM("03"), // Акмолинская область - код 03
@@ -18,8 +20,6 @@ public enum KZArea {
     OSK("15"), // Северо-Казахстанская область - код 15
     OVK("16"), // Восточно-Казахстанская область - код 16
     ;
-
-    public static final String BUNDLE_BASENAME = "KZLibLocalization";
 
     private final String code;
 
