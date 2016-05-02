@@ -1,4 +1,4 @@
-package com.lapsa.kz.idnumber.impl;
+package com.lapsa.kz.idnumber.inject;
 
 import java.util.regex.Pattern;
 
