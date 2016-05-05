@@ -15,14 +15,12 @@ import com.lapsa.kz.country.KZCity;
 import com.lapsa.kz.country.KZCityType;
 import com.lapsa.kz.economic.KZEconomicSector;
 
-public class MessagesBundleTest {
+public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
 
     @Test
     public void testNoExcessRecordsRussian() {
-	Locale locale = Locale.forLanguageTag("ru");
-	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("ru")));
-	ResourceBundle resources = ResourceBundle.getBundle(BundleBase.BUNDLE_BASENAME, locale);
-	assertThat(resources, not(nullValue()));
+	Locale locale = getLocale(LANG_RU);
+	ResourceBundle resources = getResourceBundle(BundleBase.BUNDLE_BASENAME, locale);
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
 		allOf(not(nullValue()), is("город Алматы")));
 	testBundle(resources);
@@ -30,9 +28,8 @@ public class MessagesBundleTest {
 
     @Test
     public void testNoExcessRecordsKazakh() {
-	Locale locale = Locale.forLanguageTag("kk");
-	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("kk")));
-	ResourceBundle resources = ResourceBundle.getBundle(BundleBase.BUNDLE_BASENAME, locale);
+	Locale locale = getLocale(LANG_KK);
+	ResourceBundle resources = getResourceBundle(BundleBase.BUNDLE_BASENAME, locale);
 	assertThat(resources, not(nullValue()));
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
 		allOf(not(nullValue()), is("Алматы қаласы")));
@@ -41,9 +38,8 @@ public class MessagesBundleTest {
 
     @Test
     public void testNoExcessRecordsEnglish() {
-	Locale locale = Locale.forLanguageTag("en");
-	assertThat(locale.getLanguage(), allOf(not(nullValue()), is("en")));
-	ResourceBundle resources = ResourceBundle.getBundle(BundleBase.BUNDLE_BASENAME, locale);
+	Locale locale = getLocale(LANG_EN);
+	ResourceBundle resources = getResourceBundle(BundleBase.BUNDLE_BASENAME, locale);
 	assertThat(resources, not(nullValue()));
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"), allOf(not(nullValue()), is("Almaty")));
 	testBundle(resources);

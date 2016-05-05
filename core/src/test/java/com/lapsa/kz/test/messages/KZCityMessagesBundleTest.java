@@ -1,40 +1,16 @@
 package com.lapsa.kz.test.messages;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
-
-import java.util.Locale;
-import java.util.ResourceBundle;
-
-import org.junit.Test;
-
 import com.lapsa.kz.country.KZCity;
 
-public class KZCityMessagesBundleTest {
+public class KZCityMessagesBundleTest extends EnumTypeMessagesBundleTest<KZCity>{
 
-    @Test
-    public void testRussianBundle() {
-	ResourceBundle resources = ResourceBundle.getBundle(KZCity.BUNDLE_BASENAME, Locale.forLanguageTag("ru"));
-	testBundle(resources);
+    @Override
+    protected KZCity[] getAllEnumValues() {
+	return KZCity.values();
     }
 
-    @Test
-    public void testKazakhBundle() {
-	ResourceBundle resources = ResourceBundle.getBundle(KZCity.BUNDLE_BASENAME, Locale.forLanguageTag("ka"));
-	testBundle(resources);
-    }
-
-    @Test
-    public void testEnglishBundle() {
-	ResourceBundle resources = ResourceBundle.getBundle(KZCity.BUNDLE_BASENAME, Locale.forLanguageTag("en"));
-	testBundle(resources);
-    }
-
-    private void testBundle(ResourceBundle resources) {
-	assertThat(resources, not(nullValue()));
-	for (KZCity c : KZCity.values()) {
-	    String name = resources.getString(String.format("%s.%s", c.getClass().getName(), c.name()));
-	    assertThat(name, not(nullValue()));
-	}
+    @Override
+    protected String getBundleBaseName() {
+	return KZCity.BUNDLE_BASENAME;
     }
 }
