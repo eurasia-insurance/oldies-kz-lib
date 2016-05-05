@@ -1,4 +1,4 @@
-package com.lapsa.kz.test.messages;
+package test.com.lapsa.kz;
 
 import com.lapsa.kz.country.KZCity;
 
