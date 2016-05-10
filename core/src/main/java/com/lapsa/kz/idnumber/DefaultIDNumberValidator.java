@@ -1,21 +1,14 @@
-package com.lapsa.kz.idnumber.inject;
+package com.lapsa.kz.idnumber;
 
 import java.util.regex.Pattern;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Default;
-
-import com.lapsa.kz.idnumber.IDNumberValidator;
-
-@Default
-public class IDNumberValidatorDefault implements IDNumberValidator {
+public class DefaultIDNumberValidator implements IDNumberValidator {
 
     private static final String ID_NUMBER_PATTERN = "^[0-9]{12}?$";
 
     private Pattern pattern;
 
-    @PostConstruct
-    public void init() {
+    public DefaultIDNumberValidator() {
 	pattern = Pattern.compile(ID_NUMBER_PATTERN);
     }
 
