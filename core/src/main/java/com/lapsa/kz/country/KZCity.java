@@ -1,8 +1,8 @@
 package com.lapsa.kz.country;
 
-import com.lapsa.kz.BundleBase;
+import com.lapsa.kz.KZLocalizationBundleBase;
 
-public enum KZCity implements BundleBase {
+public enum KZCity implements KZLocalizationBundleBase {
     ABAI(KZCityType.DISTINCT_CENTER, KZArea.OKGD), // Абай
     AKKOL(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Акколь
     AKSAI(KZCityType.DISTINCT_CENTER, KZArea.OZK), // Аксай

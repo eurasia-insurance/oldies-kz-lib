@@ -1,8 +1,8 @@
 package com.lapsa.kz.country;
 
-import com.lapsa.kz.BundleBase;
+import com.lapsa.kz.KZLocalizationBundleBase;
 
-public enum KZCityType implements BundleBase {
+public enum KZCityType implements KZLocalizationBundleBase {
     MAJOR, // 1 - город республиканского значения
     REGIONAL_CENTER, // 2 — областной центр
     REGIONAL_SUBORDINATION, // 3 — город областного подчинения
