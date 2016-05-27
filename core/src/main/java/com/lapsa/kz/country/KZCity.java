@@ -90,7 +90,16 @@ public enum KZCity implements KZLocalizationBundleBase {
     SCHU(KZCityType.DISTINCT_CENTER, KZArea.OAKM), // Щучинск
     EKIB(KZCityType.REGIONAL_SUBORDINATION, KZArea.OPVL), // Экибастуз
     EMBA(KZCityType.DISTINCT_SUBORDINATION, KZArea.OAKT), // Эмба
-    OTHER(null, null); //TODO найти решение для того, чтобы от этого значения энумерации можно было бы избавиться. Сейчас это введено для JSF движка
+    OTHER(null, null), // TODO найти решение для того, чтобы от этого значения
+		       // энумерации можно было бы избавиться. Сейчас это
+		       // введено для JSF движка
+    //
+    ;
+
+    @Override
+    public String canonicalName() {
+	return String.format("%1$s.%2$s", this.getClass().getName(), name());
+    }
 
     private final KZCityType type;
     private final KZArea area;

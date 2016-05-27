@@ -16,7 +16,14 @@ public enum KZEconomicSector implements KZLocalizationBundleBase {
     NONPROFIT_FOR_HOUSEHOLDS("8"), // Некоммерческие организации,
 				   // обслуживающие домашние хозяйства
     HOUSEHOLDS("9"), // Домашние хозяйства
-    INTERNATIONAL_COMPANIES("А"); // Международные организации
+    INTERNATIONAL_COMPANIES("А"), // Международные организации
+    //
+    ;
+
+    @Override
+    public String canonicalName() {
+    	return String.format("%1$s.%2$s", this.getClass().getName(), name());
+    }
 
     private final String code;
 

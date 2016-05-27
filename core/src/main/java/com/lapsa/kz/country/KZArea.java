@@ -19,7 +19,13 @@ public enum KZArea implements KZLocalizationBundleBase {
     OPVL("14"), // Павлодарская область - код 14
     OSK("15"), // Северо-Казахстанская область - код 15
     OVK("16"), // Восточно-Казахстанская область - код 16
+    //
     ;
+
+    @Override
+    public String canonicalName() {
+	return String.format("%1$s.%2$s", this.getClass().getName(), name());
+    }
 
     private final String code;
 
