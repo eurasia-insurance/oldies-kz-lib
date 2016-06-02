@@ -106,12 +106,18 @@ public enum KZCity implements KZLocalizationBundleBase {
 	return String.format("%1$s.%2$s", this.getClass().getName(), name());
     }
 
+    private final KZTypeOfSettlement typeOfSettlement;
     private final KZCityType type;
     private final KZArea area;
 
     KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
+	this.typeOfSettlement = typeOfSettlement;
 	this.type = type;
 	this.area = area;
+    }
+
+    public KZTypeOfSettlement getTypeOfSettlement() {
+	return typeOfSettlement;
     }
 
     public KZCityType getType() {
