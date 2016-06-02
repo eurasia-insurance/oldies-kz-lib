@@ -4,6 +4,15 @@ com.lapsa.kz.country.KZCityType.REGIONAL_SUBORDINATION = Облысқа бағы
 com.lapsa.kz.country.KZCityType.DISTINCT_CENTER = Аудан орталығы
 com.lapsa.kz.country.KZCityType.DISTINCT_SUBORDINATION = Облысқа бағынышты қалалық
 
+com.lapsa.kz.country.KZTypeOfSettlement.AUL = ауылы
+com.lapsa.kz.country.KZTypeOfSettlement.CITY = қаласы
+com.lapsa.kz.country.KZTypeOfSettlement.VILLAGE = ауылы
+com.lapsa.kz.country.KZTypeOfSettlement.OTHER =
+
+com.lapsa.kz.country.KZTypeOfSettlement.AUL.short = а.
+com.lapsa.kz.country.KZTypeOfSettlement.CITY.short = қ.
+com.lapsa.kz.country.KZTypeOfSettlement.VILLAGE.short = а.
+
 com.lapsa.kz.country.KZArea.GAST = Астана қаласы
 com.lapsa.kz.country.KZArea.GALM = Алматы қаласы
 com.lapsa.kz.country.KZArea.OAKM = Ақмола облысы

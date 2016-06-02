@@ -13,6 +13,7 @@ import com.lapsa.kz.KZLocalizationBundleBase;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 import com.lapsa.kz.country.KZCityType;
+import com.lapsa.kz.country.KZTypeOfSettlement;
 import com.lapsa.kz.economic.KZEconomicSector;
 
 public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
@@ -52,6 +53,8 @@ public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
 	    if (findByFullName(KZArea.values(), key) != null)
 		continue;
 	    if (findByFullName(KZCityType.values(), key) != null)
+		continue;
+	    if (findByFullName(KZTypeOfSettlement.values(), key) != null)
 		continue;
 	    if (findByFullName(KZEconomicSector.values(), key) != null)
 		continue;
