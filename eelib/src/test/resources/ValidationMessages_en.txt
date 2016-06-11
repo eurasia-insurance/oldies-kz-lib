@@ -1,4 +1,4 @@
-com.lapsa.kz.idnumber.validators.ValidIdNumber.message = ID number is invalid
+﻿com.lapsa.kz.idnumber.validators.ValidIdNumber.message = Incorrect IIN
 
-com.lapsa.kz.country.validators.ValidKZArea.message = Area is invalid
-com.lapsa.kz.country.validators.ValidKZCity.message = City is invalid
+com.lapsa.kz.country.validators.ValidKZArea.message = Incorrect region
+com.lapsa.kz.country.validators.ValidKZCity.message = Incorrect city
