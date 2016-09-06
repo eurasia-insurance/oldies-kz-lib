@@ -6,7 +6,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @FacesConverter(value = "idNumber.inputMask.converter")
-public class IdNumberConverter implements Converter {
+public class IdNumberInputMaskConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
