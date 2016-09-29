@@ -118,6 +118,7 @@ com.lapsa.kz.country.KZCity.SCHU = Щучинск
 com.lapsa.kz.country.KZCity.EKIB = Екібастұз
 com.lapsa.kz.country.KZCity.EMBA = Ембі
 com.lapsa.kz.country.KZCity.OTHER = Басқа қалалар мен елді мекендер
+com.lapsa.kz.country.KZCity.OTHER.short = Басқа
 
 com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Қазақстан Республикасының Үкіметі
 com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Аймақтық және жергілікті басқару органдары
