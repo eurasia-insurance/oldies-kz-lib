@@ -9,7 +9,7 @@
 
 	<groupId>com.lapsa.kz-lib</groupId>
 	<artifactId>parent</artifactId>
-	<version>2.1.2-SNAPSHOT</version>
+	<version>2.1.2</version>
 	<packaging>pom</packaging>
 
 	<name>KZ Lib</name>
@@ -51,7 +51,7 @@
 	<scm>
 		<connection>scm:git:https://gitrepo.theeurasia.kz/lapsa/kz-lib.git</connection>
 		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/lapsa/kz-lib.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>v2.1.2</tag>
 	</scm>
 
 	<issueManagement>
