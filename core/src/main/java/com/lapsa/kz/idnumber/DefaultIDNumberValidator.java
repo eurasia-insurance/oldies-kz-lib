@@ -61,8 +61,13 @@ public class DefaultIDNumberValidator implements IDNumberValidator {
 
     private static boolean checkDigit(final String value) {
 	byte[] iin = new byte[12];
-	for (int i = 0; i < 12; i++)
+	int checksum = 0;
+	for (int i = 0; i < 12; i++) {
 	    iin[i] = Byte.parseByte(Character.toString(value.charAt(i)));
+	    checksum += iin[i];
+	}
+	if (checksum == 0) // check for 000 000 000 000
+	    return false;
 	for (byte[] w : weights) {
 	    int control = 0;
 	    for (int i = 0; i < 11; i++)
