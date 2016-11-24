@@ -43,6 +43,8 @@ com.lapsa.kz.country.KZArea.OPVL       = Павлодарская область
 com.lapsa.kz.country.KZArea.OPVL.short = Павлодарская обл.
 com.lapsa.kz.country.KZArea.OPVL       = Павлодарская область
 com.lapsa.kz.country.KZArea.OPVL.short = Павлодарская обл.
+com.lapsa.kz.country.KZArea.OSK        = Северо-Казахстанская область
+com.lapsa.kz.country.KZArea.OSK.short  = С.-Казахстанская обл.
 com.lapsa.kz.country.KZArea.OVK        = Восточно-Казахстанская область
 com.lapsa.kz.country.KZArea.OVK.short  = В.-Казахстанская обл.
 
