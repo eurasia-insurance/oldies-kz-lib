@@ -11,7 +11,7 @@ import javax.validation.Payload;
 
 import com.lapsa.kz.country.KZCity;
 
-@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
 @Constraint(validatedBy = ValidKZCityConstraintValidator.class)
 public @interface ValidKZCity {
