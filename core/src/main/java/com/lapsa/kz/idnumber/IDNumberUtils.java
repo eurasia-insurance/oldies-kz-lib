@@ -1,5 +1,6 @@
 package com.lapsa.kz.idnumber;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
@@ -97,7 +98,11 @@ public class IDNumberUtils {
 
 	year += (century - 1) * 100;
 
-	return LocalDate.of(year, month, dayOfMonth);
+	try {
+	    return LocalDate.of(year, month, dayOfMonth);
+	} catch (DateTimeException e) {
+	    return null;
+	}
     }
 
 }
