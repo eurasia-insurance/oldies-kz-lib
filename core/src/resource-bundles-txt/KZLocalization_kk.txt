@@ -29,6 +29,7 @@ com.lapsa.kz.country.KZArea.OUK = Оңтүстік Қазақстан облыс
 com.lapsa.kz.country.KZArea.OPVL = Павлодар облысы
 com.lapsa.kz.country.KZArea.OSK = Солтүстік Қазақстан облысы
 com.lapsa.kz.country.KZArea.OVK = Шығыс Қазақстан облысы
+com.lapsa.kz.country.KZArea.UNDEFINED  = Не определно
 
 com.lapsa.kz.country.KZCity.ABAI = Абай
 com.lapsa.kz.country.KZCity.AKKOL = Ақкөл
@@ -119,6 +120,7 @@ com.lapsa.kz.country.KZCity.EKIB = Екібастұз
 com.lapsa.kz.country.KZCity.EMBA = Ембі
 com.lapsa.kz.country.KZCity.OTHER = Басқа қалалар мен елді мекендер
 com.lapsa.kz.country.KZCity.OTHER.short = Басқа
+com.lapsa.kz.country.KZCity.UNDEFINED = Не определно
 
 com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Қазақстан Республикасының Үкіметі
 com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Аймақтық және жергілікті басқару органдары
