@@ -47,6 +47,7 @@ com.lapsa.kz.country.KZArea.OSK        = Северо-Казахстанская
 com.lapsa.kz.country.KZArea.OSK.short  = С.-Казахстанская обл.
 com.lapsa.kz.country.KZArea.OVK        = Восточно-Казахстанская область
 com.lapsa.kz.country.KZArea.OVK.short  = В.-Казахстанская обл.
+com.lapsa.kz.country.KZArea.UNDEFINED  = Не определно
 
 com.lapsa.kz.country.KZCity.ABAI = Абай
 com.lapsa.kz.country.KZCity.AKKOL = Акколь
@@ -137,6 +138,7 @@ com.lapsa.kz.country.KZCity.EKIB = Экибастуз
 com.lapsa.kz.country.KZCity.EMBA = Эмба
 com.lapsa.kz.country.KZCity.OTHER = Другие города и населенные пункты
 com.lapsa.kz.country.KZCity.OTHER.short = Другие
+com.lapsa.kz.country.KZCity.UNDEFINED = Не определно
 
 com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Правительство Республики Казахстан
 com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Региональные и местные органы управления
