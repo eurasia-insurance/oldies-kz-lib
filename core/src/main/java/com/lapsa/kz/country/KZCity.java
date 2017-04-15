@@ -99,6 +99,8 @@ public enum KZCity implements KZLocalizationBundleBase {
     // энумерации можно было бы избавиться. Сейчас это
     // введено для JSF движка
     //
+    UNDEFINED(null, null, null),
+    //
     ;
 
     @Override
