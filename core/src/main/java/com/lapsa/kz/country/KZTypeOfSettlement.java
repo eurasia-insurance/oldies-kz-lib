@@ -1,8 +1,8 @@
 package com.lapsa.kz.country;
 
-import com.lapsa.kz.KZLocalizationBundleBase;
+import com.lapsa.kz.LocalizedElement;
 
-public enum KZTypeOfSettlement implements KZLocalizationBundleBase {
+public enum KZTypeOfSettlement implements LocalizedElement {
     CITY, // город
     VILLAGE, // село
     AUL, // аул

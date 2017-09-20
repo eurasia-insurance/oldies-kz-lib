@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import com.lapsa.kz.KZLocalizationBundleBase;
+import com.lapsa.kz.LocalizedElement;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 import com.lapsa.kz.country.KZCityType;
@@ -21,7 +21,7 @@ public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
     @Test
     public void testNoExcessRecordsRussian() {
 	Locale locale = getLocale(LANG_RU);
-	ResourceBundle resources = getResourceBundle(KZLocalizationBundleBase.BUNDLE_BASENAME, locale);
+	ResourceBundle resources = getResourceBundle(LocalizedElement.BUNDLE_BASENAME, locale);
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
 		allOf(not(nullValue()), is("город Алматы")));
 	testBundle(resources);
@@ -30,7 +30,7 @@ public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
     @Test
     public void testNoExcessRecordsKazakh() {
 	Locale locale = getLocale(LANG_KK);
-	ResourceBundle resources = getResourceBundle(KZLocalizationBundleBase.BUNDLE_BASENAME, locale);
+	ResourceBundle resources = getResourceBundle(LocalizedElement.BUNDLE_BASENAME, locale);
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"),
 		allOf(not(nullValue()), is("Алматы қаласы")));
 	testBundle(resources);
@@ -39,7 +39,7 @@ public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
     @Test
     public void testNoExcessRecordsEnglish() {
 	Locale locale = getLocale(LANG_EN);
-	ResourceBundle resources = getResourceBundle(KZLocalizationBundleBase.BUNDLE_BASENAME, locale);
+	ResourceBundle resources = getResourceBundle(LocalizedElement.BUNDLE_BASENAME, locale);
 	assertThat(resources.getString("com.lapsa.kz.country.KZArea.GALM"), allOf(not(nullValue()), is("Almaty city")));
 	testBundle(resources);
     }

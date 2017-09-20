@@ -4,9 +4,9 @@ import static com.lapsa.kz.country.KZTypeOfSettlement.*;
 import static com.lapsa.kz.country.KZCityType.*;
 import static com.lapsa.kz.country.KZArea.*;
 
-import com.lapsa.kz.KZLocalizationBundleBase;
+import com.lapsa.kz.LocalizedElement;
 
-public enum KZCity implements KZLocalizationBundleBase {
+public enum KZCity implements LocalizedElement {
     ABAI(CITY, DISTINCT_CENTER, OKGD), // Абай
     AKKOL(CITY, DISTINCT_CENTER, OAKM), // Акколь
     AKSAI(CITY, DISTINCT_CENTER, OZK), // Аксай
