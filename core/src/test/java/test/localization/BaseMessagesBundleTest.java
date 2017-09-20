@@ -1,4 +1,4 @@
-package test.com.lapsa.kz;
+package test.localization;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;

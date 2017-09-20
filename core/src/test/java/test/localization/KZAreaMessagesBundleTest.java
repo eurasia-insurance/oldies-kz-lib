@@ -1,4 +1,4 @@
-package test.com.lapsa.kz;
+package test.localization;
 
 import com.lapsa.kz.country.KZArea;
 

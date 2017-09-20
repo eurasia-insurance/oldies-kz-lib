@@ -1,4 +1,4 @@
-package com.lapsa.kz.dump;
+package code;
 
 import java.util.ResourceBundle;
 
