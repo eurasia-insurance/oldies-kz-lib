@@ -8,9 +8,4 @@ public class KZTypeOfSettlementMessagesBundleTest extends EnumTypeMessagesBundle
     protected KZTypeOfSettlement[] getAllEnumValues() {
 	return KZTypeOfSettlement.values();
     }
-
-    @Override
-    protected String getBundleBaseName() {
-	return KZTypeOfSettlement.BUNDLE_BASENAME;
-    }
 }

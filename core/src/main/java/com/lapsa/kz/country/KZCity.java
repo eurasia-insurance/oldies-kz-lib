@@ -103,11 +103,6 @@ public enum KZCity implements LocalizedElement {
     //
     ;
 
-    @Override
-    public String canonicalName() {
-	return String.format("%1$s.%2$s", this.getClass().getName(), name());
-    }
-
     private final KZTypeOfSettlement typeOfSettlement;
     private final KZCityType type;
     private final KZArea area;

@@ -8,9 +8,4 @@ public class KZEconomicSectorMessagesBundleTest extends EnumTypeMessagesBundleTe
     protected KZEconomicSector[] getAllEnumValues() {
 	return KZEconomicSector.values();
     }
-
-    @Override
-    protected String getBundleBaseName() {
-	return KZEconomicSector.BUNDLE_BASENAME;
-    }
 }

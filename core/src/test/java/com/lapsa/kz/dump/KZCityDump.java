@@ -2,6 +2,7 @@ package com.lapsa.kz.dump;
 
 import java.util.ResourceBundle;
 
+import com.lapsa.kz.LocalizedElement;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 import com.lapsa.kz.country.KZCityType;
@@ -14,7 +15,7 @@ public class KZCityDump {
     }
 
     private static void dumpKZStruct() {
-	ResourceBundle res = ResourceBundle.getBundle(KZCity.BUNDLE_BASENAME);
+	ResourceBundle res = ResourceBundle.getBundle(LocalizedElement.BUNDDLE_BASE_NAME);
 	for (KZArea area : KZArea.values()) {
 	    System.out.println(String.format("\n= %1$s %2$s =", area.name(),
 		    res.getString(String.format("%1$s.%2$s", area.getClass().getName(), area.name()))));
@@ -37,7 +38,7 @@ public class KZCityDump {
     }
 
     private static void dumpByTypes() {
-	ResourceBundle res = ResourceBundle.getBundle(KZCity.BUNDLE_BASENAME);
+	ResourceBundle res = ResourceBundle.getBundle(LocalizedElement.BUNDDLE_BASE_NAME);
 	for (KZCityType type : KZCityType.values()) {
 	    System.out.println(String.format("\n= %1$s %2$s =", type.name(),
 		    res.getString(String.format("%1$s.%2$s", type.getClass().getName(), type.name()))));
