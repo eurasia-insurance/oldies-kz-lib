@@ -1,8 +1,8 @@
 package com.lapsa.kz.economic;
 
-import com.lapsa.kz.LocalizedElement;
+import com.lapsa.kz.KZLocalizedElement;
 
-public enum KZEconomicSector implements LocalizedElement {
+public enum KZEconomicSector implements KZLocalizedElement {
     GOVERNMENT("1"), // Правительство Республики Казахстан
     ADMINISTRATION("2"), // Региональные и местные органы управления
     CENTRAL_BANK("3"), // Национальный банк РК и Центральные Банки других

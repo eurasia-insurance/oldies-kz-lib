@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import com.lapsa.kz.LocalizedElement;
+import com.lapsa.kz.KZLocalizedElement;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 import com.lapsa.kz.country.KZCityType;
@@ -17,7 +17,7 @@ import com.lapsa.kz.economic.KZEconomicSector;
 
 public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
 
-    public static final String BUNDLE_BASENAME = LocalizedElement.BUNDDLE_BASE_NAME;
+    public static final String BUNDLE_BASENAME = KZLocalizedElement.BUNDDLE_BASE_NAME;
 
     @Test
     public void testNoExcessRecordsRussian() {

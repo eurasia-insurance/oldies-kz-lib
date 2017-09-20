@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
 
 import com.lapsa.international.localization.LocalizationLanguage;
 
-public interface LocalizedElement {
+public interface KZLocalizedElement {
 
     public static final String BUNDDLE_BASE_NAME = "KZLocalization";
 
