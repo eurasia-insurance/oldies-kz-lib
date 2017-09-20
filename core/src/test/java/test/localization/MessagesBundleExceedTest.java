@@ -17,7 +17,7 @@ import com.lapsa.kz.economic.KZEconomicSector;
 
 public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
 
-    public static final String BUNDLE_BASENAME = KZLocalizedElement.BUNDDLE_BASE_NAME;
+    public static final String BUNDLE_BASENAME = KZLocalizedElement.BUNDLE_BASENAME;
 
     @Test
     public void testNoExcessRecordsRussian() {

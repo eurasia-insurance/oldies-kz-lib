@@ -15,7 +15,7 @@ public class KZCityDump {
     }
 
     private static void dumpKZStruct() {
-	ResourceBundle res = ResourceBundle.getBundle(KZLocalizedElement.BUNDDLE_BASE_NAME);
+	ResourceBundle res = ResourceBundle.getBundle(KZLocalizedElement.BUNDLE_BASENAME);
 	for (KZArea area : KZArea.values()) {
 	    System.out.println(String.format("\n= %1$s %2$s =", area.name(),
 		    res.getString(String.format("%1$s.%2$s", area.getClass().getName(), area.name()))));
@@ -38,7 +38,7 @@ public class KZCityDump {
     }
 
     private static void dumpByTypes() {
-	ResourceBundle res = ResourceBundle.getBundle(KZLocalizedElement.BUNDDLE_BASE_NAME);
+	ResourceBundle res = ResourceBundle.getBundle(KZLocalizedElement.BUNDLE_BASENAME);
 	for (KZCityType type : KZCityType.values()) {
 	    System.out.println(String.format("\n= %1$s %2$s =", type.name(),
 		    res.getString(String.format("%1$s.%2$s", type.getClass().getName(), type.name()))));
