@@ -50,6 +50,11 @@
 				<artifactId>lapsa-commons</artifactId>
 				<version>${lapsa-lib.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.lapsa.lapsa-lib</groupId>
+				<artifactId>lapsa-faces</artifactId>
+				<version>${lapsa-lib.version}</version>
+			</dependency>
 			<!-- test -->
 			<dependency>
 				<groupId>org.hibernate</groupId>
