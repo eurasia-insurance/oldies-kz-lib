@@ -1,8 +1,13 @@
 package com.lapsa.kz.country;
 
-import static com.lapsa.kz.country.KZTypeOfSettlement.*;
-import static com.lapsa.kz.country.KZCityType.*;
 import static com.lapsa.kz.country.KZArea.*;
+import static com.lapsa.kz.country.KZCityType.*;
+import static com.lapsa.kz.country.KZTypeOfSettlement.*;
+
+import java.util.Locale;
+import java.util.Objects;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import com.lapsa.kz.KZLocalizedElement;
 
@@ -94,24 +99,145 @@ public enum KZCity implements KZLocalizedElement {
     SCHU(CITY, DISTINCT_CENTER, OAKM), // Щучинск
     EKIB(CITY, REGIONAL_SUBORDINATION, OPVL), // Экибастуз
     EMBA(CITY, DISTINCT_SUBORDINATION, OAKT), // Эмба
-    OTHER(null, null, null), // TODO найти решение для того, чтобы от этого
-			     // значения
+    OTHER, // TODO найти решение для того, чтобы от
+	   // этого
+    // значения
     // энумерации можно было бы избавиться. Сейчас это
     // введено для JSF движка
     //
-    UNDEFINED(null, null, null),
+    UNDEFINED(false),
     //
     ;
 
     private final KZTypeOfSettlement typeOfSettlement;
     private final KZCityType type;
     private final KZArea area;
+    private final boolean selectable;
 
-    KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
+    //
+
+    private KZCity() {
+	this.typeOfSettlement = null;
+	this.type = null;
+	this.area = null;
+	this.selectable = true;
+    }
+
+    private KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
 	this.typeOfSettlement = typeOfSettlement;
 	this.type = type;
 	this.area = area;
+	this.selectable = true;
     }
+
+    private KZCity(boolean selectable) {
+	this.typeOfSettlement = null;
+	this.type = null;
+	this.area = null;
+	this.selectable = selectable;
+    }
+
+    //
+
+    public boolean hasArea() {
+	return area != null;
+    }
+
+    public boolean hasType() {
+	return type != null;
+    }
+
+    public boolean isRegional() {
+	if (type == null)
+	    return false;
+	return type.isRegional();
+    }
+
+    //
+
+    private static final Predicate<KZCity> SELECTABLE_FILTER = KZCity::isSelectable;
+
+    public static final KZCity[] selectableValues() {
+	return Stream.of(values()) //
+		.filter(SELECTABLE_FILTER) //
+		.toArray(KZCity[]::new);
+    }
+
+    //
+
+    private static final Predicate<KZCity> NON_SELECTABLE_FILTER = SELECTABLE_FILTER.negate();
+
+    public static final KZCity[] nonSelectableValues() {
+	return Stream.of(values()) //
+		.filter(NON_SELECTABLE_FILTER) //
+		.toArray(KZCity[]::new);
+    }
+
+    //
+
+    public static final KZCity[] regionalValuesByArea(KZArea area) {
+	Objects.requireNonNull(area, "Area must be provided");
+	return Stream.of(values()) //
+		.filter(SELECTABLE_FILTER) //
+		.filter(KZCity::isRegional) //
+		.filter(KZCity::hasArea) //
+		.filter(x -> x.getArea() == area) //
+		.toArray(KZCity[]::new);
+    }
+
+    public static final KZCity[] selectableValuesByArea(KZArea area) {
+	Objects.requireNonNull(area, "Area must be provided");
+	return Stream.of(values()) //
+		.filter(SELECTABLE_FILTER) //
+		.filter(KZCity::hasArea) //
+		.filter(x -> x.getArea() == area) //
+		.toArray(KZCity[]::new);
+    }
+
+    //
+
+    @Override
+    public String displayName(DisplayNameVariant variant, Locale locale) {
+	Objects.requireNonNull(variant, "Display variant must be provided");
+	Objects.requireNonNull(locale, "Locale must be provided");
+	String type = (typeOfSettlement == null //
+		? "" //
+		: typeOfSettlement.displayName(variant, locale));
+	String city = KZLocalizedElement.super.displayName(variant, locale);
+	return generateDisplayName(type, city, locale);
+    }
+
+    //
+
+    private static String generateDisplayName(final String typeOfSettlement, final String city,
+	    final Locale locale) {
+	assert typeOfSettlement != null;
+	assert city != null;
+	final StringBuffer sb = new StringBuffer();
+	switch (locale.getLanguage()) {
+	case "en":
+	    sb.append(city);
+	    break;
+	case "kk":
+	    sb.append(city);
+	    if (typeOfSettlement != null) {
+		sb.append(" ");
+		sb.append(typeOfSettlement);
+	    }
+	    break;
+	case "ru":
+	default:
+	    if (typeOfSettlement != null) {
+		sb.append(typeOfSettlement);
+		sb.append(" ");
+	    }
+	    sb.append(city);
+	    break;
+	}
+	return sb.toString().trim();
+    }
+
+    // GENERATED
 
     public KZTypeOfSettlement getTypeOfSettlement() {
 	return typeOfSettlement;
@@ -123,5 +249,9 @@ public enum KZCity implements KZLocalizedElement {
 
     public KZArea getArea() {
 	return area;
+    }
+
+    public boolean isSelectable() {
+	return selectable;
     }
 }
