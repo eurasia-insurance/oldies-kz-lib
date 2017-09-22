@@ -54,10 +54,16 @@ public enum KZArea implements KZLocalizedElement {
 
     //
 
+    public static final Stream<KZArea> valuesStream() {
+	return Stream.of(values());
+    }
+
+    //
+
     private static final Predicate<KZArea> SELECTABLE_FILTER = KZArea::isSelectable;
 
     public static final KZArea[] selectableValues() {
-	return Stream.of(values()) //
+	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.toArray(KZArea[]::new);
     }
@@ -67,7 +73,7 @@ public enum KZArea implements KZLocalizedElement {
     private static final Predicate<KZArea> NON_SELECTABLE_FILTER = SELECTABLE_FILTER.negate();
 
     public static final KZArea[] nonSelectableValues() {
-	return Stream.of(values()) //
+	return valuesStream() //
 		.filter(NON_SELECTABLE_FILTER) //
 		.toArray(KZArea[]::new);
     }

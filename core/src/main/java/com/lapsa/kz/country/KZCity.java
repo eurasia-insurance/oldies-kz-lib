@@ -154,10 +154,16 @@ public enum KZCity implements KZLocalizedElement {
 
     //
 
+    public static final Stream<KZCity> valuesStream() {
+	return Stream.of(values());
+    }
+
+    //
+
     private static final Predicate<KZCity> SELECTABLE_FILTER = KZCity::isSelectable;
 
     public static final KZCity[] selectableValues() {
-	return Stream.of(values()) //
+	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.toArray(KZCity[]::new);
     }
@@ -167,7 +173,7 @@ public enum KZCity implements KZLocalizedElement {
     private static final Predicate<KZCity> NON_SELECTABLE_FILTER = SELECTABLE_FILTER.negate();
 
     public static final KZCity[] nonSelectableValues() {
-	return Stream.of(values()) //
+	return valuesStream() //
 		.filter(NON_SELECTABLE_FILTER) //
 		.toArray(KZCity[]::new);
     }
@@ -176,7 +182,7 @@ public enum KZCity implements KZLocalizedElement {
 
     public static final KZCity[] regionalValuesByArea(KZArea area) {
 	Objects.requireNonNull(area, "Area must be provided");
-	return Stream.of(values()) //
+	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.filter(KZCity::isRegional) //
 		.filter(KZCity::hasArea) //
@@ -186,7 +192,7 @@ public enum KZCity implements KZLocalizedElement {
 
     public static final KZCity[] selectableValuesByArea(KZArea area) {
 	Objects.requireNonNull(area, "Area must be provided");
-	return Stream.of(values()) //
+	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.filter(KZCity::hasArea) //
 		.filter(x -> x.getArea() == area) //
@@ -210,6 +216,7 @@ public enum KZCity implements KZLocalizedElement {
 	    final Locale locale) {
 	assert typeOfSettlement != null;
 	assert city != null;
+	assert locale != null;
 	final StringBuffer sb = new StringBuffer();
 	switch (locale.getLanguage()) {
 	case "en":
