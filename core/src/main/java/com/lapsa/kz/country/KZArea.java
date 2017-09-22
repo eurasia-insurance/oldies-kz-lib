@@ -1,5 +1,6 @@
 package com.lapsa.kz.country;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -22,22 +23,23 @@ public enum KZArea implements KZLocalizedElement {
     OPVL("14"), // Павлодарская область - код 14
     OSK("15"), // Северо-Казахстанская область - код 15
     OVK("16"), // Восточно-Казахстанская область - код 16
-    UNDEFINED(false),
-    //
+    UNDEFINED("-", false),
     ;
 
-    private final String code;
+    //
+
     private final boolean selectable;
+    private final String code;
 
     //
 
     private KZArea(String code) {
-	this.code = code;
+	this.code = Objects.requireNonNull(code);
 	this.selectable = true;
     }
 
-    private KZArea(boolean selectable) {
-	this.code = null;
+    private KZArea(String code, boolean selectable) {
+	this.code = Objects.requireNonNull(code);
 	this.selectable = selectable;
     }
 
@@ -45,7 +47,7 @@ public enum KZArea implements KZLocalizedElement {
 
     public static KZArea forCode(String code) {
 	return Stream.of(values()) //
-		.filter(x -> x.code == code) //
+		.filter(x -> x.code.equals(code)) //
 		.findAny() //
 		.orElse(null);
     }
@@ -72,11 +74,11 @@ public enum KZArea implements KZLocalizedElement {
 
     // GENERATED
 
-    public String getCode() {
-	return code;
-    }
-
     public boolean isSelectable() {
 	return selectable;
+    }
+
+    public String getCode() {
+	return code;
     }
 }

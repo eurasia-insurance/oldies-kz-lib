@@ -1,5 +1,7 @@
 package com.lapsa.kz.economic;
 
+import java.util.Objects;
+
 import com.lapsa.kz.KZLocalizedElement;
 
 public enum KZEconomicSector implements KZLocalizedElement {
@@ -17,13 +19,14 @@ public enum KZEconomicSector implements KZLocalizedElement {
 				   // обслуживающие домашние хозяйства
     HOUSEHOLDS("9"), // Домашние хозяйства
     INTERNATIONAL_COMPANIES("А"), // Международные организации
-    //
     ;
 
     private final String code;
 
-    KZEconomicSector(String code) {
-	this.code = code;
+    //
+
+    private KZEconomicSector(String code) {
+	this.code = Objects.requireNonNull(code, "Code must be provided");
     }
 
     public static KZEconomicSector forCode(String code) {

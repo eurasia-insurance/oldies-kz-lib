@@ -106,50 +106,49 @@ public enum KZCity implements KZLocalizedElement {
     // введено для JSF движка
     //
     UNDEFINED(false),
-    //
     ;
 
+    //
+
+    private final boolean selectable;
     private final KZTypeOfSettlement typeOfSettlement;
     private final KZCityType type;
     private final KZArea area;
-    private final boolean selectable;
 
     //
 
     private KZCity() {
-	this.typeOfSettlement = null;
-	this.type = null;
-	this.area = null;
+	this.typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
+	this.type = KZCityType.UNDEFINED;
+	this.area = KZArea.UNDEFINED;
 	this.selectable = true;
     }
 
     private KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
-	this.typeOfSettlement = typeOfSettlement;
-	this.type = type;
-	this.area = area;
+	this.typeOfSettlement = Objects.requireNonNull(typeOfSettlement);
+	this.type = Objects.requireNonNull(type);
+	this.area = Objects.requireNonNull(area);
 	this.selectable = true;
     }
 
     private KZCity(boolean selectable) {
-	this.typeOfSettlement = null;
-	this.type = null;
-	this.area = null;
+	this.typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
+	this.type = KZCityType.UNDEFINED;
+	this.area = KZArea.UNDEFINED;
 	this.selectable = selectable;
     }
 
     //
 
     public boolean hasArea() {
-	return area != null;
+	return area != KZArea.UNDEFINED;
     }
 
     public boolean hasType() {
-	return type != null;
+	return type != KZCityType.UNDEFINED;
     }
 
     public boolean isRegional() {
-	if (type == null)
-	    return false;
 	return type.isRegional();
     }
 
@@ -200,9 +199,7 @@ public enum KZCity implements KZLocalizedElement {
     public String displayName(DisplayNameVariant variant, Locale locale) {
 	Objects.requireNonNull(variant, "Display variant must be provided");
 	Objects.requireNonNull(locale, "Locale must be provided");
-	String type = (typeOfSettlement == null //
-		? "" //
-		: typeOfSettlement.displayName(variant, locale));
+	String type = typeOfSettlement.displayName(variant, locale);
 	String city = KZLocalizedElement.super.displayName(variant, locale);
 	return generateDisplayName(type, city, locale);
     }
@@ -239,6 +236,10 @@ public enum KZCity implements KZLocalizedElement {
 
     // GENERATED
 
+    public boolean isSelectable() {
+	return selectable;
+    }
+
     public KZTypeOfSettlement getTypeOfSettlement() {
 	return typeOfSettlement;
     }
@@ -249,9 +250,5 @@ public enum KZCity implements KZLocalizedElement {
 
     public KZArea getArea() {
 	return area;
-    }
-
-    public boolean isSelectable() {
-	return selectable;
     }
 }
