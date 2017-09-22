@@ -3,11 +3,13 @@ com.lapsa.kz.country.KZCityType.REGIONAL_CENTER = Regional center
 com.lapsa.kz.country.KZCityType.REGIONAL_SUBORDINATION = City of regional subordination
 com.lapsa.kz.country.KZCityType.DISTINCT_CENTER = District center
 com.lapsa.kz.country.KZCityType.DISTINCT_SUBORDINATION = City of district subordination
+com.lapsa.kz.country.KZCityType.UNDEFINED = Undefined
 
 com.lapsa.kz.country.KZTypeOfSettlement.AUL = aul
 com.lapsa.kz.country.KZTypeOfSettlement.CITY = city
 com.lapsa.kz.country.KZTypeOfSettlement.VILLAGE = village
 com.lapsa.kz.country.KZTypeOfSettlement.OTHER = other
+com.lapsa.kz.country.KZTypeOfSettlement.UNDEFINED = Undefined
 
 com.lapsa.kz.country.KZTypeOfSettlement.AUL.short = a.
 com.lapsa.kz.country.KZTypeOfSettlement.CITY.short = c.

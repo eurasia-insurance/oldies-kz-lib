@@ -3,11 +3,13 @@ com.lapsa.kz.country.KZCityType.REGIONAL_CENTER = Облыс орталығы
 com.lapsa.kz.country.KZCityType.REGIONAL_SUBORDINATION = Облысқа бағынышты қала
 com.lapsa.kz.country.KZCityType.DISTINCT_CENTER = Аудан орталығы
 com.lapsa.kz.country.KZCityType.DISTINCT_SUBORDINATION = Ауданға бағынышты қала
+com.lapsa.kz.country.KZCityType.UNDEFINED = Анықталмаған
 
 com.lapsa.kz.country.KZTypeOfSettlement.AUL = ауыл
 com.lapsa.kz.country.KZTypeOfSettlement.CITY = қала
 com.lapsa.kz.country.KZTypeOfSettlement.VILLAGE = ауыл
 com.lapsa.kz.country.KZTypeOfSettlement.OTHER =
+com.lapsa.kz.country.KZTypeOfSettlement.UNDEFINED = Анықталмаған
 
 com.lapsa.kz.country.KZTypeOfSettlement.AUL.short = а.
 com.lapsa.kz.country.KZTypeOfSettlement.CITY.short = қ.
