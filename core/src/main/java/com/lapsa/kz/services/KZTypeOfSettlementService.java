@@ -13,11 +13,11 @@ public interface KZTypeOfSettlementService extends NamingListingService<KZTypeOf
 
     @Override
     default KZTypeOfSettlement[] getSelectable() {
-	return KZTypeOfSettlement.values();
+	return KZTypeOfSettlement.selectableValues();
     }
 
     @Override
     default KZTypeOfSettlement[] getNonSelectable() {
-	return new KZTypeOfSettlement[0];
+	return KZTypeOfSettlement.nonSelectableValues();
     }
 }

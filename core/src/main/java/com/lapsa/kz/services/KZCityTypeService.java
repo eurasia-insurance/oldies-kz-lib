@@ -12,12 +12,12 @@ public interface KZCityTypeService extends NamingListingService<KZCityType> {
 
     @Override
     default KZCityType[] getSelectable() {
-	return KZCityType.values();
+	return KZCityType.selectableValues();
     }
 
     @Override
     default KZCityType[] getNonSelectable() {
-	return new KZCityType[0];
+	return KZCityType.nonSelectableValues();
     }
 
     default KZCityType[] getRegional() {
