@@ -1,38 +1,3 @@
-com.lapsa.kz.country.KZCityType.MAJOR = Республикалық маңызы бар қала
-com.lapsa.kz.country.KZCityType.REGIONAL_CENTER = Облыс орталығы
-com.lapsa.kz.country.KZCityType.REGIONAL_SUBORDINATION = Облысқа бағынышты қала
-com.lapsa.kz.country.KZCityType.DISTINCT_CENTER = Аудан орталығы
-com.lapsa.kz.country.KZCityType.DISTINCT_SUBORDINATION = Ауданға бағынышты қала
-com.lapsa.kz.country.KZCityType.UNDEFINED = Анықталмаған
-
-com.lapsa.kz.country.KZTypeOfSettlement.AUL = ауыл
-com.lapsa.kz.country.KZTypeOfSettlement.CITY = қала
-com.lapsa.kz.country.KZTypeOfSettlement.VILLAGE = ауыл
-com.lapsa.kz.country.KZTypeOfSettlement.OTHER =
-com.lapsa.kz.country.KZTypeOfSettlement.UNDEFINED = Анықталмаған
-
-com.lapsa.kz.country.KZTypeOfSettlement.AUL.short = а.
-com.lapsa.kz.country.KZTypeOfSettlement.CITY.short = қ.
-com.lapsa.kz.country.KZTypeOfSettlement.VILLAGE.short = а.
-
-com.lapsa.kz.country.KZArea.GAST = Астана қаласы
-com.lapsa.kz.country.KZArea.GALM = Алматы қаласы
-com.lapsa.kz.country.KZArea.OAKM = Ақмола облысы
-com.lapsa.kz.country.KZArea.OAKT = Ақтөбе облысы
-com.lapsa.kz.country.KZArea.OALM = Алматы облысы
-com.lapsa.kz.country.KZArea.OATY = Атырау облысы
-com.lapsa.kz.country.KZArea.OZK = Батыс Қазақстан облысы
-com.lapsa.kz.country.KZArea.OZHM = Жамбыл облысы
-com.lapsa.kz.country.KZArea.OKGD = Қарағанды облысы
-com.lapsa.kz.country.KZArea.OKST = Қостанай облысы
-com.lapsa.kz.country.KZArea.OKZL = Қызылорда облысы
-com.lapsa.kz.country.KZArea.OMNG = Маңғыстау облысы
-com.lapsa.kz.country.KZArea.OUK = Оңтүстік Қазақстан облысы
-com.lapsa.kz.country.KZArea.OPVL = Павлодар облысы
-com.lapsa.kz.country.KZArea.OSK = Солтүстік Қазақстан облысы
-com.lapsa.kz.country.KZArea.OVK = Шығыс Қазақстан облысы
-com.lapsa.kz.country.KZArea.UNDEFINED  = Анықталмаған
-
 com.lapsa.kz.country.KZCity.ABAI = Абай
 com.lapsa.kz.country.KZCity.AKKOL = Ақкөл
 com.lapsa.kz.country.KZCity.AKSAI = Ақсай
@@ -123,14 +88,3 @@ com.lapsa.kz.country.KZCity.EMBA = Ембі
 com.lapsa.kz.country.KZCity.OTHER = Басқа қалалар мен елді мекендер
 com.lapsa.kz.country.KZCity.OTHER.short = Басқа
 com.lapsa.kz.country.KZCity.UNDEFINED = Анықталмаған
-
-com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Қазақстан Республикасының Үкіметі
-com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Аймақтық және жергілікті басқару органдары
-com.lapsa.kz.economic.KZEconomicSector.CENTRAL_BANK = ҚР Ұлттық банкі және басқа елдердің Орталық Банктері
-com.lapsa.kz.economic.KZEconomicSector.DEPOSITORY = Басқа депозиттік ұйымдар
-com.lapsa.kz.economic.KZEconomicSector.FINANCIAL = Басқа қаржы ұйымдары
-com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT_NONFINALCIAL = Мемлекеттік қаржылық емес ұйымдар
-com.lapsa.kz.economic.KZEconomicSector.NONGOVERNMENT_NONFINALCIAL = Мемлекеттік емес қаржылық емес ұйымдар
-com.lapsa.kz.economic.KZEconomicSector.NONPROFIT_FOR_HOUSEHOLDS = Үй шаруашылығына қызмет көрсететін коммерциялық емес ұйымдар
-com.lapsa.kz.economic.KZEconomicSector.HOUSEHOLDS = Үй шаруашылығы
-com.lapsa.kz.economic.KZEconomicSector.INTERNATIONAL_COMPANIES = Халықаралық ұйымдар

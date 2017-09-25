@@ -9,9 +9,9 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.lapsa.kz.KZLocalizedElement;
+import com.lapsa.commons.elements.LocalizedElement;
 
-public enum KZCity implements KZLocalizedElement {
+public enum KZCity implements LocalizedElement {
     ABAI(CITY, DISTINCT_CENTER, OKGD), // Абай
     AKKOL(CITY, DISTINCT_CENTER, OAKM), // Акколь
     AKSAI(CITY, DISTINCT_CENTER, OZK), // Аксай
@@ -206,7 +206,7 @@ public enum KZCity implements KZLocalizedElement {
 	Objects.requireNonNull(variant, "Display variant must be provided");
 	Objects.requireNonNull(locale, "Locale must be provided");
 	String type = typeOfSettlement.displayName(variant, locale);
-	String city = KZLocalizedElement.super.displayName(variant, locale);
+	String city = LocalizedElement.super.displayName(variant, locale);
 	return generateDisplayName(type, city, locale);
     }
 

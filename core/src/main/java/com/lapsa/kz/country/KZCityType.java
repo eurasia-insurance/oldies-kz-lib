@@ -3,9 +3,9 @@ package com.lapsa.kz.country;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.lapsa.kz.KZLocalizedElement;
+import com.lapsa.commons.elements.LocalizedElement;
 
-public enum KZCityType implements KZLocalizedElement {
+public enum KZCityType implements LocalizedElement {
     MAJOR(true), // 1 - город республиканского значения
     REGIONAL_CENTER(true), // 2 — областной центр
     REGIONAL_SUBORDINATION(true), // 3 — город областного подчинения

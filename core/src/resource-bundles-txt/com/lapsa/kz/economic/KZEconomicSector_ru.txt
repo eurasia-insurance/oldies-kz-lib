@@ -1,0 +1,10 @@
+com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Правительство Республики Казахстан
+com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Региональные и местные органы управления
+com.lapsa.kz.economic.KZEconomicSector.CENTRAL_BANK = Национальный банк РК и Центральные Банки других стран
+com.lapsa.kz.economic.KZEconomicSector.DEPOSITORY = Другие депозитные организации
+com.lapsa.kz.economic.KZEconomicSector.FINANCIAL = Другие финансовые организации
+com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT_NONFINALCIAL = Государственные нефинансовые организации
+com.lapsa.kz.economic.KZEconomicSector.NONGOVERNMENT_NONFINALCIAL = Негосударственные нефинансовые организации
+com.lapsa.kz.economic.KZEconomicSector.NONPROFIT_FOR_HOUSEHOLDS = Некоммерческие организации, обслуживающие домашние хозяйства
+com.lapsa.kz.economic.KZEconomicSector.HOUSEHOLDS = Домашние хозяйства
+com.lapsa.kz.economic.KZEconomicSector.INTERNATIONAL_COMPANIES = Международные организации

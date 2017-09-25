@@ -4,9 +4,9 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.lapsa.kz.KZLocalizedElement;
+import com.lapsa.commons.elements.LocalizedElement;
 
-public enum KZArea implements KZLocalizedElement {
+public enum KZArea implements LocalizedElement {
     GAST("01"), // Астана - код 01
     GALM("02"), // Алматы - код 02
     OAKM("03"), // Акмолинская область - код 03
@@ -45,17 +45,17 @@ public enum KZArea implements KZLocalizedElement {
 
     //
 
+    public static final Stream<KZArea> valuesStream() {
+	return Stream.of(values());
+    }
+
+    //
+
     public static KZArea forCode(String code) {
 	return Stream.of(values()) //
 		.filter(x -> x.code.equals(code)) //
 		.findAny() //
 		.orElse(null);
-    }
-
-    //
-
-    public static final Stream<KZArea> valuesStream() {
-	return Stream.of(values());
     }
 
     //

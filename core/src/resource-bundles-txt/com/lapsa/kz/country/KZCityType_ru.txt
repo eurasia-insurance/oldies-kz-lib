@@ -1,0 +1,6 @@
+com.lapsa.kz.country.KZCityType.MAJOR = Город республиканского значения
+com.lapsa.kz.country.KZCityType.REGIONAL_CENTER = Областной центр
+com.lapsa.kz.country.KZCityType.REGIONAL_SUBORDINATION = Город областного подчинения
+com.lapsa.kz.country.KZCityType.DISTINCT_CENTER = Районный центр
+com.lapsa.kz.country.KZCityType.DISTINCT_SUBORDINATION = Город районного подчинения
+com.lapsa.kz.country.KZCityType.UNDEFINED = Не определно

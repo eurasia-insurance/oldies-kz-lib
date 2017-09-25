@@ -3,9 +3,9 @@ package com.lapsa.kz.country;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.lapsa.kz.KZLocalizedElement;
+import com.lapsa.commons.elements.LocalizedElement;
 
-public enum KZTypeOfSettlement implements KZLocalizedElement {
+public enum KZTypeOfSettlement implements LocalizedElement {
     CITY, // город
     VILLAGE, // село
     AUL, // аул

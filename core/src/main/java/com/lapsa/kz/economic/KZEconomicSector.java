@@ -4,9 +4,9 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.lapsa.kz.KZLocalizedElement;
+import com.lapsa.commons.elements.LocalizedElement;
 
-public enum KZEconomicSector implements KZLocalizedElement {
+public enum KZEconomicSector implements LocalizedElement {
     GOVERNMENT("1"), // Правительство Республики Казахстан
     ADMINISTRATION("2"), // Региональные и местные органы управления
     CENTRAL_BANK("3"), // Национальный банк РК и Центральные Банки других

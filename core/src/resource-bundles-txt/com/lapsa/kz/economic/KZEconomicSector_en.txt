@@ -1,0 +1,10 @@
+com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT = Government of the Republic of Kazakhstan
+com.lapsa.kz.economic.KZEconomicSector.ADMINISTRATION = Regional and local authorities
+com.lapsa.kz.economic.KZEconomicSector.CENTRAL_BANK = National Bank of the Republic of Kazakhstan and Central Banks of other countries
+com.lapsa.kz.economic.KZEconomicSector.DEPOSITORY = Other depositary organizations
+com.lapsa.kz.economic.KZEconomicSector.FINANCIAL = Other financial organizations
+com.lapsa.kz.economic.KZEconomicSector.GOVERNMENT_NONFINALCIAL = Government non-finanacial organizations
+com.lapsa.kz.economic.KZEconomicSector.NONGOVERNMENT_NONFINALCIAL = Non-governmental non-financial organizations
+com.lapsa.kz.economic.KZEconomicSector.NONPROFIT_FOR_HOUSEHOLDS = Non-profit organizations providing services to households
+com.lapsa.kz.economic.KZEconomicSector.HOUSEHOLDS = Households
+com.lapsa.kz.economic.KZEconomicSector.INTERNATIONAL_COMPANIES = International companies

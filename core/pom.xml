@@ -21,14 +21,19 @@
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
-		<!-- internal lapsa -->
+		<!-- internal lapsa-commons -->
 		<dependency>
-			<groupId>com.lapsa.lapsa-lib</groupId>
+			<groupId>com.lapsa.lapsa-commons-lib</groupId>
 			<artifactId>lapsa-commons</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
 		<!-- test -->
+		<dependency>
+			<groupId>com.lapsa.lapsa-commons-lib</groupId>
+			<artifactId>lapsa-commons-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
