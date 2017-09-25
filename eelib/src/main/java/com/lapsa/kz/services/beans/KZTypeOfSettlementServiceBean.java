@@ -5,10 +5,23 @@ import javax.inject.Named;
 
 import com.lapsa.faces.services.FacesSelectItemService;
 import com.lapsa.kz.country.KZTypeOfSettlement;
-import com.lapsa.kz.services.KZTypeOfSettlementService;
 
 @Named("kzTypeOfSettlementService")
 @ApplicationScoped
-public class KZTypeOfSettlementServiceBean
-	implements KZTypeOfSettlementService, FacesSelectItemService<KZTypeOfSettlement> {
+public class KZTypeOfSettlementServiceBean implements FacesSelectItemService<KZTypeOfSettlement> {
+
+    @Override
+    public KZTypeOfSettlement[] getAll() {
+	return KZTypeOfSettlement.values();
+    }
+
+    @Override
+    public KZTypeOfSettlement[] getSelectable() {
+	return KZTypeOfSettlement.selectableValues();
+    }
+
+    @Override
+    public KZTypeOfSettlement[] getNonSelectable() {
+	return KZTypeOfSettlement.nonSelectableValues();
+    }
 }

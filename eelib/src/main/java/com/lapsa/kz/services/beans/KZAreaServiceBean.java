@@ -5,9 +5,23 @@ import javax.inject.Named;
 
 import com.lapsa.faces.services.FacesSelectItemService;
 import com.lapsa.kz.country.KZArea;
-import com.lapsa.kz.services.KZAreaService;
 
 @Named("kzAreaService")
 @ApplicationScoped
-public class KZAreaServiceBean implements KZAreaService, FacesSelectItemService<KZArea> {
+public class KZAreaServiceBean implements FacesSelectItemService<KZArea> {
+
+    @Override
+    public KZArea[] getAll() {
+	return KZArea.values();
+    }
+
+    @Override
+    public KZArea[] getSelectable() {
+	return KZArea.selectableValues();
+    }
+
+    @Override
+    public KZArea[] getNonSelectable() {
+	return KZArea.nonSelectableValues();
+    }
 }

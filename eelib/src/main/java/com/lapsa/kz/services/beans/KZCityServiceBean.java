@@ -9,11 +9,35 @@ import javax.inject.Named;
 import com.lapsa.faces.services.FacesSelectItemService;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
-import com.lapsa.kz.services.KZCityService;
 
 @Named("kzCityService")
 @ApplicationScoped
-public class KZCityServiceBean implements KZCityService, FacesSelectItemService<KZCity> {
+public class KZCityServiceBean implements FacesSelectItemService<KZCity> {
+
+    @Override
+    public KZCity[] getAll() {
+	return KZCity.values();
+    }
+
+    @Override
+    public KZCity[] getSelectable() {
+	return KZCity.selectableValues();
+    }
+
+    @Override
+    public KZCity[] getNonSelectable() {
+	return KZCity.nonSelectableValues();
+    }
+
+    public KZCity[] selectableByArea(KZArea area) {
+	return KZCity.selectableValuesByArea(area);
+    }
+
+    public KZCity[] regionalByArea(KZArea area) {
+	return KZCity.regionalValuesByArea(area);
+    }
+
+    //
 
     public List<SelectItem> selectableByAreaSI(KZArea area) {
 	return generateItemsSI(() -> selectableByArea(area), this::selectItem);
