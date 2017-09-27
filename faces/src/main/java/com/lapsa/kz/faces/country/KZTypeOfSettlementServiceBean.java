@@ -1,14 +1,14 @@
-package com.lapsa.kz.services.beans;
+package com.lapsa.kz.faces.country;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-import com.lapsa.faces.services.FacesSelectItemService;
+import com.lapsa.faces.services.FacesSelectItemListingService;
 import com.lapsa.kz.country.KZTypeOfSettlement;
 
 @Named("kzTypeOfSettlementService")
 @ApplicationScoped
-public class KZTypeOfSettlementServiceBean implements FacesSelectItemService<KZTypeOfSettlement> {
+public class KZTypeOfSettlementServiceBean implements FacesSelectItemListingService<KZTypeOfSettlement> {
 
     @Override
     public KZTypeOfSettlement[] getAll() {

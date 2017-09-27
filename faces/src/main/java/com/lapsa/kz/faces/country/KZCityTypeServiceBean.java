@@ -1,4 +1,4 @@
-package com.lapsa.kz.services.beans;
+package com.lapsa.kz.faces.country;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
-import com.lapsa.faces.services.FacesSelectItemService;
+import com.lapsa.faces.services.FacesSelectItemListingService;
 import com.lapsa.kz.country.KZCityType;
 
 @Named("kzAreaService")
 @ApplicationScoped
-public class KZCityTypeServiceBean implements FacesSelectItemService<KZCityType> {
+public class KZCityTypeServiceBean implements FacesSelectItemListingService<KZCityType> {
 
     @Override
     public KZCityType[] getAll() {

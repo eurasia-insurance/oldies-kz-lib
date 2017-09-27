@@ -20,13 +20,6 @@
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
-		<!-- internal lapsa -->
-		<dependency>
-			<groupId>com.lapsa.lapsa-lib</groupId>
-			<artifactId>lapsa-faces</artifactId>
-			<scope>compile</scope>
-			<optional>false</optional>
-		</dependency>
 		<!-- Java EE -->
 		<dependency>
 			<groupId>javax.enterprise</groupId>
@@ -36,11 +29,6 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>javax.faces-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<!-- test -->

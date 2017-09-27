@@ -1,14 +1,14 @@
-package com.lapsa.kz.services.beans;
+package com.lapsa.kz.faces.economic;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-import com.lapsa.faces.services.FacesSelectItemService;
+import com.lapsa.faces.services.FacesSelectItemListingService;
 import com.lapsa.kz.economic.KZEconomicSector;
 
 @Named("kzEconomicSectorService")
 @ApplicationScoped
-public class KZEconomicSectorServiceBean implements FacesSelectItemService<KZEconomicSector> {
+public class KZEconomicSectorServiceBean implements FacesSelectItemListingService<KZEconomicSector> {
 
     @Override
     public KZEconomicSector[] getAll() {

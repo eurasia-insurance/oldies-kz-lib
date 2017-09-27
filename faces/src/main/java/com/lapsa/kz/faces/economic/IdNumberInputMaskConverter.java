@@ -1,4 +1,4 @@
-package com.lapsa.kz.idnumber.converters;
+package com.lapsa.kz.faces.economic;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

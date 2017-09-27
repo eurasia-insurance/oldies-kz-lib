@@ -16,6 +16,7 @@
 
 	<modules>
 		<module>core</module>
+		<module>faces</module>
 		<module>eelib</module>
 	</modules>
 
@@ -28,22 +29,27 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- own -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>kz-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>kz-faces</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>kz-eelib</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<!-- internal international -->
 			<dependency>
 				<groupId>com.lapsa.international-lib</groupId>
 				<artifactId>international-core</artifactId>
 				<version>${international-lib.version}</version>
-			</dependency>
-			<!-- own -->
-			<dependency>
-				<groupId>com.lapsa.kz-lib</groupId>
-				<artifactId>kz-core</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.kz-lib</groupId>
-				<artifactId>kz-eelib</artifactId>
-				<version>${project.version}</version>
 			</dependency>
 			<!-- internal lapsa -->
 			<dependency>
