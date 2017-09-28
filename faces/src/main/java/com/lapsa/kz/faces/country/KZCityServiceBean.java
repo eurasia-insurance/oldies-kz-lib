@@ -36,7 +36,7 @@ public class KZCityServiceBean implements FacesSelectItemListingService<KZCity> 
     public KZCity[] regionalByArea(KZArea area) {
 	return KZCity.regionalValuesByArea(area);
     }
-
+    
     //
 
     public List<SelectItem> selectableByAreaSI(KZArea area) {
