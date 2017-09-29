@@ -14,23 +14,16 @@
 	<name>KZ Lib : Core POJOs</name>
 
 	<dependencies>
-		<!-- internal international -->
-		<dependency>
-			<groupId>com.lapsa.international-lib</groupId>
-			<artifactId>international-core</artifactId>
-			<scope>compile</scope>
-			<optional>false</optional>
-		</dependency>
 		<!-- internal lapsa-commons -->
 		<dependency>
-			<groupId>com.lapsa.lapsa-commons-lib</groupId>
+			<groupId>com.lapsa.lapsa.commons</groupId>
 			<artifactId>lapsa-commons</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
 		<!-- test -->
 		<dependency>
-			<groupId>com.lapsa.lapsa-commons-lib</groupId>
+			<groupId>com.lapsa.lapsa.commons</groupId>
 			<artifactId>lapsa-commons-test</artifactId>
 			<scope>test</scope>
 		</dependency>
