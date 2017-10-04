@@ -5,11 +5,11 @@ import static com.lapsa.kz.country.KZCityType.*;
 import static com.lapsa.kz.country.KZTypeOfSettlement.*;
 
 import java.util.Locale;
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import com.lapsa.commons.elements.LocalizedElement;
+import com.lapsa.commons.function.MyObjects;
 
 public enum KZCity implements LocalizedElement {
     ABAI(CITY, DISTINCT_CENTER, OKGD), // Абай
@@ -125,9 +125,9 @@ public enum KZCity implements LocalizedElement {
     }
 
     private KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
-	this.typeOfSettlement = Objects.requireNonNull(typeOfSettlement);
-	this.type = Objects.requireNonNull(type);
-	this.area = Objects.requireNonNull(area);
+	this.typeOfSettlement = MyObjects.requireNonNull(typeOfSettlement);
+	this.type = MyObjects.requireNonNull(type);
+	this.area = MyObjects.requireNonNull(area);
 	this.selectable = true;
     }
 
@@ -181,7 +181,7 @@ public enum KZCity implements LocalizedElement {
     //
 
     public static final KZCity[] regionalValuesByArea(KZArea area) {
-	Objects.requireNonNull(area, "Area must be provided");
+	MyObjects.requireNonNull(area, "Area must be provided");
 	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.filter(KZCity::isRegional) //
@@ -191,7 +191,7 @@ public enum KZCity implements LocalizedElement {
     }
 
     public static final KZCity[] selectableValuesByArea(KZArea area) {
-	Objects.requireNonNull(area, "Area must be provided");
+	MyObjects.requireNonNull(area, "Area must be provided");
 	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.filter(KZCity::hasArea) //
@@ -203,8 +203,8 @@ public enum KZCity implements LocalizedElement {
 
     @Override
     public String displayName(DisplayNameVariant variant, Locale locale) {
-	Objects.requireNonNull(variant, "Display variant must be provided");
-	Objects.requireNonNull(locale, "Locale must be provided");
+	MyObjects.requireNonNull(variant, "Display variant must be provided");
+	MyObjects.requireNonNull(locale, "Locale must be provided");
 	String type = typeOfSettlement.displayName(variant, locale);
 	String city = LocalizedElement.super.displayName(variant, locale);
 	return generateDisplayName(type, city, locale);

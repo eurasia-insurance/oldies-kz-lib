@@ -1,10 +1,10 @@
 package com.lapsa.kz.economic;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import com.lapsa.commons.elements.LocalizedElement;
+import com.lapsa.commons.function.MyObjects;
 
 public enum KZEconomicSector implements LocalizedElement {
     GOVERNMENT("1"), // Правительство Республики Казахстан
@@ -31,12 +31,12 @@ public enum KZEconomicSector implements LocalizedElement {
     //
 
     private KZEconomicSector(String code) {
-	this.code = Objects.requireNonNull(code, "Code must be provided");
+	this.code = MyObjects.requireNonNull(code, "Code must be provided");
 	this.selectable = true;
     }
 
     private KZEconomicSector(String code, boolean selectable) {
-	this.code = Objects.requireNonNull(code, "Code must be provided");
+	this.code = MyObjects.requireNonNull(code, "Code must be provided");
 	this.selectable = selectable;
     }
 

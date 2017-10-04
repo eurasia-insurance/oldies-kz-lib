@@ -1,10 +1,10 @@
 package com.lapsa.kz.country;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import com.lapsa.commons.elements.LocalizedElement;
+import com.lapsa.commons.function.MyObjects;
 
 public enum KZArea implements LocalizedElement {
     GAST("01"), // Астана - код 01
@@ -34,12 +34,12 @@ public enum KZArea implements LocalizedElement {
     //
 
     private KZArea(String code) {
-	this.code = Objects.requireNonNull(code);
+	this.code = MyObjects.requireNonNull(code);
 	this.selectable = true;
     }
 
     private KZArea(String code, boolean selectable) {
-	this.code = Objects.requireNonNull(code);
+	this.code = MyObjects.requireNonNull(code);
 	this.selectable = selectable;
     }
 
