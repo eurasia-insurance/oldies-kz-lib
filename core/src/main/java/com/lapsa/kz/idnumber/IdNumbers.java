@@ -6,13 +6,14 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 import com.lapsa.commons.function.MyExceptions;
+import com.lapsa.commons.function.MyStrings;
 
 public final class IdNumbers {
 
     private IdNumbers() {
     }
 
-    public static Optional<LocalDate> dateOfBirth(String idNumber) {
+    public static Optional<LocalDate> dateOfBirthFrom(String idNumber) {
 	if (nonValid(idNumber))
 	    return Optional.empty();
 
@@ -61,7 +62,7 @@ public final class IdNumbers {
 	MALE, FEMALE;
     }
 
-    public static Optional<Gender> gender(String idNumber) {
+    public static Optional<Gender> genderFrom(String idNumber) {
 	if (nonValid(idNumber))
 	    return Optional.empty();
 
@@ -94,6 +95,8 @@ public final class IdNumbers {
     }
 
     public static boolean valid(final String idNumber, final boolean checkDigit) {
+	if (MyStrings.empty(idNumber))
+	    return false;
 	if (!PATTERN.matcher(idNumber).matches())
 	    return false;
 	if (!checkDigit)
