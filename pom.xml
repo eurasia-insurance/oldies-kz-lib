@@ -23,7 +23,7 @@
 	<properties>
 		<!-- BOMS -->
 		<lapsa-bom.version>1.0-SNAPSHOT</lapsa-bom.version>
-		<lapsa-payara-bom.version>4.1.2-b1-SNAPSHOT</lapsa-payara-bom.version>
+		<payara-bom.version>4.1.2-b1-SNAPSHOT</payara-bom.version>
 		<!-- APIs -->
 		<lapsa-lib.version>2.2-SNAPSHOT</lapsa-lib.version>
 	</properties>
@@ -40,9 +40,9 @@
 			</dependency>
 			<!-- BOMS -->
 			<dependency>
-				<groupId>tech.lapsa.lapsa</groupId>
-				<artifactId>lapsa-payara-bom</artifactId>
-				<version>${lapsa-payara-bom.version}</version>
+				<groupId>tech.lapsa.payara</groupId>
+				<artifactId>payara-bom</artifactId>
+				<version>${payara-bom.version}</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
