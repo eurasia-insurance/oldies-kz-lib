@@ -15,7 +15,7 @@
 	<dependencies>
 		<!-- own -->
 		<dependency>
-			<groupId>com.lapsa.kz-lib</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>kz-core</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>

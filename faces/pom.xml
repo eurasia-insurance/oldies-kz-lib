@@ -14,6 +14,13 @@
 	<name>KZ Lib : Faces utility</name>
 
 	<dependencies>
+		<!-- tech -->
+		<dependency>
+			<groupId>tech.lapsa.java</groupId>
+			<artifactId>java-commons</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
 		<!-- own -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -25,13 +32,6 @@
 		<dependency>
 			<groupId>com.lapsa.lapsa-lib</groupId>
 			<artifactId>lapsa-faces</artifactId>
-			<scope>compile</scope>
-			<optional>false</optional>
-		</dependency>
-		<!-- internal lapsa-commons -->
-		<dependency>
-			<groupId>tech.lapsa.lapsa</groupId>
-			<artifactId>lapsa-commons</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
