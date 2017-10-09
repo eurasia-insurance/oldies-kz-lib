@@ -1,12 +1,17 @@
 package com.lapsa.kz.country;
 
-import static com.lapsa.kz.country.KZTypeOfSettlement.*;
-import static com.lapsa.kz.country.KZCityType.*;
 import static com.lapsa.kz.country.KZArea.*;
+import static com.lapsa.kz.country.KZCityType.*;
+import static com.lapsa.kz.country.KZTypeOfSettlement.*;
 
-import com.lapsa.kz.KZLocalizationBundleBase;
+import java.util.Locale;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
-public enum KZCity implements KZLocalizationBundleBase {
+import com.lapsa.commons.elements.LocalizedElement;
+import com.lapsa.commons.function.MyObjects;
+
+public enum KZCity implements LocalizedElement {
     ABAI(CITY, DISTINCT_CENTER, OKGD), // Абай
     AKKOL(CITY, DISTINCT_CENTER, OAKM), // Акколь
     AKSAI(CITY, DISTINCT_CENTER, OZK), // Аксай
@@ -94,28 +99,152 @@ public enum KZCity implements KZLocalizationBundleBase {
     SCHU(CITY, DISTINCT_CENTER, OAKM), // Щучинск
     EKIB(CITY, REGIONAL_SUBORDINATION, OPVL), // Экибастуз
     EMBA(CITY, DISTINCT_SUBORDINATION, OAKT), // Эмба
-    OTHER(null, null, null), // TODO найти решение для того, чтобы от этого
-			     // значения
+    OTHER, // TODO найти решение для того, чтобы от
+	   // этого
+    // значения
     // энумерации можно было бы избавиться. Сейчас это
     // введено для JSF движка
     //
-    UNDEFINED(null, null, null),
-    //
+    UNDEFINED(false),
     ;
 
-    @Override
-    public String canonicalName() {
-	return String.format("%1$s.%2$s", this.getClass().getName(), name());
-    }
+    //
 
+    private final boolean selectable;
     private final KZTypeOfSettlement typeOfSettlement;
     private final KZCityType type;
     private final KZArea area;
 
-    KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
-	this.typeOfSettlement = typeOfSettlement;
-	this.type = type;
-	this.area = area;
+    //
+
+    private KZCity() {
+	this.typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
+	this.type = KZCityType.UNDEFINED;
+	this.area = KZArea.UNDEFINED;
+	this.selectable = true;
+    }
+
+    private KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
+	this.typeOfSettlement = MyObjects.requireNonNull(typeOfSettlement);
+	this.type = MyObjects.requireNonNull(type);
+	this.area = MyObjects.requireNonNull(area);
+	this.selectable = true;
+    }
+
+    private KZCity(boolean selectable) {
+	this.typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
+	this.type = KZCityType.UNDEFINED;
+	this.area = KZArea.UNDEFINED;
+	this.selectable = selectable;
+    }
+
+    //
+
+    public boolean hasArea() {
+	return area != KZArea.UNDEFINED;
+    }
+
+    public boolean hasType() {
+	return type != KZCityType.UNDEFINED;
+    }
+
+    public boolean isRegional() {
+	return type.isRegional();
+    }
+
+    //
+
+    public static final Stream<KZCity> valuesStream() {
+	return Stream.of(values());
+    }
+
+    //
+
+    private static final Predicate<KZCity> SELECTABLE_FILTER = KZCity::isSelectable;
+
+    public static final KZCity[] selectableValues() {
+	return valuesStream() //
+		.filter(SELECTABLE_FILTER) //
+		.toArray(KZCity[]::new);
+    }
+
+    //
+
+    private static final Predicate<KZCity> NON_SELECTABLE_FILTER = SELECTABLE_FILTER.negate();
+
+    public static final KZCity[] nonSelectableValues() {
+	return valuesStream() //
+		.filter(NON_SELECTABLE_FILTER) //
+		.toArray(KZCity[]::new);
+    }
+
+    //
+
+    public static final KZCity[] regionalValuesByArea(KZArea area) {
+	MyObjects.requireNonNull(area, "Area must be provided");
+	return valuesStream() //
+		.filter(SELECTABLE_FILTER) //
+		.filter(KZCity::isRegional) //
+		.filter(KZCity::hasArea) //
+		.filter(x -> x.getArea() == area) //
+		.toArray(KZCity[]::new);
+    }
+
+    public static final KZCity[] selectableValuesByArea(KZArea area) {
+	MyObjects.requireNonNull(area, "Area must be provided");
+	return valuesStream() //
+		.filter(SELECTABLE_FILTER) //
+		.filter(KZCity::hasArea) //
+		.filter(x -> x.getArea() == area) //
+		.toArray(KZCity[]::new);
+    }
+
+    //
+
+    @Override
+    public String displayName(DisplayNameVariant variant, Locale locale) {
+	MyObjects.requireNonNull(variant, "Display variant must be provided");
+	MyObjects.requireNonNull(locale, "Locale must be provided");
+	String type = typeOfSettlement.displayName(variant, locale);
+	String city = LocalizedElement.super.displayName(variant, locale);
+	return generateDisplayName(type, city, locale);
+    }
+
+    //
+
+    private static String generateDisplayName(final String typeOfSettlement, final String city,
+	    final Locale locale) {
+	assert typeOfSettlement != null;
+	assert city != null;
+	assert locale != null;
+	final StringBuffer sb = new StringBuffer();
+	switch (locale.getLanguage()) {
+	case "en":
+	    sb.append(city);
+	    break;
+	case "kk":
+	    sb.append(city);
+	    if (typeOfSettlement != null) {
+		sb.append(" ");
+		sb.append(typeOfSettlement);
+	    }
+	    break;
+	case "ru":
+	default:
+	    if (typeOfSettlement != null) {
+		sb.append(typeOfSettlement);
+		sb.append(" ");
+	    }
+	    sb.append(city);
+	    break;
+	}
+	return sb.toString().trim();
+    }
+
+    // GENERATED
+
+    public boolean isSelectable() {
+	return selectable;
     }
 
     public KZTypeOfSettlement getTypeOfSettlement() {

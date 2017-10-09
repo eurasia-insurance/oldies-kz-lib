@@ -1,8 +1,12 @@
 package com.lapsa.kz.economic;
 
-import com.lapsa.kz.KZLocalizationBundleBase;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
-public enum KZEconomicSector implements KZLocalizationBundleBase {
+import com.lapsa.commons.elements.LocalizedElement;
+import com.lapsa.commons.function.MyObjects;
+
+public enum KZEconomicSector implements LocalizedElement {
     GOVERNMENT("1"), // Правительство Республики Казахстан
     ADMINISTRATION("2"), // Региональные и местные органы управления
     CENTRAL_BANK("3"), // Национальный банк РК и Центральные Банки других
@@ -17,31 +21,67 @@ public enum KZEconomicSector implements KZLocalizationBundleBase {
 				   // обслуживающие домашние хозяйства
     HOUSEHOLDS("9"), // Домашние хозяйства
     INTERNATIONAL_COMPANIES("А"), // Международные организации
-    //
     ;
 
-    @Override
-    public String canonicalName() {
-    	return String.format("%1$s.%2$s", this.getClass().getName(), name());
-    }
+    //
 
+    private final boolean selectable;
     private final String code;
 
-    KZEconomicSector(String code) {
-	this.code = code;
+    //
+
+    private KZEconomicSector(String code) {
+	this.code = MyObjects.requireNonNull(code, "Code must be provided");
+	this.selectable = true;
     }
 
+    private KZEconomicSector(String code, boolean selectable) {
+	this.code = MyObjects.requireNonNull(code, "Code must be provided");
+	this.selectable = selectable;
+    }
+
+    //
+
+    public static final Stream<KZEconomicSector> valuesStream() {
+	return Stream.of(values());
+    }
+
+    //
+
+    private static final Predicate<KZEconomicSector> SELECTABLE_FILTER = KZEconomicSector::isSelectable;
+
+    public static final KZEconomicSector[] selectableValues() {
+	return valuesStream() //
+		.filter(SELECTABLE_FILTER) //
+		.toArray(KZEconomicSector[]::new);
+    }
+
+    //
+
+    private static final Predicate<KZEconomicSector> NON_SELECTABLE_FILTER = SELECTABLE_FILTER.negate();
+
+    public static final KZEconomicSector[] nonSelectableValues() {
+	return valuesStream() //
+		.filter(NON_SELECTABLE_FILTER) //
+		.toArray(KZEconomicSector[]::new);
+    }
+
+    //
+
     public static KZEconomicSector forCode(String code) {
-	for (KZEconomicSector ent : values())
-	    if (ent.getCode().equals(code))
-		return ent;
-	return null;
+	return valuesStream() //
+		.filter(x -> x.code.equals(code)) //
+		.findAny() //
+		.orElse(null);
     }
 
     // GENERATED
 
+    public boolean isSelectable() {
+	return selectable;
+    }
+
     public String getCode() {
 	return code;
     }
-
 }

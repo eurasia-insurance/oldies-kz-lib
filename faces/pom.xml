@@ -8,10 +8,10 @@
 		<version>3.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>kz-core</artifactId>
+	<artifactId>kz-faces</artifactId>
 	<packaging>jar</packaging>
 
-	<name>KZ Lib : Core POJOs</name>
+	<name>KZ Lib : Faces utility</name>
 
 	<dependencies>
 		<!-- tech -->
@@ -21,21 +21,31 @@
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
+		<!-- own -->
 		<dependency>
-			<groupId>tech.lapsa.java</groupId>
-			<artifactId>java-commons-test</artifactId>
-			<scope>test</scope>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>kz-core</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
 		</dependency>
-		<!-- test -->
+		<!-- internal lapsa -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
+			<groupId>com.lapsa.lapsa-lib</groupId>
+			<artifactId>lapsa-faces</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<!-- JavaEE -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<scope>test</scope>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
 </project>

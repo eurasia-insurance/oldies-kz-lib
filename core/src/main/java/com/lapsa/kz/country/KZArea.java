@@ -1,8 +1,12 @@
 package com.lapsa.kz.country;
 
-import com.lapsa.kz.KZLocalizationBundleBase;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
-public enum KZArea implements KZLocalizationBundleBase {
+import com.lapsa.commons.elements.LocalizedElement;
+import com.lapsa.commons.function.MyObjects;
+
+public enum KZArea implements LocalizedElement {
     GAST("01"), // Астана - код 01
     GALM("02"), // Алматы - код 02
     OAKM("03"), // Акмолинская область - код 03
@@ -19,29 +23,66 @@ public enum KZArea implements KZLocalizationBundleBase {
     OPVL("14"), // Павлодарская область - код 14
     OSK("15"), // Северо-Казахстанская область - код 15
     OVK("16"), // Восточно-Казахстанская область - код 16
-    UNDEFINED(null),
-    //
+    UNDEFINED("-", false),
     ;
 
-    @Override
-    public String canonicalName() {
-	return String.format("%1$s.%2$s", this.getClass().getName(), name());
-    }
+    //
 
+    private final boolean selectable;
     private final String code;
 
-    KZArea(String code) {
-	this.code = code;
+    //
+
+    private KZArea(String code) {
+	this.code = MyObjects.requireNonNull(code);
+	this.selectable = true;
     }
 
+    private KZArea(String code, boolean selectable) {
+	this.code = MyObjects.requireNonNull(code);
+	this.selectable = selectable;
+    }
+
+    //
+
+    public static final Stream<KZArea> valuesStream() {
+	return Stream.of(values());
+    }
+
+    //
+
     public static KZArea forCode(String code) {
-	for (KZArea dict : values())
-	    if (dict.getCode() == code)
-		return dict;
-	return null;
+	return Stream.of(values()) //
+		.filter(x -> x.code.equals(code)) //
+		.findAny() //
+		.orElse(null);
+    }
+
+    //
+
+    private static final Predicate<KZArea> SELECTABLE_FILTER = KZArea::isSelectable;
+
+    public static final KZArea[] selectableValues() {
+	return valuesStream() //
+		.filter(SELECTABLE_FILTER) //
+		.toArray(KZArea[]::new);
+    }
+
+    //
+
+    private static final Predicate<KZArea> NON_SELECTABLE_FILTER = SELECTABLE_FILTER.negate();
+
+    public static final KZArea[] nonSelectableValues() {
+	return valuesStream() //
+		.filter(NON_SELECTABLE_FILTER) //
+		.toArray(KZArea[]::new);
     }
 
     // GENERATED
+
+    public boolean isSelectable() {
+	return selectable;
+    }
 
     public String getCode() {
 	return code;

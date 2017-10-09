@@ -15,20 +15,20 @@
 	<dependencies>
 		<!-- own -->
 		<dependency>
-			<groupId>com.lapsa.kz-lib</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>kz-core</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
 		<!-- Java EE -->
 		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>javax.faces-api</artifactId>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<!-- test -->
@@ -45,11 +45,6 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>javax.el</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

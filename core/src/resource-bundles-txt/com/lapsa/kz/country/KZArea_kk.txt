@@ -1,0 +1,17 @@
+com.lapsa.kz.country.KZArea.GAST = Астана қаласы
+com.lapsa.kz.country.KZArea.GALM = Алматы қаласы
+com.lapsa.kz.country.KZArea.OAKM = Ақмола облысы
+com.lapsa.kz.country.KZArea.OAKT = Ақтөбе облысы
+com.lapsa.kz.country.KZArea.OALM = Алматы облысы
+com.lapsa.kz.country.KZArea.OATY = Атырау облысы
+com.lapsa.kz.country.KZArea.OZK = Батыс Қазақстан облысы
+com.lapsa.kz.country.KZArea.OZHM = Жамбыл облысы
+com.lapsa.kz.country.KZArea.OKGD = Қарағанды облысы
+com.lapsa.kz.country.KZArea.OKST = Қостанай облысы
+com.lapsa.kz.country.KZArea.OKZL = Қызылорда облысы
+com.lapsa.kz.country.KZArea.OMNG = Маңғыстау облысы
+com.lapsa.kz.country.KZArea.OUK = Оңтүстік Қазақстан облысы
+com.lapsa.kz.country.KZArea.OPVL = Павлодар облысы
+com.lapsa.kz.country.KZArea.OSK = Солтүстік Қазақстан облысы
+com.lapsa.kz.country.KZArea.OVK = Шығыс Қазақстан облысы
+com.lapsa.kz.country.KZArea.UNDEFINED  = Анықталмаған
