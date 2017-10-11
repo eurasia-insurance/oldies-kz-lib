@@ -3,8 +3,8 @@ package com.lapsa.kz.economic;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.lapsa.commons.elements.LocalizedElement;
-import com.lapsa.commons.function.MyObjects;
+import tech.lapsa.java.commons.function.MyObjects;
+import tech.lapsa.java.commons.localization.LocalizedElement;
 
 public enum KZEconomicSector implements LocalizedElement {
     GOVERNMENT("1"), // Правительство Республики Казахстан
