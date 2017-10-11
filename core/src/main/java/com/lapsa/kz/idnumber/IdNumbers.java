@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-import com.lapsa.commons.function.MyExceptions;
-import com.lapsa.commons.function.MyStrings;
+import tech.lapsa.java.commons.function.MyExceptions;
+import tech.lapsa.java.commons.function.MyStrings;
 
 public final class IdNumbers {
 

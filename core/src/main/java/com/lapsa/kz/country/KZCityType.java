@@ -3,7 +3,7 @@ package com.lapsa.kz.country;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.lapsa.commons.elements.LocalizedElement;
+import tech.lapsa.java.commons.localization.LocalizedElement;
 
 public enum KZCityType implements LocalizedElement {
     MAJOR(true), // 1 - город республиканского значения
