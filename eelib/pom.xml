@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.lapsa.kz-lib</groupId>
-		<artifactId>parent</artifactId>
+		<artifactId>kz-root</artifactId>
 		<version>3.1-SNAPSHOT</version>
 	</parent>
 
