@@ -202,11 +202,11 @@ public enum KZCity implements LocalizedElement {
     //
 
     @Override
-    public String displayName(DisplayNameVariant variant, Locale locale) {
+    public String localized(LocalizationVariant variant, Locale locale) {
 	MyObjects.requireNonNull(variant, "Display variant must be provided");
 	MyObjects.requireNonNull(locale, "Locale must be provided");
-	String type = typeOfSettlement.displayName(variant, locale);
-	String city = LocalizedElement.super.displayName(variant, locale);
+	String type = typeOfSettlement.localized(variant, locale);
+	String city = LocalizedElement.super.localized(variant, locale);
 	return generateDisplayName(type, city, locale);
     }
 
