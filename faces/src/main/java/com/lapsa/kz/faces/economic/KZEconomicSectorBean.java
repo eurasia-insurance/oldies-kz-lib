@@ -7,9 +7,9 @@ import com.lapsa.kz.economic.KZEconomicSector;
 
 import tech.lapsa.javax.faces.beans.localization.ListingBean;
 
-@Named("kzEconomicSector")
+@Named("KZEconomicSector")
 @ApplicationScoped
-public class KZEconomicSectorServiceBean implements ListingBean<KZEconomicSector> {
+public class KZEconomicSectorBean implements ListingBean<KZEconomicSector> {
 
     @Override
     public KZEconomicSector[] getAll() {

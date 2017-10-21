@@ -8,7 +8,7 @@ import com.lapsa.kz.country.KZCity;
 
 import tech.lapsa.javax.faces.beans.localization.ListingBean;
 
-@Named("kzCity")
+@Named("KZCity")
 @ApplicationScoped
 public class KZCityBean implements ListingBean<KZCity> {
 

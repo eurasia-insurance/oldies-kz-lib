@@ -7,7 +7,7 @@ import com.lapsa.kz.country.KZTypeOfSettlement;
 
 import tech.lapsa.javax.faces.beans.localization.ListingBean;
 
-@Named("kzTypeOfSettlement")
+@Named("KZTypeOfSettlement")
 @ApplicationScoped
 public class KZTypeOfSettlementBean implements ListingBean<KZTypeOfSettlement> {
 
