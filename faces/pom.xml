@@ -21,17 +21,16 @@
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
+		<dependency>
+			<groupId>tech.lapsa.javax</groupId>
+			<artifactId>javax-faces-commons</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
 		<!-- own -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>kz-core</artifactId>
-			<scope>compile</scope>
-			<optional>false</optional>
-		</dependency>
-		<!-- internal lapsa -->
-		<dependency>
-			<groupId>com.lapsa.lapsa-lib</groupId>
-			<artifactId>lapsa-faces</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
