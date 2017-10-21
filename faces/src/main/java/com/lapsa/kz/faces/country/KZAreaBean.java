@@ -3,12 +3,13 @@ package com.lapsa.kz.faces.country;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-import com.lapsa.faces.services.FacesSelectItemListingService;
 import com.lapsa.kz.country.KZArea;
 
-@Named("kzAreaService")
+import tech.lapsa.javax.faces.beans.localization.ListingBean;
+
+@Named("kzArea")
 @ApplicationScoped
-public class KZAreaServiceBean implements FacesSelectItemListingService<KZArea> {
+public class KZAreaBean implements ListingBean<KZArea> {
 
     @Override
     public KZArea[] getAll() {
