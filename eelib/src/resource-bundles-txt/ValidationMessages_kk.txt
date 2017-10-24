@@ -3,4 +3,4 @@ com.lapsa.kz.idnumber.validators.ValidIdNumber.message = ЖСН қате
 com.lapsa.kz.country.validators.ValidKZArea.message = Аймақ қате
 com.lapsa.kz.country.validators.ValidKZCity.message = Қала қате
 
-tech.lapsa.kz.vehicle.validators.ValidVehicleRegNumber.message = =KAZ= Регистрационный номер ТС некорректен
+tech.lapsa.kz.vehicle.validators.ValidVehicleRegNumber.message = КҚ дұрыс емес тіркеу нөмірі

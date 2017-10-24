@@ -3,4 +3,4 @@ com.lapsa.kz.idnumber.validators.ValidIdNumber.message = ИИН не корре�
 com.lapsa.kz.country.validators.ValidKZArea.message = Регион некорректен
 com.lapsa.kz.country.validators.ValidKZCity.message = Город некорректен
 
-tech.lapsa.kz.vehicle.validators.ValidVehicleRegNumber.message = Регистрационный номер ТС некорректен
+tech.lapsa.kz.vehicle.validators.ValidVehicleRegNumber.message = Неверный регистрационный номер ТС
