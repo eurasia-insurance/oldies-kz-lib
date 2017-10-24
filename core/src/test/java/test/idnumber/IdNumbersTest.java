@@ -1,4 +1,4 @@
-package test.localization.idnumber;
+package test.idnumber;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
