@@ -31,6 +31,12 @@
 			<artifactId>validation-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Java EE -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<!-- test -->
 		<dependency>
 			<groupId>junit</groupId>
