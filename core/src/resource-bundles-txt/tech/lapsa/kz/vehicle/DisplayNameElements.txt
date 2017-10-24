@@ -1,0 +1,4 @@
+tech.lapsa.kz.vehicle.DisplayNameElements.AREA = регион
+tech.lapsa.kz.vehicle.DisplayNameElements.ENTITY_TYPE = субъект
+tech.lapsa.kz.vehicle.DisplayNameElements.TYPE = тип
+tech.lapsa.kz.vehicle.DisplayNameElements.VEHICLE_TYPE = тип

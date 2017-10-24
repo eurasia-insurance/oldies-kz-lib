@@ -1,0 +1,8 @@
+tech.lapsa.kz.vehicle.RegNumberType.OLD_TYPE_1 = Номер старого образца для физ.лиц
+tech.lapsa.kz.vehicle.RegNumberType.OLD_TYPE_2 = Номер старого образца для юр.лиц
+tech.lapsa.kz.vehicle.RegNumberType.TYPE_1 = Тип 1
+tech.lapsa.kz.vehicle.RegNumberType.TYPE_1A = Тип 1а
+tech.lapsa.kz.vehicle.RegNumberType.TYPE_2 = Тип 2
+tech.lapsa.kz.vehicle.RegNumberType.TYPE_2A = Тип 2а
+tech.lapsa.kz.vehicle.RegNumberType.TYPE_3 = Тип 3
+tech.lapsa.kz.vehicle.RegNumberType.TYPE_5 = Тип 5

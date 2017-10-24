@@ -1,0 +1,2 @@
+tech.lapsa.kz.vehicle.EntityType.INDIVIDUAL = физлицо
+tech.lapsa.kz.vehicle.EntityType.LEGAL_ENTITY = юрлицо

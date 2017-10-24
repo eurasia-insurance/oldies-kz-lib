@@ -1,0 +1,3 @@
+tech.lapsa.kz.vehicle.VehicleType.CAR = автомобиль
+tech.lapsa.kz.vehicle.VehicleType.MOTORBIKE = мотоцикл
+tech.lapsa.kz.vehicle.VehicleType.TRAILER = прицеп
