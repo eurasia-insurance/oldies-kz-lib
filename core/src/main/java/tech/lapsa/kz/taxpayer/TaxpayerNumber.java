@@ -17,26 +17,6 @@ import tech.lapsa.java.commons.localization.Localizeds;
 
 public final class TaxpayerNumber implements Localized {
 
-    public static boolean valid(final String value) {
-	return of(value).valid;
-    }
-
-    public static boolean nonValid(final String value) {
-	return !valid(value);
-    }
-
-    public static String requireValid(final String value) {
-	return requireValid(value, null);
-    }
-
-    public static String requireValid(final String value, final String par) {
-	if (valid(value))
-	    return value;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, value);
-    }
-
-    //
-
     public static TaxpayerNumber of(final String value) {
 	return parse(value)
 		.orElseGet(() -> new TaxpayerNumber(value, Optional.empty(), Optional.empty(), false));
@@ -84,6 +64,16 @@ public final class TaxpayerNumber implements Localized {
 
     public boolean isValid() {
 	return valid;
+    }
+
+    public TaxpayerNumber requireValid() {
+	return requireValid(null);
+    }
+
+    public TaxpayerNumber requireValid(String par) {
+	if (valid)
+	    return this;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, this.toString());
     }
 
     @Override
