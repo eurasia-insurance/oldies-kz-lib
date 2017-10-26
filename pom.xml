@@ -26,6 +26,7 @@
 		<javax-javaee-bom.version>7.0-SNAPSHOT</javax-javaee-bom.version>
 		<java-commons-root.version>1.0-SNAPSHOT</java-commons-root.version>
 		<javax-faces-commons.version>1.0-SNAPSHOT</javax-faces-commons.version>
+		<javax-rs-commons.version>1.0-SNAPSHOT</javax-rs-commons.version>
 		<payara-bom.version>4.1.2-1-SNAPSHOT</payara-bom.version>
 	</properties>
 
@@ -58,6 +59,11 @@
 				<groupId>tech.lapsa.javax</groupId>
 				<artifactId>javax-faces-commons</artifactId>
 				<version>${javax-faces-commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>tech.lapsa.javax</groupId>
+				<artifactId>javax-rs-commons</artifactId>
+				<version>${javax-rs-commons.version}</version>
 			</dependency>
 			<!-- own -->
 			<dependency>
