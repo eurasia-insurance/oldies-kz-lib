@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 import com.lapsa.kz.country.KZArea;
 
+import tech.lapsa.java.commons.function.MyExceptions;
 import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
@@ -16,9 +17,25 @@ import tech.lapsa.java.commons.localization.Localized;
 
 public final class VehicleRegNumber implements Localized {
 
-    public static boolean isValid(String value) {
-	return of(value).getType() != null;
+    public static boolean valid(final String value) {
+	return of(value).valid;
     }
+
+    public static boolean nonValid(final String value) {
+	return !valid(value);
+    }
+
+    public static String requireValid(final String value) {
+	return requireValid(value, null);
+    }
+
+    public static String requireValid(final String value, final String par) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid vehicle reg number", par, value);
+    }
+
+    //
 
     public static VehicleRegNumber of(String value) {
 	return parse(value)

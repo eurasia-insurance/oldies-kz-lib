@@ -35,6 +35,8 @@ public final class TaxpayerNumber implements Localized {
 	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, value);
     }
 
+    //
+
     public static TaxpayerNumber of(final String value) {
 	return parse(value)
 		.orElseGet(() -> new TaxpayerNumber(value, Optional.empty(), Optional.empty(), false));
