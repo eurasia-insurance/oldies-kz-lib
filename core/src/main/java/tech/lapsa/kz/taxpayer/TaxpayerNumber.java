@@ -2,6 +2,7 @@ package tech.lapsa.kz.taxpayer;
 
 import static tech.lapsa.kz.DisplayNameElements.*;
 
+import java.io.Serializable;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Locale;
@@ -10,38 +11,38 @@ import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
 import tech.lapsa.java.commons.function.MyExceptions;
-import tech.lapsa.java.commons.function.MyObjects;
+import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
 import tech.lapsa.java.commons.localization.Localizeds;
 
-public final class TaxpayerNumber implements Localized {
+public final class TaxpayerNumber implements Localized, Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     public static TaxpayerNumber of(final String value) {
 	return parse(value)
-		.orElseGet(() -> new TaxpayerNumber(value, Optional.empty(), Optional.empty(), false));
+		.orElseGet(() -> new TaxpayerNumber(value, null, null, false));
     }
 
     public static Optional<TaxpayerNumber> parse(final String value) {
 	MyStrings.requireNonEmpty(value, "value");
 	if (IdNumbers.nonValid(value))
 	    return Optional.empty();
-	Optional<LocalDate> dob = IdNumbers.dateOfBirthFrom(value);
-	Optional<Gender> gender = IdNumbers.genderFrom(value);
+	LocalDate dob = IdNumbers.dateOfBirthFrom(value).orElse(null);
+	Gender gender = IdNumbers.genderFrom(value).orElse(null);
 	return Optional.of(new TaxpayerNumber(value, dob, gender, true));
     }
 
-    private TaxpayerNumber(final String number, final Optional<LocalDate> optionalDateOfBirth,
-	    final Optional<Gender> optionalGender,
-	    final boolean valid) {
+    private TaxpayerNumber(final String number, final LocalDate dateOfBirth, final Gender gender, final boolean valid) {
 	this.number = MyStrings.requireNonEmpty(number, "number");
-	this.optionalDateOfBirth = MyObjects.requireNonNull(optionalDateOfBirth, "optionalDateOfBirth");
-	this.optionalGender = MyObjects.requireNonNull(optionalGender, "optionalGender");
+	this.dateOfBirth = dateOfBirth;
+	this.gender = gender;
 	this.valid = valid;
     }
 
-    private final Optional<LocalDate> optionalDateOfBirth;
-    private final Optional<Gender> optionalGender;
+    private final LocalDate dateOfBirth;
+    private final Gender gender;
     private final String number;
     private final boolean valid;
 
@@ -66,11 +67,11 @@ public final class TaxpayerNumber implements Localized {
     }
 
     public Optional<LocalDate> optionalDateOfBirth() {
-	return optionalDateOfBirth;
+	return MyOptionals.of(dateOfBirth);
     }
 
     public Optional<Gender> optionalGender() {
-	return optionalGender;
+	return MyOptionals.of(gender);
     }
 
     public boolean isValid() {
@@ -96,11 +97,13 @@ public final class TaxpayerNumber implements Localized {
 	StringJoiner sj = new StringJoiner(", ", " ", "");
 	sj.setEmptyValue("");
 
-	optionalDateOfBirth.map(Localizeds.localDateMapper(locale)) //
+	MyOptionals.of(dateOfBirth) //
+		.map(Localizeds.localDateMapper(locale)) //
 		.map(TAXPAYER_NUMBER_DATE_OF_BIRTH.fieldAsCaptionMapper(variant, locale))
 		.ifPresent(sj::add);
 
-	optionalGender.map(Localized.toLocalizedMapper(variant, locale)) //
+	MyOptionals.of(gender) //
+		.map(Localized.toLocalizedMapper(variant, locale)) //
 		.map(TAXPAYER_NUMBER_GENDER.fieldAsCaptionMapper(variant, locale))
 		.ifPresent(sj::add);
 
@@ -259,6 +262,14 @@ public final class TaxpayerNumber implements Localized {
 	    return false;
 	}
 
+    }
+
+    public LocalDate getDateOfBirth() {
+	return dateOfBirth;
+    }
+
+    public Gender getGender() {
+	return gender;
     }
 
 }

@@ -2,6 +2,7 @@ package tech.lapsa.kz.vehicle;
 
 import static tech.lapsa.kz.DisplayNameElements.*;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.StringJoiner;
@@ -15,7 +16,9 @@ import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
 
-public final class VehicleRegNumber implements Localized {
+public final class VehicleRegNumber implements Localized, Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     public static VehicleRegNumber of(String value) {
 	return parse(value)
@@ -31,31 +34,30 @@ public final class VehicleRegNumber implements Localized {
 		.findFirst();
     }
 
-    VehicleRegNumber(String number, RegNumberType regNumberType, Optional<EntityType> optionalEntityType,
-	    Optional<KZArea> optionalArea,
-	    Optional<VehicleType> optionallVehicleType, boolean valid) {
+    VehicleRegNumber(String number, RegNumberType regNumberType, EntityType entityType, KZArea area,
+	    VehicleType vehicleType, boolean valid) {
 	this.number = MyStrings.requireNonEmpty(number, "number");
 	this.regNumberType = MyObjects.requireNonNull(regNumberType, "regNumberType");
-	this.optionalEntityType = MyObjects.requireNonNull(optionalEntityType, "optionalEntityType");
-	this.optionallVehicleType = MyObjects.requireNonNull(optionallVehicleType, "optionallVehicleType");
-	this.optionalArea = MyObjects.requireNonNull(optionalArea, "optionalArea");
+	this.entityType = entityType;
+	this.vehicleType = vehicleType;
+	this.area = area;
 	this.valid = valid;
     }
 
     private VehicleRegNumber(String value, boolean valid) {
 	this.number = MyStrings.requireNonEmpty(value, "value");
 	this.regNumberType = null;
-	this.optionalEntityType = Optional.empty();
-	this.optionallVehicleType = Optional.empty();
-	this.optionalArea = Optional.empty();
+	this.entityType = null;
+	this.vehicleType = null;
+	this.area = null;
 	this.valid = valid;
     }
 
     private final RegNumberType regNumberType;
-    private final Optional<EntityType> optionalEntityType;
-    private final Optional<VehicleType> optionallVehicleType;
+    private final EntityType entityType;
+    private final VehicleType vehicleType;
     private final String number;
-    private final Optional<KZArea> optionalArea;
+    private final KZArea area;
     private final boolean valid;
 
     @Override
@@ -73,8 +75,24 @@ public final class VehicleRegNumber implements Localized {
 	return number;
     }
 
+    public RegNumberType getRegNumberType() {
+	return regNumberType;
+    }
+
+    public EntityType getEntityType() {
+	return entityType;
+    }
+
+    public VehicleType getVehicleType() {
+	return vehicleType;
+    }
+
+    public KZArea getArea() {
+	return area;
+    }
+
     public Optional<KZArea> optionalArea() {
-	return optionalArea;
+	return MyOptionals.of(area);
     }
 
     public RegNumberType getType() {
@@ -82,11 +100,11 @@ public final class VehicleRegNumber implements Localized {
     }
 
     public Optional<EntityType> optionalEntityType() {
-	return optionalEntityType;
+	return MyOptionals.of(entityType);
     }
 
     public Optional<VehicleType> optionalVehicleType() {
-	return optionallVehicleType;
+	return MyOptionals.of(vehicleType);
     }
 
     public boolean isValid() {
@@ -117,15 +135,18 @@ public final class VehicleRegNumber implements Localized {
 	StringJoiner sj = new StringJoiner(", ", " ", "");
 	sj.setEmptyValue("");
 
-	optionalArea.map(Localized.toLocalizedMapper(variant, locale)) //
+	MyOptionals.of(area) //
+		.map(Localized.toLocalizedMapper(variant, locale)) //
 		.map(VEHICLE_AREA.fieldAsCaptionMapper(variant, locale)) //
 		.ifPresent(sj::add);
 
-	optionalEntityType.map(Localized.toLocalizedMapper(variant, locale)) //
+	MyOptionals.of(entityType) //
+		.map(Localized.toLocalizedMapper(variant, locale)) //
 		.map(VEHICLE_ENTITY_TYPE.fieldAsCaptionMapper(variant, locale)) //
 		.ifPresent(sj::add);
 
-	optionallVehicleType.map(Localized.toLocalizedMapper(variant, locale)) //
+	MyOptionals.of(vehicleType) //
+		.map(Localized.toLocalizedMapper(variant, locale)) //
 		.map(VEHICLE_TYPE.fieldAsCaptionMapper(variant, locale)) //
 		.ifPresent(sj::add);
 
