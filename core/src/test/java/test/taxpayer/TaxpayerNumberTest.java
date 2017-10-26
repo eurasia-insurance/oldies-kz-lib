@@ -1,4 +1,4 @@
-package test.idnumber;
+package test.taxpayer;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
@@ -9,50 +9,51 @@ import java.util.Optional;
 
 import org.junit.Test;
 
-import com.lapsa.kz.idnumber.IdNumbers;
-import com.lapsa.kz.idnumber.IdNumbers.Gender;
+import tech.lapsa.kz.taxpayer.Gender;
+import tech.lapsa.kz.taxpayer.TaxpayerNumber;
+import tech.lapsa.kz.taxpayer.TaxpayerNumbers;
 
-public class IdNumbersTest {
+public class TaxpayerNumberTest {
 
     @Test
     public void testValid() {
 	final String VALID = "800225000319";
 	final String INVALID = "12312";
 
-	assertTrue(IdNumbers.valid(VALID));
-	assertTrue(IdNumbers.nonValid(INVALID));
-	unexpectException(() -> IdNumbers.requireValid(VALID));
+	assertTrue(TaxpayerNumbers.valid(VALID));
+	assertTrue(TaxpayerNumbers.nonValid(INVALID));
+	unexpectException(() -> TaxpayerNumbers.requireValid(VALID));
 
-	assertFalse(IdNumbers.nonValid(VALID));
-	assertFalse(IdNumbers.valid(INVALID));
-	expectException(() -> IdNumbers.requireValid(INVALID));
+	assertFalse(TaxpayerNumbers.nonValid(VALID));
+	assertFalse(TaxpayerNumbers.valid(INVALID));
+	expectException(() -> TaxpayerNumbers.requireValid(INVALID));
     }
 
     @Test
     public void testGender() {
 	final String FEMALE = "811203400953";
 
-	Optional<Gender> female = IdNumbers.genderFrom(FEMALE);
+	Optional<Gender> female = TaxpayerNumber.of(FEMALE).optionalGender();
 	assertNotNull(female);
 	assertTrue(female.isPresent());
 	assertThat(female.get(), equalTo(Gender.FEMALE));
 
 	final String MALE = "800705300098";
 
-	Optional<Gender> male = IdNumbers.genderFrom(MALE);
+	Optional<Gender> male = TaxpayerNumber.of(MALE).optionalGender();
 	assertNotNull(male);
 	assertTrue(male.isPresent());
 	assertThat(male.get(), equalTo(Gender.MALE));
 
 	final String UNRECOGNIZABLE = "800225000319";
 
-	Optional<Gender> unrec = IdNumbers.genderFrom(UNRECOGNIZABLE);
+	Optional<Gender> unrec = TaxpayerNumber.of(UNRECOGNIZABLE).optionalGender();
 	assertNotNull(unrec);
 	assertFalse(unrec.isPresent());
 
 	final String INVALID = "12312";
 
-	Optional<Gender> invalid = IdNumbers.genderFrom(INVALID);
+	Optional<Gender> invalid = TaxpayerNumber.of(INVALID).optionalGender();
 	assertNotNull(invalid);
 	assertFalse(invalid.isPresent());
     }
@@ -61,14 +62,14 @@ public class IdNumbersTest {
     public void testDateOfBirth() {
 	final String OK = "811203400953";
 
-	Optional<LocalDate> ok = IdNumbers.dateOfBirthFrom(OK);
+	Optional<LocalDate> ok = TaxpayerNumber.of(OK).optionalDateOfBirth();
 	assertNotNull(ok);
 	assertTrue(ok.isPresent());
 	assertThat(ok.get(), equalTo(LocalDate.of(1981, 12, 03)));
 
-	final String INVALID = null;
+	final String INVALID = "800225000319";
 
-	Optional<LocalDate> invalid = IdNumbers.dateOfBirthFrom(INVALID);
+	Optional<LocalDate> invalid = TaxpayerNumber.of(INVALID).optionalDateOfBirth();
 	assertNotNull(invalid);
 	assertFalse(invalid.isPresent());
     }

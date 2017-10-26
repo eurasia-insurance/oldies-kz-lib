@@ -1,4 +1,4 @@
-com.lapsa.kz.idnumber.validators.ValidIdNumber.message = ЖСН қате
+tech.lapsa.kz.taxpayer.validators.ValidTaxpayerNumber.message = ЖСН қате
 
 com.lapsa.kz.country.validators.ValidKZArea.message = Аймақ қате
 com.lapsa.kz.country.validators.ValidKZCity.message = Қала қате

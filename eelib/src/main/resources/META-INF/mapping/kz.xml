@@ -4,6 +4,10 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
 
 	<converter
+		class="tech.lapsa.kz.taxpayer.converter.jpa.TaxpayerNumberAttributeConverter"
+		auto-apply="true" />
+
+	<converter
 		class="tech.lapsa.kz.vehicle.converter.jpa.VehicleRegNumberAttributeConverter"
 		auto-apply="true" />
 

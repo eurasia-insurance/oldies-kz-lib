@@ -1,4 +1,4 @@
-com.lapsa.kz.idnumber.validators.ValidIdNumber.message = ИИН не корректен
+tech.lapsa.kz.taxpayer.validators.ValidTaxpayerNumber.message = ИИН не корректен
 
 com.lapsa.kz.country.validators.ValidKZArea.message = Регион некорректен
 com.lapsa.kz.country.validators.ValidKZCity.message = Город некорректен
