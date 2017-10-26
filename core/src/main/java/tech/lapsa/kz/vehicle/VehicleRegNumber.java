@@ -14,7 +14,7 @@ import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
 
-public class VehicleRegNumber implements Localized {
+public final class VehicleRegNumber implements Localized {
 
     public static boolean isValid(String value) {
 	return of(value).getType() != null;
