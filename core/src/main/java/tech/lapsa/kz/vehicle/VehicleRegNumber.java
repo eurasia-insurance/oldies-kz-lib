@@ -22,7 +22,7 @@ public final class VehicleRegNumber implements Localized {
 
     public static VehicleRegNumber of(String value) {
 	return parse(value)
-		.orElseGet(() -> new VehicleRegNumber(value));
+		.orElseGet(() -> new VehicleRegNumber(value, false));
     }
 
     public static Optional<VehicleRegNumber> parse(String value) {
@@ -36,20 +36,22 @@ public final class VehicleRegNumber implements Localized {
 
     VehicleRegNumber(String number, RegNumberType regNumberType, Optional<EntityType> optionalEntityType,
 	    Optional<KZArea> optionalArea,
-	    Optional<VehicleType> optionallVehicleType) {
+	    Optional<VehicleType> optionallVehicleType, boolean valid) {
 	this.number = MyStrings.requireNonEmpty(number, "number");
 	this.regNumberType = MyObjects.requireNonNull(regNumberType, "regNumberType");
 	this.optionalEntityType = MyObjects.requireNonNull(optionalEntityType, "optionalEntityType");
 	this.optionallVehicleType = MyObjects.requireNonNull(optionallVehicleType, "optionallVehicleType");
 	this.optionalArea = MyObjects.requireNonNull(optionalArea, "optionalArea");
+	this.valid = valid;
     }
 
-    private VehicleRegNumber(String value) {
+    private VehicleRegNumber(String value, boolean valid) {
 	this.number = MyStrings.requireNonEmpty(value, "value");
 	this.regNumberType = null;
 	this.optionalEntityType = Optional.empty();
 	this.optionallVehicleType = Optional.empty();
 	this.optionalArea = Optional.empty();
+	this.valid = valid;
     }
 
     private final RegNumberType regNumberType;
@@ -57,6 +59,7 @@ public final class VehicleRegNumber implements Localized {
     private final Optional<VehicleType> optionallVehicleType;
     private final String number;
     private final Optional<KZArea> optionalArea;
+    private final boolean valid;
 
     public String getNumber() {
 	return number;
@@ -76,6 +79,10 @@ public final class VehicleRegNumber implements Localized {
 
     public Optional<VehicleType> optionalVehicleType() {
 	return optionallVehicleType;
+    }
+
+    public boolean isValid() {
+	return valid;
     }
 
     @Override
