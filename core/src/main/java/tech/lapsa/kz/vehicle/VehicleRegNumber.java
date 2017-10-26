@@ -58,6 +58,17 @@ public final class VehicleRegNumber implements Localized {
     private final Optional<KZArea> optionalArea;
     private final boolean valid;
 
+    @Override
+    public boolean equals(Object obj) {
+	return obj instanceof VehicleRegNumber //
+		&& ((VehicleRegNumber) obj).number.equals(number);
+    }
+
+    @Override
+    public int hashCode() {
+	return number.hashCode();
+    }
+
     public String getNumber() {
 	return number;
     }

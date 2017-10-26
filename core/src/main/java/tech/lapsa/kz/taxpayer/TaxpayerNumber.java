@@ -45,6 +45,17 @@ public final class TaxpayerNumber implements Localized {
     private final String number;
     private final boolean valid;
 
+    @Override
+    public boolean equals(Object obj) {
+	return obj instanceof TaxpayerNumber //
+		&& ((TaxpayerNumber) obj).number.equals(number);
+    }
+
+    @Override
+    public int hashCode() {
+	return number.hashCode();
+    }
+
     public String getNumber() {
 	return number;
     }
