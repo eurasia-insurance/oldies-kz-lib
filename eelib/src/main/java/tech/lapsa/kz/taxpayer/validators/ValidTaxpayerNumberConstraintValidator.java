@@ -1,21 +1,18 @@
-package com.lapsa.kz.idnumber.validators;
+package tech.lapsa.kz.taxpayer.validators;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.lapsa.kz.idnumber.IdNumbers;
+import tech.lapsa.kz.taxpayer.TaxpayerNumber;
 
-public class ValidIdNumberConstraintValidator implements ConstraintValidator<ValidIdNumber, String> {
+public class ValidTaxpayerNumberConstraintValidator implements ConstraintValidator<ValidTaxpayerNumber, String> {
 
-    private boolean checkDigit;
-
-    public void initialize(ValidIdNumber constraintAnnotation) {
-	checkDigit = constraintAnnotation.checkDigit();
+    public void initialize(ValidTaxpayerNumber constraintAnnotation) {
     }
 
     public boolean isValid(String value, ConstraintValidatorContext cvc) {
 	if (value == null)
 	    return true;
-	return IdNumbers.valid(value, checkDigit);
+	return TaxpayerNumber.valid(value);
     }
 }

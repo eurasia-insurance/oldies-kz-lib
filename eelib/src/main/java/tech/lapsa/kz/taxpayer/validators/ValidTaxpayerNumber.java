@@ -1,4 +1,4 @@
-package com.lapsa.kz.idnumber.validators;
+package tech.lapsa.kz.taxpayer.validators;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
@@ -11,12 +11,10 @@ import javax.validation.Payload;
 
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
-@Constraint(validatedBy = ValidIdNumberConstraintValidator.class)
-public @interface ValidIdNumber {
+@Constraint(validatedBy = ValidTaxpayerNumberConstraintValidator.class)
+public @interface ValidTaxpayerNumber {
 
-    boolean checkDigit() default true;
-
-    String message() default "{com.lapsa.kz.idnumber.validators.ValidIdNumber.message}";
+    String message() default "{tech.lapsa.kz.taxpayer.validators.ValidTaxpayerNumber.message}";
 
     Class<?>[] groups() default {};
 
