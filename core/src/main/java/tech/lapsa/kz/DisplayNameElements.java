@@ -1,4 +1,4 @@
-package tech.lapsa.kz.vehicle;
+package tech.lapsa.kz;
 
 import java.util.Locale;
 import java.util.function.Function;

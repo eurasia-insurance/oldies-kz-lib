@@ -1,6 +1,6 @@
 package tech.lapsa.kz.vehicle;
 
-import static tech.lapsa.kz.vehicle.DisplayNameElements.*;
+import static tech.lapsa.kz.DisplayNameElements.*;
 
 import java.util.Locale;
 import java.util.Optional;
