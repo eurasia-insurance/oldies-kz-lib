@@ -34,7 +34,7 @@ public final class VehicleRegNumber implements Localized {
 		.findFirst();
     }
 
-    VehicleRegNumber(RegNumberType regNumberType, Optional<EntityType> optionalEntityType, String number,
+    VehicleRegNumber(String number, RegNumberType regNumberType, Optional<EntityType> optionalEntityType,
 	    Optional<KZArea> optionalArea,
 	    Optional<VehicleType> optionallVehicleType) {
 	this.number = MyStrings.requireNonEmpty(number, "number");
@@ -93,11 +93,11 @@ public final class VehicleRegNumber implements Localized {
 	sj.setEmptyValue("");
 
 	optionalArea.map(Localized.toLocalizedMapper(variant, locale)) //
-		.map(AREA.fieldAsCaptionMapper(variant, locale)) //
+		.map(VEHICLE_AREA.fieldAsCaptionMapper(variant, locale)) //
 		.ifPresent(sj::add);
 
 	optionalEntityType.map(Localized.toLocalizedMapper(variant, locale)) //
-		.map(ENTITY_TYPE.fieldAsCaptionMapper(variant, locale)) //
+		.map(VEHICLE_ENTITY_TYPE.fieldAsCaptionMapper(variant, locale)) //
 		.ifPresent(sj::add);
 
 	optionallVehicleType.map(Localized.toLocalizedMapper(variant, locale)) //
@@ -105,7 +105,7 @@ public final class VehicleRegNumber implements Localized {
 		.ifPresent(sj::add);
 
 	MyOptionals.of(regNumberType).map(Localized.toLocalizedMapper(variant, locale)) //
-		.map(TYPE.fieldAsCaptionMapper(variant, locale)) //
+		.map(VEHICLE_REG_NUMBER_TYPE.fieldAsCaptionMapper(variant, locale)) //
 		.ifPresent(sj::add);
 
 	return sb.append(sj.toString()) //

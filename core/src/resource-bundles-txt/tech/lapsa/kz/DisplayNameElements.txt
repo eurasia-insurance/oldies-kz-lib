@@ -1,4 +1,6 @@
-tech.lapsa.kz.vehicle.DisplayNameElements.AREA = регион
-tech.lapsa.kz.vehicle.DisplayNameElements.ENTITY_TYPE = субъект
-tech.lapsa.kz.vehicle.DisplayNameElements.TYPE = тип
-tech.lapsa.kz.vehicle.DisplayNameElements.VEHICLE_TYPE = тип
+tech.lapsa.kz.DisplayNameElements.VEHICLE_AREA = регион
+tech.lapsa.kz.DisplayNameElements.VEHICLE_ENTITY_TYPE = субъект
+tech.lapsa.kz.DisplayNameElements.VEHICLE_REG_NUMBER_TYPE = тип
+tech.lapsa.kz.DisplayNameElements.VEHICLE_TYPE = тип
+tech.lapsa.kz.DisplayNameElements.TAXPAYER_NUMBER_DATE_OF_BIRTH = дата рождения
+tech.lapsa.kz.DisplayNameElements.TAXPAYER_NUMBER_GENDER = пол

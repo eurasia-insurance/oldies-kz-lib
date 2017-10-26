@@ -98,7 +98,7 @@ public enum RegNumberType implements LocalizedElement {
 		.map(matcher -> matcher.group(1))
 		.map(KZArea::optionalForAutoCode)
 		.filter(Optional::isPresent) // area must defined
-		.map(area -> new VehicleRegNumber(this, entityType, regNumber, area, vehicleType))
+		.map(area -> new VehicleRegNumber(regNumber, this, entityType, area, vehicleType))
 		.findFirst();
     }
 }

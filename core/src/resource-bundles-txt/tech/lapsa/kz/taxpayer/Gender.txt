@@ -1,0 +1,2 @@
+tech.lapsa.kz.taxpayer.Gender.FEMALE = жен.
+tech.lapsa.kz.taxpayer.Gender.MALE = муж.
