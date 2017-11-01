@@ -205,7 +205,9 @@ public enum KZCity implements LocalizedElement {
     public String localized(LocalizationVariant variant, Locale locale) {
 	MyObjects.requireNonNull(variant, "Display variant must be provided");
 	MyObjects.requireNonNull(locale, "Locale must be provided");
-	String type = typeOfSettlement.localized(variant, locale);
+	String type = variant == LocalizationVariant.SHORT //
+		? null //
+		: typeOfSettlement.localized(variant, locale);
 	String city = LocalizedElement.super.localized(variant, locale);
 	return generateDisplayName(type, city, locale);
     }
@@ -214,9 +216,6 @@ public enum KZCity implements LocalizedElement {
 
     private static String generateDisplayName(final String typeOfSettlement, final String city,
 	    final Locale locale) {
-	assert typeOfSettlement != null;
-	assert city != null;
-	assert locale != null;
 	final StringBuffer sb = new StringBuffer();
 	switch (locale.getLanguage()) {
 	case "en":
