@@ -15,7 +15,7 @@ public class VehicleRegNumberAttributeConverter implements AttributeConverter<Ve
 
     @Override
     public VehicleRegNumber convertToEntityAttribute(String dbData) {
-	return dbData == null ? null : VehicleRegNumber.of(dbData);
+	return dbData == null ? null : VehicleRegNumber.assertValid(dbData);
     }
 
 }
