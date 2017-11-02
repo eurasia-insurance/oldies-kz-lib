@@ -50,12 +50,6 @@ public class TaxpayerNumberTest {
 	Optional<Gender> unrec = TaxpayerNumber.of(UNRECOGNIZABLE).optionalGender();
 	assertNotNull(unrec);
 	assertFalse(unrec.isPresent());
-
-	final String INVALID = "12312";
-
-	Optional<Gender> invalid = TaxpayerNumber.of(INVALID).optionalGender();
-	assertNotNull(invalid);
-	assertFalse(invalid.isPresent());
     }
 
     @Test

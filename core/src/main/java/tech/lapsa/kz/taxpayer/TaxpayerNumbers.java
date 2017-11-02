@@ -6,7 +6,7 @@ public final class TaxpayerNumbers {
     }
 
     public static boolean valid(final String value) {
-	return TaxpayerNumber.of(value).isValid();
+	return TaxpayerNumber.assertValid(value).isValid();
     }
 
     public static boolean nonValid(final String value) {
@@ -18,7 +18,7 @@ public final class TaxpayerNumbers {
     }
 
     public static String requireValid(final String value, final String par) {
-	TaxpayerNumber.of(value).requireValid();
+	TaxpayerNumber.assertValid(value).requireValid();
 	return value;
     }
 }

@@ -15,7 +15,7 @@ public class VehicleRegNumbersTest {
 	VehicleRegNumber vrn1 = VehicleRegNumber.of("237blm01");
 	assertNotNull(vrn1);
 	assertTrue(vrn1.optionalArea().isPresent());
-	assertEquals(vrn1.optionalArea(), KZArea.GAST);
+	assertEquals(vrn1.getArea(), KZArea.GAST);
     }
 
     public static void main(String[] args) {
