@@ -8,6 +8,8 @@ import java.util.Optional;
 import java.util.StringJoiner;
 import java.util.stream.Stream;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import com.lapsa.kz.country.KZArea;
 
 import tech.lapsa.java.commons.function.MyExceptions;
@@ -15,7 +17,9 @@ import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
+import tech.lapsa.kz.vehicle.converter.jaxb.XmlVehicleRegNumberAdapter;
 
+@XmlJavaTypeAdapter(XmlVehicleRegNumberAdapter.class)
 public final class VehicleRegNumber implements Localized, Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -10,13 +10,17 @@ import java.util.Optional;
 import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import tech.lapsa.java.commons.function.MyExceptions;
 import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
 import tech.lapsa.java.commons.localization.Localizeds;
+import tech.lapsa.kz.taxpayer.converter.jaxb.XmlTaxpayerNumberAdapter;
 
+@XmlJavaTypeAdapter(XmlTaxpayerNumberAdapter.class)
 public final class TaxpayerNumber implements Localized, Serializable {
 
     private static final long serialVersionUID = 1L;
