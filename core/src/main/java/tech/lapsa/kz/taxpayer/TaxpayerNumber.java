@@ -20,22 +20,33 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public static TaxpayerNumber of(final String value) {
-	return parse(value)
-		.orElseGet(() -> new TaxpayerNumber(value, null, null, false));
+    /**
+     * @param value
+     * @return new taxpayer number valid or not
+     */
+    public static TaxpayerNumber assertValid(final String value) {
+	try {
+	    return of(value);
+	} catch (IllegalArgumentException e) {
+	    return new TaxpayerNumber(value, null, null, false);
+	}
     }
 
-    public static Optional<TaxpayerNumber> parse(final String value) {
+    /**
+     * @param value
+     * @return valid taxpayer number
+     * @throws IllegalArgumentException if taxpayer number can'not be parsed or argument empty or null
+     */
+    public static TaxpayerNumber of(final String value) throws IllegalArgumentException {
 	MyStrings.requireNonEmpty(value, "value");
-	if (IdNumbers.nonValid(value))
-	    return Optional.empty();
+	IdNumbers.requireValid(value, "value");
 	LocalDate dob = IdNumbers.dateOfBirthFrom(value).orElse(null);
 	Gender gender = IdNumbers.genderFrom(value).orElse(null);
-	return Optional.of(new TaxpayerNumber(value, dob, gender, true));
+	return new TaxpayerNumber(value, dob, gender, true);
     }
 
     private TaxpayerNumber(final String number, final LocalDate dateOfBirth, final Gender gender, final boolean valid) {
-	this.number = MyStrings.requireNonEmpty(number, "number");
+	this.number = number;
 	this.dateOfBirth = dateOfBirth;
 	this.gender = gender;
 	this.valid = valid;
@@ -189,18 +200,23 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
 	//
 
-	static boolean valid(final String idNumber, final boolean checkDigit) {
-	    if (MyStrings.empty(idNumber))
+	static boolean valid(final String taxpayerNumber, final boolean checkDigit) {
+	    if (MyStrings.empty(taxpayerNumber))
 		return false;
-	    if (!PATTERN.matcher(idNumber).matches())
+	    if (!PATTERN.matcher(taxpayerNumber).matches())
 		return false;
 	    if (!checkDigit)
 		return true;
-	    return checkDigit(idNumber);
+	    return checkDigit(taxpayerNumber);
 	}
 
-	static boolean nonValid(final String idNumber) {
-	    return !valid(idNumber, true);
+	static boolean nonValid(final String taxpayerNumber) {
+	    return !valid(taxpayerNumber, true);
+	}
+
+	static void requireValid(String taxpayerNumber, String par) {
+	    if (nonValid(taxpayerNumber))
+		throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, taxpayerNumber);
 	}
 
 	//

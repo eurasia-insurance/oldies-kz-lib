@@ -12,7 +12,7 @@ public class XmlTaxpayerNumberAdapter extends XmlAdapter<String, TaxpayerNumber>
     public TaxpayerNumber unmarshal(String v) throws Exception {
 	return MyStrings.empty(v) //
 		? null //
-		: TaxpayerNumber.of(v);
+		: TaxpayerNumber.assertValid(v);
     }
 
     @Override

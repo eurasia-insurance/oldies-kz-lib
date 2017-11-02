@@ -20,18 +20,32 @@ public final class VehicleRegNumber implements Localized, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public static VehicleRegNumber of(String value) {
-	return parse(value)
-		.orElseGet(() -> new VehicleRegNumber(value, false));
+    /**
+     * @param value
+     * @return new vehicle reg number valid or not
+     */
+    public static VehicleRegNumber assertValid(final String value) {
+	try {
+	    return of(value);
+	} catch (IllegalArgumentException e) {
+	    return new VehicleRegNumber(value, false);
+	}
     }
 
-    public static Optional<VehicleRegNumber> parse(String value) {
+    /**
+     * @param value
+     * @return valid vehicle reg number
+     * @throws IllegalArgumentException if vehicle reg number can'not be parsed or argument empty or null
+     */
+    public static VehicleRegNumber of(final String value) throws IllegalArgumentException {
 	MyStrings.requireNonEmpty(value, "value");
 	return Stream.of(RegNumberType.values())
 		.map(x -> x.parseType(value)) //
 		.filter(Optional::isPresent) //
 		.map(Optional::get) //
-		.findFirst();
+		.findFirst() //
+		.orElseThrow(
+			() -> MyExceptions.illegalArgumentException("Invalid vehicle reg number", "vehicleNumber", value));
     }
 
     VehicleRegNumber(String number, RegNumberType regNumberType, EntityType entityType, KZArea area,
@@ -45,7 +59,7 @@ public final class VehicleRegNumber implements Localized, Serializable {
     }
 
     private VehicleRegNumber(String value, boolean valid) {
-	this.number = MyStrings.requireNonEmpty(value, "value");
+	this.number = value;
 	this.regNumberType = null;
 	this.entityType = null;
 	this.vehicleType = null;
