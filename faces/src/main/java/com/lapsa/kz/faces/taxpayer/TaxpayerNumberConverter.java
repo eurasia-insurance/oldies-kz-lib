@@ -15,7 +15,7 @@ public class TaxpayerNumberConverter implements Converter {
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
 	return MyOptionals.of(value) //
-		.map(TaxpayerNumber::of) //
+		.map(TaxpayerNumber::assertValid) //
 		.orElse(null);
     }
 
