@@ -11,6 +11,7 @@ import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
 import tech.lapsa.java.commons.function.MyExceptions;
+import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
@@ -22,9 +23,12 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
     /**
      * @param value
+     *            must not be null
      * @return new taxpayer number valid or not
+     * @throws IllegalArgumentException
+     *             if taxpayer number is null
      */
-    public static TaxpayerNumber assertValid(final String value) {
+    public static TaxpayerNumber assertValid(final String value) throws IllegalArgumentException {
 	try {
 	    return of(value);
 	} catch (IllegalArgumentException e) {
@@ -35,7 +39,9 @@ public final class TaxpayerNumber implements Localized, Serializable {
     /**
      * @param value
      * @return valid taxpayer number
-     * @throws IllegalArgumentException if taxpayer number can'not be parsed or argument empty or null
+     * @throws IllegalArgumentException
+     *             if taxpayer number can'not be parsed or argument empty or
+     *             null
      */
     public static TaxpayerNumber of(final String value) throws IllegalArgumentException {
 	MyStrings.requireNonEmpty(value, "value");
@@ -46,7 +52,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
     }
 
     private TaxpayerNumber(final String number, final LocalDate dateOfBirth, final Gender gender, final boolean valid) {
-	this.number = number;
+	this.number = MyObjects.requireNonNull(number, "number");
 	this.dateOfBirth = dateOfBirth;
 	this.gender = gender;
 	this.valid = valid;

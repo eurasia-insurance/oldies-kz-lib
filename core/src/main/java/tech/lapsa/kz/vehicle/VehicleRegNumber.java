@@ -22,20 +22,25 @@ public final class VehicleRegNumber implements Localized, Serializable {
 
     /**
      * @param value
+     *            must not be null
      * @return new vehicle reg number valid or not
+     * @throws IllegalArgumentException
+     *             if vehicle reg number is null
      */
-    public static VehicleRegNumber assertValid(final String value) {
+    public static VehicleRegNumber assertValid(final String value) throws IllegalArgumentException {
 	try {
 	    return of(value);
 	} catch (IllegalArgumentException e) {
-	    return new VehicleRegNumber(value, false);
+	    return new VehicleRegNumber(value);
 	}
     }
 
     /**
      * @param value
      * @return valid vehicle reg number
-     * @throws IllegalArgumentException if vehicle reg number can'not be parsed or argument empty or null
+     * @throws IllegalArgumentException
+     *             if vehicle reg number can'not be parsed or argument empty or
+     *             null
      */
     public static VehicleRegNumber of(final String value) throws IllegalArgumentException {
 	MyStrings.requireNonEmpty(value, "value");
@@ -45,7 +50,8 @@ public final class VehicleRegNumber implements Localized, Serializable {
 		.map(Optional::get) //
 		.findFirst() //
 		.orElseThrow(
-			() -> MyExceptions.illegalArgumentException("Invalid vehicle reg number", "vehicleNumber", value));
+			() -> MyExceptions.illegalArgumentException("Invalid vehicle reg number", "vehicleNumber",
+				value));
     }
 
     VehicleRegNumber(String number, RegNumberType regNumberType, EntityType entityType, KZArea area,
@@ -58,13 +64,14 @@ public final class VehicleRegNumber implements Localized, Serializable {
 	this.valid = valid;
     }
 
-    private VehicleRegNumber(String value, boolean valid) {
-	this.number = value;
+    // for invalid types only
+    private VehicleRegNumber(String number) {
+	this.number = MyObjects.requireNonNull(number, "number");
 	this.regNumberType = null;
 	this.entityType = null;
 	this.vehicleType = null;
 	this.area = null;
-	this.valid = valid;
+	this.valid = false;
     }
 
     private final RegNumberType regNumberType;
