@@ -14,7 +14,7 @@ public class TaxpayerNumberParamConverter
 
     @Override
     public TaxpayerNumber fromString(String value) {
-	return TaxpayerNumber.of(value);
+	return TaxpayerNumber.assertValid(value);
     }
 
     @Override

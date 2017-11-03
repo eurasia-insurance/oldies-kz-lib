@@ -15,7 +15,7 @@ public class TaxpayerNumberAttributeConverter implements AttributeConverter<Taxp
 
     @Override
     public TaxpayerNumber convertToEntityAttribute(String dbData) {
-	return dbData == null ? null : TaxpayerNumber.of(dbData);
+	return dbData == null ? null : TaxpayerNumber.assertValid(dbData);
     }
 
 }

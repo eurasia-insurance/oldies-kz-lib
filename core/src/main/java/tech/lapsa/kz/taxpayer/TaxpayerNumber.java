@@ -10,32 +10,83 @@ import java.util.Optional;
 import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import tech.lapsa.java.commons.function.MyExceptions;
+import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
 import tech.lapsa.java.commons.localization.Localizeds;
+import tech.lapsa.kz.taxpayer.converter.jaxb.XmlTaxpayerNumberAdapter;
 
+@XmlJavaTypeAdapter(XmlTaxpayerNumberAdapter.class)
 public final class TaxpayerNumber implements Localized, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public static TaxpayerNumber of(final String value) {
-	return parse(value)
-		.orElseGet(() -> new TaxpayerNumber(value, null, null, false));
+    /**
+     * @param value
+     *            must not be null
+     * @return new taxpayer number valid or not
+     * @throws IllegalArgumentException
+     *             if taxpayer number is null
+     */
+    public static TaxpayerNumber assertValid(final String value) throws IllegalArgumentException {
+	try {
+	    return of(value);
+	} catch (IllegalArgumentException e) {
+	    return new TaxpayerNumber(value, null, null, false);
+	}
     }
 
-    public static Optional<TaxpayerNumber> parse(final String value) {
+    /**
+     * @param value
+     * @return valid taxpayer number
+     * @throws IllegalArgumentException
+     *             if taxpayer number can'not be parsed or argument empty or
+     *             null
+     */
+    public static TaxpayerNumber of(final String value) throws IllegalArgumentException {
 	MyStrings.requireNonEmpty(value, "value");
-	if (IdNumbers.nonValid(value))
-	    return Optional.empty();
+	IdNumbers.requireValid(value, "value");
 	LocalDate dob = IdNumbers.dateOfBirthFrom(value).orElse(null);
 	Gender gender = IdNumbers.genderFrom(value).orElse(null);
-	return Optional.of(new TaxpayerNumber(value, dob, gender, true));
+	return new TaxpayerNumber(value, dob, gender, true);
     }
 
+    public static boolean valid(String value) {
+	return TaxpayerNumber.assertValid(value).valid;
+    }
+
+    public static boolean nonValid(String value) {
+	return !valid(value);
+    }
+
+    public static boolean valid(TaxpayerNumber value) {
+	return value.valid;
+    }
+
+    public static boolean nonValid(TaxpayerNumber value) {
+	return !valid(value);
+    }
+
+    public static TaxpayerNumber requireValid(TaxpayerNumber value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value.toString());
+    }
+
+    public static String requireValid(String value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value);
+    }
+
+    //
+
     private TaxpayerNumber(final String number, final LocalDate dateOfBirth, final Gender gender, final boolean valid) {
-	this.number = MyStrings.requireNonEmpty(number, "number");
+	this.number = MyObjects.requireNonNull(number, "number");
 	this.dateOfBirth = dateOfBirth;
 	this.gender = gender;
 	this.valid = valid;
@@ -72,20 +123,6 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
     public Optional<Gender> optionalGender() {
 	return MyOptionals.of(gender);
-    }
-
-    public boolean isValid() {
-	return valid;
-    }
-
-    public TaxpayerNumber requireValid() {
-	return requireValid(null);
-    }
-
-    public TaxpayerNumber requireValid(String par) {
-	if (valid)
-	    return this;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, this.toString());
     }
 
     @Override
@@ -189,18 +226,23 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
 	//
 
-	static boolean valid(final String idNumber, final boolean checkDigit) {
-	    if (MyStrings.empty(idNumber))
+	static boolean valid(final String taxpayerNumber, final boolean checkDigit) {
+	    if (MyStrings.empty(taxpayerNumber))
 		return false;
-	    if (!PATTERN.matcher(idNumber).matches())
+	    if (!PATTERN.matcher(taxpayerNumber).matches())
 		return false;
 	    if (!checkDigit)
 		return true;
-	    return checkDigit(idNumber);
+	    return checkDigit(taxpayerNumber);
 	}
 
-	static boolean nonValid(final String idNumber) {
-	    return !valid(idNumber, true);
+	static boolean nonValid(final String taxpayerNumber) {
+	    return !valid(taxpayerNumber, true);
+	}
+
+	static void requireValid(String taxpayerNumber, String par) {
+	    if (nonValid(taxpayerNumber))
+		throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, taxpayerNumber);
 	}
 
 	//
@@ -271,5 +313,4 @@ public final class TaxpayerNumber implements Localized, Serializable {
     public Gender getGender() {
 	return gender;
     }
-
 }

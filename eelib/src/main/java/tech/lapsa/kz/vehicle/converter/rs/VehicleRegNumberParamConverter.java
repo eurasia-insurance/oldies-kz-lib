@@ -14,7 +14,7 @@ public class VehicleRegNumberParamConverter
 
     @Override
     public VehicleRegNumber fromString(String v) {
-	return VehicleRegNumber.of(v);
+	return VehicleRegNumber.assertValid(v);
     }
 
     @Override

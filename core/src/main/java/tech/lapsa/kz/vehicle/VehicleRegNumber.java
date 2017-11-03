@@ -8,6 +8,8 @@ import java.util.Optional;
 import java.util.StringJoiner;
 import java.util.stream.Stream;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import com.lapsa.kz.country.KZArea;
 
 import tech.lapsa.java.commons.function.MyExceptions;
@@ -15,23 +17,73 @@ import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.java.commons.function.MyStrings;
 import tech.lapsa.java.commons.localization.Localized;
+import tech.lapsa.kz.vehicle.converter.jaxb.XmlVehicleRegNumberAdapter;
 
+@XmlJavaTypeAdapter(XmlVehicleRegNumberAdapter.class)
 public final class VehicleRegNumber implements Localized, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public static VehicleRegNumber of(String value) {
-	return parse(value)
-		.orElseGet(() -> new VehicleRegNumber(value, false));
+    /**
+     * @param value
+     *            must not be null
+     * @return new vehicle reg number valid or not
+     * @throws IllegalArgumentException
+     *             if vehicle reg number is null
+     */
+    public static VehicleRegNumber assertValid(final String value) throws IllegalArgumentException {
+	try {
+	    return of(value);
+	} catch (IllegalArgumentException e) {
+	    return new VehicleRegNumber(value);
+	}
     }
 
-    public static Optional<VehicleRegNumber> parse(String value) {
+    /**
+     * @param value
+     * @return valid vehicle reg number
+     * @throws IllegalArgumentException
+     *             if vehicle reg number can'not be parsed or argument empty or
+     *             null
+     */
+    public static VehicleRegNumber of(final String value) throws IllegalArgumentException {
 	MyStrings.requireNonEmpty(value, "value");
 	return Stream.of(RegNumberType.values())
 		.map(x -> x.parseType(value)) //
 		.filter(Optional::isPresent) //
 		.map(Optional::get) //
-		.findFirst();
+		.findFirst() //
+		.orElseThrow(
+			() -> MyExceptions.illegalArgumentException("Invalid vehicle reg number", "vehicleNumber",
+				value));
+    }
+
+    public static boolean valid(String value) {
+	return VehicleRegNumber.assertValid(value).valid;
+    }
+
+    public static boolean nonValid(String value) {
+	return !valid(value);
+    }
+
+    public static boolean valid(VehicleRegNumber value) {
+	return value.valid;
+    }
+
+    public static boolean nonValid(VehicleRegNumber value) {
+	return !valid(value);
+    }
+
+    public static VehicleRegNumber requireValid(VehicleRegNumber value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value.toString());
+    }
+
+    public static String requireValid(String value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value);
     }
 
     VehicleRegNumber(String number, RegNumberType regNumberType, EntityType entityType, KZArea area,
@@ -44,13 +96,14 @@ public final class VehicleRegNumber implements Localized, Serializable {
 	this.valid = valid;
     }
 
-    private VehicleRegNumber(String value, boolean valid) {
-	this.number = MyStrings.requireNonEmpty(value, "value");
+    // for invalid types only
+    private VehicleRegNumber(String number) {
+	this.number = MyObjects.requireNonNull(number, "number");
 	this.regNumberType = null;
 	this.entityType = null;
 	this.vehicleType = null;
 	this.area = null;
-	this.valid = valid;
+	this.valid = false;
     }
 
     private final RegNumberType regNumberType;
@@ -105,20 +158,6 @@ public final class VehicleRegNumber implements Localized, Serializable {
 
     public Optional<VehicleType> optionalVehicleType() {
 	return MyOptionals.of(vehicleType);
-    }
-
-    public boolean isValid() {
-	return valid;
-    }
-
-    public VehicleRegNumber requireValid() {
-	return requireValid(null);
-    }
-
-    public VehicleRegNumber requireValid(String par) {
-	if (valid)
-	    return this;
-	throw MyExceptions.illegalArgumentException("Invalid vehicle registartion number", par, this.toString());
     }
 
     @Override
