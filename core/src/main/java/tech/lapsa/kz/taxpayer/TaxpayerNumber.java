@@ -55,6 +55,36 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	return new TaxpayerNumber(value, dob, gender, true);
     }
 
+    public static boolean valid(String value) {
+	return TaxpayerNumber.assertValid(value).valid;
+    }
+
+    public static boolean nonValid(String value) {
+	return !valid(value);
+    }
+
+    public static boolean valid(TaxpayerNumber value) {
+	return value.valid;
+    }
+
+    public static boolean nonValid(TaxpayerNumber value) {
+	return !valid(value);
+    }
+
+    public static TaxpayerNumber requireValid(TaxpayerNumber value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value.toString());
+    }
+
+    public static String requireValid(String value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value);
+    }
+
+    //
+
     private TaxpayerNumber(final String number, final LocalDate dateOfBirth, final Gender gender, final boolean valid) {
 	this.number = MyObjects.requireNonNull(number, "number");
 	this.dateOfBirth = dateOfBirth;
@@ -93,20 +123,6 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
     public Optional<Gender> optionalGender() {
 	return MyOptionals.of(gender);
-    }
-
-    public boolean isValid() {
-	return valid;
-    }
-
-    public TaxpayerNumber requireValid() {
-	return requireValid(null);
-    }
-
-    public TaxpayerNumber requireValid(String par) {
-	if (valid)
-	    return this;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, this.toString());
     }
 
     @Override
@@ -297,5 +313,4 @@ public final class TaxpayerNumber implements Localized, Serializable {
     public Gender getGender() {
 	return gender;
     }
-
 }

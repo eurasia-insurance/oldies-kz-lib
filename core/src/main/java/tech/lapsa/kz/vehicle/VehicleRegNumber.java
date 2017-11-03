@@ -58,6 +58,34 @@ public final class VehicleRegNumber implements Localized, Serializable {
 				value));
     }
 
+    public static boolean valid(String value) {
+	return VehicleRegNumber.assertValid(value).valid;
+    }
+
+    public static boolean nonValid(String value) {
+	return !valid(value);
+    }
+
+    public static boolean valid(VehicleRegNumber value) {
+	return value.valid;
+    }
+
+    public static boolean nonValid(VehicleRegNumber value) {
+	return !valid(value);
+    }
+
+    public static VehicleRegNumber requireValid(VehicleRegNumber value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value.toString());
+    }
+
+    public static String requireValid(String value) {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value);
+    }
+
     VehicleRegNumber(String number, RegNumberType regNumberType, EntityType entityType, KZArea area,
 	    VehicleType vehicleType, boolean valid) {
 	this.number = MyStrings.requireNonEmpty(number, "number");
@@ -130,20 +158,6 @@ public final class VehicleRegNumber implements Localized, Serializable {
 
     public Optional<VehicleType> optionalVehicleType() {
 	return MyOptionals.of(vehicleType);
-    }
-
-    public boolean isValid() {
-	return valid;
-    }
-
-    public VehicleRegNumber requireValid() {
-	return requireValid(null);
-    }
-
-    public VehicleRegNumber requireValid(String par) {
-	if (valid)
-	    return this;
-	throw MyExceptions.illegalArgumentException("Invalid vehicle registartion number", par, this.toString());
     }
 
     @Override

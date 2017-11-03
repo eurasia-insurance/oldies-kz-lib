@@ -11,7 +11,6 @@ import org.junit.Test;
 
 import tech.lapsa.kz.taxpayer.Gender;
 import tech.lapsa.kz.taxpayer.TaxpayerNumber;
-import tech.lapsa.kz.taxpayer.TaxpayerNumbers;
 
 public class TaxpayerNumberTest {
 
@@ -20,13 +19,13 @@ public class TaxpayerNumberTest {
 	final String VALID = "800225000319";
 	final String INVALID = "12312";
 
-	assertTrue(TaxpayerNumbers.valid(VALID));
-	assertTrue(TaxpayerNumbers.nonValid(INVALID));
-	unexpectException(() -> TaxpayerNumbers.requireValid(VALID));
+	assertTrue(TaxpayerNumber.valid(VALID));
+	assertTrue(TaxpayerNumber.nonValid(INVALID));
+	unexpectException(() -> TaxpayerNumber.requireValid(VALID));
 
-	assertFalse(TaxpayerNumbers.nonValid(VALID));
-	assertFalse(TaxpayerNumbers.valid(INVALID));
-	expectException(() -> TaxpayerNumbers.requireValid(INVALID));
+	assertFalse(TaxpayerNumber.nonValid(VALID));
+	assertFalse(TaxpayerNumber.valid(INVALID));
+	expectException(() -> TaxpayerNumber.requireValid(INVALID));
     }
 
     @Test
