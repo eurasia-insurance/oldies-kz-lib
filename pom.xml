@@ -23,7 +23,7 @@
 	<properties>
 		<!-- BOMS -->
 		<javax-javaee-bom.version>7.0</javax-javaee-bom.version>
-		<java-commons.version>1.0</java-commons.version>
+		<java-commons.version>1.1-SNAPSHOT</java-commons.version>
 		<javax-faces-commons.version>1.0</javax-faces-commons.version>
 		<javax-rs-commons.version>1.0</javax-rs-commons.version>
 		<payara-bom.version>4.1.2-1</payara-bom.version>
