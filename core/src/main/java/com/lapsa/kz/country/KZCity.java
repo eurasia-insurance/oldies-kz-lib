@@ -99,11 +99,7 @@ public enum KZCity implements LocalizedElement {
     SCHU(CITY, DISTINCT_CENTER, OAKM), // Щучинск
     EKIB(CITY, REGIONAL_SUBORDINATION, OPVL), // Экибастуз
     EMBA(CITY, DISTINCT_SUBORDINATION, OAKT), // Эмба
-    OTHER, // TODO найти решение для того, чтобы от
-	   // этого
-    // значения
-    // энумерации можно было бы избавиться. Сейчас это
-    // введено для JSF движка
+    OTHER, //
     //
     UNDEFINED(false),
     ;
