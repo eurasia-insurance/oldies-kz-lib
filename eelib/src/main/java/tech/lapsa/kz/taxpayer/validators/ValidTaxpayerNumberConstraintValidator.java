@@ -6,7 +6,6 @@ import javax.validation.ValidationException;
 
 import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.kz.taxpayer.TaxpayerNumber;
-import tech.lapsa.kz.vehicle.VehicleRegNumber;
 
 public class ValidTaxpayerNumberConstraintValidator implements ConstraintValidator<ValidTaxpayerNumber, Object> {
 
@@ -21,7 +20,7 @@ public class ValidTaxpayerNumberConstraintValidator implements ConstraintValidat
 
 	if (MyObjects.isA(value, String.class))
 	    check = TaxpayerNumber.assertValid(MyObjects.requireA(value, String.class));
-	else if (MyObjects.isA(value, VehicleRegNumber.class))
+	else if (MyObjects.isA(value, TaxpayerNumber.class))
 	    check = MyObjects.requireA(value, TaxpayerNumber.class);
 	else
 	    throw new ValidationException("Unknown type " + value.getClass());
