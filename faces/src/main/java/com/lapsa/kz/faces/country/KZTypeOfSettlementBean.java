@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 import com.lapsa.kz.country.KZTypeOfSettlement;
 
-import tech.lapsa.javax.faces.beans.localization.ListingBean;
+import tech.lapsa.javax.faces.commons.beans.localization.ListingBean;
 
 @Named("KZTypeOfSettlement")
 @ApplicationScoped
