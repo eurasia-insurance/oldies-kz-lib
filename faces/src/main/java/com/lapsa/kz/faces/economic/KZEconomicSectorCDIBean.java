@@ -5,11 +5,11 @@ import javax.inject.Named;
 
 import com.lapsa.kz.economic.KZEconomicSector;
 
-import tech.lapsa.javax.faces.beans.localization.ListingBean;
+import tech.lapsa.javax.faces.commons.beans.localization.ListingBean;
 
 @Named("KZEconomicSector")
 @ApplicationScoped
-public class KZEconomicSectorBean implements ListingBean<KZEconomicSector> {
+public class KZEconomicSectorCDIBean implements ListingBean<KZEconomicSector> {
 
     @Override
     public KZEconomicSector[] getAll() {

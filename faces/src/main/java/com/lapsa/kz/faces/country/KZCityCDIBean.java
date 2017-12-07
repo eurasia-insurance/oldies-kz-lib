@@ -6,11 +6,11 @@ import javax.inject.Named;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import tech.lapsa.javax.faces.beans.localization.ListingBean;
+import tech.lapsa.javax.faces.commons.beans.localization.ListingBean;
 
 @Named("KZCity")
 @ApplicationScoped
-public class KZCityBean implements ListingBean<KZCity> {
+public class KZCityCDIBean implements ListingBean<KZCity> {
 
     @Override
     public KZCity[] getAll() {
