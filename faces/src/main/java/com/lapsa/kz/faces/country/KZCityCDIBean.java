@@ -10,7 +10,7 @@ import tech.lapsa.javax.faces.commons.beans.localization.ListingBean;
 
 @Named("KZCity")
 @ApplicationScoped
-public class KZCityBean implements ListingBean<KZCity> {
+public class KZCityCDIBean implements ListingBean<KZCity> {
 
     @Override
     public KZCity[] getAll() {

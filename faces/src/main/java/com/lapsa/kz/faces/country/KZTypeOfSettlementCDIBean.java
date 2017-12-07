@@ -9,7 +9,7 @@ import tech.lapsa.javax.faces.commons.beans.localization.ListingBean;
 
 @Named("KZTypeOfSettlement")
 @ApplicationScoped
-public class KZTypeOfSettlementBean implements ListingBean<KZTypeOfSettlement> {
+public class KZTypeOfSettlementCDIBean implements ListingBean<KZTypeOfSettlement> {
 
     @Override
     public KZTypeOfSettlement[] getAll() {
