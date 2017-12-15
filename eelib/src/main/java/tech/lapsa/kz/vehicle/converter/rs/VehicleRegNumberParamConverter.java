@@ -13,12 +13,12 @@ public class VehicleRegNumberParamConverter
 	implements ParamConverter<VehicleRegNumber>, MyParamConverterProvider<VehicleRegNumber> {
 
     @Override
-    public VehicleRegNumber fromString(String v) {
+    public VehicleRegNumber fromString(final String v) {
 	return VehicleRegNumber.assertValid(v);
     }
 
     @Override
-    public String toString(VehicleRegNumber value) {
+    public String toString(final VehicleRegNumber value) {
 	return MyObjects.requireNonNull(value, "value").getNumber();
     }
 

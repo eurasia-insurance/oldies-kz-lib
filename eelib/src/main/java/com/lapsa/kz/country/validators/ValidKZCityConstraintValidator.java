@@ -10,15 +10,15 @@ public class ValidKZCityConstraintValidator implements ConstraintValidator<Valid
     private KZCity[] invalidTypes;
 
     @Override
-    public void initialize(ValidKZCity constraintAnnotation) {
-	this.invalidTypes = constraintAnnotation.invalidValues();
+    public void initialize(final ValidKZCity constraintAnnotation) {
+	invalidTypes = constraintAnnotation.invalidValues();
     }
 
     @Override
-    public boolean isValid(KZCity value, ConstraintValidatorContext context) {
+    public boolean isValid(final KZCity value, final ConstraintValidatorContext context) {
 	if (value == null)
 	    return true;
-	for (KZCity i : invalidTypes)
+	for (final KZCity i : invalidTypes)
 	    if (i.equals(value))
 		return false;
 	return true;

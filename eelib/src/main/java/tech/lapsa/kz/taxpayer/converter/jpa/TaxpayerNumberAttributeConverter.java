@@ -9,12 +9,12 @@ import tech.lapsa.kz.taxpayer.TaxpayerNumber;
 public class TaxpayerNumberAttributeConverter implements AttributeConverter<TaxpayerNumber, String> {
 
     @Override
-    public String convertToDatabaseColumn(TaxpayerNumber attribute) {
+    public String convertToDatabaseColumn(final TaxpayerNumber attribute) {
 	return attribute == null ? null : attribute.getNumber();
     }
 
     @Override
-    public TaxpayerNumber convertToEntityAttribute(String dbData) {
+    public TaxpayerNumber convertToEntityAttribute(final String dbData) {
 	return dbData == null ? null : TaxpayerNumber.assertValid(dbData);
     }
 

@@ -35,7 +35,7 @@ public final class VehicleRegNumber implements Localized, Serializable {
     public static VehicleRegNumber assertValid(final String value) throws IllegalArgumentException {
 	try {
 	    return of(value);
-	} catch (IllegalArgumentException e) {
+	} catch (final IllegalArgumentException e) {
 	    return new VehicleRegNumber(value);
 	}
     }
@@ -60,11 +60,11 @@ public final class VehicleRegNumber implements Localized, Serializable {
 
     //
 
-    public static boolean valid(VehicleRegNumber value) {
+    public static boolean valid(final VehicleRegNumber value) {
 	return value.valid;
     }
 
-    public static boolean nonValid(VehicleRegNumber value) {
+    public static boolean nonValid(final VehicleRegNumber value) {
 	return !valid(value);
     }
 
@@ -81,11 +81,11 @@ public final class VehicleRegNumber implements Localized, Serializable {
 
     //
 
-    public static boolean valid(String value) {
+    public static boolean valid(final String value) {
 	return VehicleRegNumber.assertValid(value).valid;
     }
 
-    public static boolean nonValid(String value) {
+    public static boolean nonValid(final String value) {
 	return !valid(value);
     }
 
@@ -102,8 +102,9 @@ public final class VehicleRegNumber implements Localized, Serializable {
 
     //
 
-    VehicleRegNumber(String number, RegNumberType regNumberType, EntityType entityType, KZArea area,
-	    VehicleType vehicleType, boolean valid) {
+    VehicleRegNumber(final String number, final RegNumberType regNumberType, final EntityType entityType,
+	    final KZArea area,
+	    final VehicleType vehicleType, final boolean valid) {
 	this.number = MyStrings.requireNonEmpty(number, "number");
 	this.regNumberType = MyObjects.requireNonNull(regNumberType, "regNumberType");
 	this.entityType = entityType;
@@ -113,13 +114,13 @@ public final class VehicleRegNumber implements Localized, Serializable {
     }
 
     // for invalid types only
-    private VehicleRegNumber(String number) {
+    private VehicleRegNumber(final String number) {
 	this.number = MyObjects.requireNonNull(number, "number");
-	this.regNumberType = null;
-	this.entityType = null;
-	this.vehicleType = null;
-	this.area = null;
-	this.valid = false;
+	regNumberType = null;
+	entityType = null;
+	vehicleType = null;
+	area = null;
+	valid = false;
     }
 
     private final RegNumberType regNumberType;
@@ -130,7 +131,7 @@ public final class VehicleRegNumber implements Localized, Serializable {
     private final boolean valid;
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
 	return obj instanceof VehicleRegNumber //
 		&& ((VehicleRegNumber) obj).number.equals(number);
     }
@@ -182,12 +183,12 @@ public final class VehicleRegNumber implements Localized, Serializable {
     }
 
     @Override
-    public String localized(LocalizationVariant variant, Locale locale) {
-	StringBuilder sb = new StringBuilder();
+    public String localized(final LocalizationVariant variant, final Locale locale) {
+	final StringBuilder sb = new StringBuilder();
 
 	sb.append(number);
 
-	StringJoiner sj = new StringJoiner(", ", " ", "");
+	final StringJoiner sj = new StringJoiner(", ", " ", "");
 	sj.setEmptyValue("");
 
 	MyOptionals.of(area) //

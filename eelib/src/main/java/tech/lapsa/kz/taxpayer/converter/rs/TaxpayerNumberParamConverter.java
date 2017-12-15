@@ -13,12 +13,12 @@ public class TaxpayerNumberParamConverter
 	implements ParamConverter<TaxpayerNumber>, MyParamConverterProvider<TaxpayerNumber> {
 
     @Override
-    public TaxpayerNumber fromString(String value) {
+    public TaxpayerNumber fromString(final String value) {
 	return TaxpayerNumber.assertValid(value);
     }
 
     @Override
-    public String toString(TaxpayerNumber value) {
+    public String toString(final TaxpayerNumber value) {
 	return MyObjects.requireNonNull(value, "value").getNumber();
     }
 

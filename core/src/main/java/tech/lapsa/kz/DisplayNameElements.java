@@ -11,8 +11,7 @@ public enum DisplayNameElements implements LocalizedElement {
     VEHICLE_TYPE,
     VEHICLE_ENTITY_TYPE,
     TAXPAYER_NUMBER_DATE_OF_BIRTH,
-    TAXPAYER_NUMBER_GENDER
-    ;
+    TAXPAYER_NUMBER_GENDER;
 
     public Function<String, String> fieldAsCaptionMapper(final LocalizationVariant variant,
 	    final Locale locale) {

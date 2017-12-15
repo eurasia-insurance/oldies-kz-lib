@@ -9,14 +9,14 @@ import tech.lapsa.kz.taxpayer.TaxpayerNumber;
 public class XmlTaxpayerNumberAdapter extends XmlAdapter<String, TaxpayerNumber> {
 
     @Override
-    public TaxpayerNumber unmarshal(String v) throws Exception {
+    public TaxpayerNumber unmarshal(final String v) throws Exception {
 	return MyStrings.empty(v) //
 		? null //
 		: TaxpayerNumber.assertValid(v);
     }
 
     @Override
-    public String marshal(TaxpayerNumber v) throws Exception {
+    public String marshal(final TaxpayerNumber v) throws Exception {
 	return MyObjects.isNull(v) //
 		? null //
 		: v.getNumber();

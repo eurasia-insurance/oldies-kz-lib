@@ -9,12 +9,12 @@ import tech.lapsa.kz.vehicle.VehicleRegNumber;
 public class VehicleRegNumberAttributeConverter implements AttributeConverter<VehicleRegNumber, String> {
 
     @Override
-    public String convertToDatabaseColumn(VehicleRegNumber attribute) {
+    public String convertToDatabaseColumn(final VehicleRegNumber attribute) {
 	return attribute == null ? null : attribute.getNumber();
     }
 
     @Override
-    public VehicleRegNumber convertToEntityAttribute(String dbData) {
+    public VehicleRegNumber convertToEntityAttribute(final String dbData) {
 	return dbData == null ? null : VehicleRegNumber.assertValid(dbData);
     }
 

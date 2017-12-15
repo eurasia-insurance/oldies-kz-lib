@@ -20,10 +20,10 @@ public enum KZTypeOfSettlement implements LocalizedElement {
     //
 
     private KZTypeOfSettlement() {
-	this.selectable = true;
+	selectable = true;
     }
 
-    private KZTypeOfSettlement(boolean selectable) {
+    private KZTypeOfSettlement(final boolean selectable) {
 	this.selectable = selectable;
     }
 

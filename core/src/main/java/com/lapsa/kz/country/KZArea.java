@@ -35,13 +35,13 @@ public enum KZArea implements LocalizedElement {
 
     //
 
-    private KZArea(String code, String... autoCodes) {
+    private KZArea(final String code, final String... autoCodes) {
 	this.code = MyObjects.requireNonNull(code);
-	this.selectable = true;
+	selectable = true;
 	this.autoCodes = autoCodes;
     }
 
-    private KZArea(String code, boolean selectable, String... autoCodes) {
+    private KZArea(final String code, final boolean selectable, final String... autoCodes) {
 	this.code = MyObjects.requireNonNull(code);
 	this.selectable = selectable;
 	this.autoCodes = autoCodes;
@@ -55,30 +55,30 @@ public enum KZArea implements LocalizedElement {
 
     //
 
-    public static KZArea getForCode(String code) {
+    public static KZArea getForCode(final String code) {
 	return optionalForCode(code) //
 		.orElse(null);
     }
 
-    public static Optional<KZArea> optionalForCode(String code) {
+    public static Optional<KZArea> optionalForCode(final String code) {
 	return Stream.of(values()) //
 		.filter(x -> x.code.equals(code)) //
 		.findAny();
     }
 
-    public static KZArea getForAutoCode(String autoCode) {
+    public static KZArea getForAutoCode(final String autoCode) {
 	return optionalForAutoCode(autoCode)
 		.orElse(null);
     }
 
-    public static Optional<KZArea> optionalForAutoCode(String autoCode) {
+    public static Optional<KZArea> optionalForAutoCode(final String autoCode) {
 	return Stream.of(values()) //
 		.filter(x -> x.code.equals(autoCode)
 			|| Stream.of(x.autoCodes).anyMatch(y -> y.equalsIgnoreCase(autoCode))) //
 		.findAny();
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 	System.out.println(KZArea.optionalForAutoCode("O"));
     }
 
