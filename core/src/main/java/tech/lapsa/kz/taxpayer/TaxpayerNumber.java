@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.StringJoiner;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -71,16 +72,23 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	return !valid(value);
     }
 
-    public static TaxpayerNumber requireValid(TaxpayerNumber value) {
+    public static TaxpayerNumber requireValid(TaxpayerNumber value) throws IllegalArgumentException {
 	if (valid(value))
 	    return value;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value.toString());
+	throw MyExceptions.illegalArgumentPar("Invalid taxpayer number", "value", value.toString());
     }
 
-    public static String requireValid(String value) {
+    public static <X extends Throwable> TaxpayerNumber requireValid(final Function<String, X> creator,
+	    final TaxpayerNumber value) throws X {
 	if (valid(value))
 	    return value;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value);
+	throw MyExceptions.par(creator, "Invalid taxpayer number", "value", value.toString());
+    }
+
+    public static String requireValid(String value) throws IllegalArgumentException {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentPar("Invalid taxpayer number", "value", value);
     }
 
     //
@@ -240,9 +248,9 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	    return !valid(taxpayerNumber, true);
 	}
 
-	static void requireValid(String taxpayerNumber, String par) {
+	static void requireValid(String taxpayerNumber, String par) throws IllegalArgumentException {
 	    if (nonValid(taxpayerNumber))
-		throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, taxpayerNumber);
+		throw MyExceptions.illegalArgumentPar("Invalid taxpayer number", par, taxpayerNumber);
 	}
 
 	//

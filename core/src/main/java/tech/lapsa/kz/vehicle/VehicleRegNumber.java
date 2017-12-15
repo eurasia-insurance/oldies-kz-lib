@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.StringJoiner;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -54,17 +55,10 @@ public final class VehicleRegNumber implements Localized, Serializable {
 		.map(Optional::get) //
 		.findFirst() //
 		.orElseThrow(
-			() -> MyExceptions.illegalArgumentException("Invalid vehicle reg number", "vehicleNumber",
-				value));
+			() -> MyExceptions.illegalArgumentPar("Invalid vehicle reg number", "vehicleNumber", value));
     }
 
-    public static boolean valid(String value) {
-	return VehicleRegNumber.assertValid(value).valid;
-    }
-
-    public static boolean nonValid(String value) {
-	return !valid(value);
-    }
+    //
 
     public static boolean valid(VehicleRegNumber value) {
 	return value.valid;
@@ -74,17 +68,39 @@ public final class VehicleRegNumber implements Localized, Serializable {
 	return !valid(value);
     }
 
-    public static VehicleRegNumber requireValid(VehicleRegNumber value) {
+    public static <X extends Throwable> VehicleRegNumber requireValid(final Function<String, X> creator,
+	    final VehicleRegNumber value) throws X {
 	if (valid(value))
 	    return value;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value.toString());
+	throw MyExceptions.par(creator, "Invalid taxpayer number", "value", value.toString());
     }
 
-    public static String requireValid(String value) {
+    public static VehicleRegNumber requireValid(final VehicleRegNumber value) throws IllegalArgumentException {
+	return requireValid(IllegalArgumentException::new, value);
+    }
+
+    //
+
+    public static boolean valid(String value) {
+	return VehicleRegNumber.assertValid(value).valid;
+    }
+
+    public static boolean nonValid(String value) {
+	return !valid(value);
+    }
+
+    public static <X extends Throwable> String requireValid(final Function<String, X> creator,
+	    final String value) throws X {
 	if (valid(value))
 	    return value;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value);
+	throw MyExceptions.par(creator, "Invalid taxpayer number", "value", value.toString());
     }
+
+    public static String requireValid(final String value) throws IllegalArgumentException {
+	return requireValid(IllegalArgumentException::new, value);
+    }
+
+    //
 
     VehicleRegNumber(String number, RegNumberType regNumberType, EntityType entityType, KZArea area,
 	    VehicleType vehicleType, boolean valid) {
