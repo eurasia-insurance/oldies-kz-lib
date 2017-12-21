@@ -22,16 +22,16 @@ public enum KZCityType implements LocalizedElement {
     //
 
     private KZCityType() {
-	this.regional = false;
-	this.selectable = true;
+	regional = false;
+	selectable = true;
     }
 
-    private KZCityType(boolean regional) {
+    private KZCityType(final boolean regional) {
 	this.regional = regional;
-	this.selectable = true;
+	selectable = true;
     }
 
-    private KZCityType(boolean regional, boolean selectable) {
+    private KZCityType(final boolean regional, final boolean selectable) {
 	this.regional = regional;
 	this.selectable = selectable;
     }

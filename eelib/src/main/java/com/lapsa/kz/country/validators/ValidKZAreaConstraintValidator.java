@@ -10,15 +10,15 @@ public class ValidKZAreaConstraintValidator implements ConstraintValidator<Valid
     private KZArea[] invalidTypes;
 
     @Override
-    public void initialize(ValidKZArea constraintAnnotation) {
-	this.invalidTypes = constraintAnnotation.invalidValues();
+    public void initialize(final ValidKZArea constraintAnnotation) {
+	invalidTypes = constraintAnnotation.invalidValues();
     }
 
     @Override
-    public boolean isValid(KZArea value, ConstraintValidatorContext context) {
+    public boolean isValid(final KZArea value, final ConstraintValidatorContext context) {
 	if (value == null)
 	    return true;
-	for (KZArea i : invalidTypes)
+	for (final KZArea i : invalidTypes)
 	    if (i.equals(value))
 		return false;
 	return true;

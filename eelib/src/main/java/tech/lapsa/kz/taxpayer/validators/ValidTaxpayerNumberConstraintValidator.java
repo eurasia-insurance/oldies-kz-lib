@@ -9,10 +9,12 @@ import tech.lapsa.kz.taxpayer.TaxpayerNumber;
 
 public class ValidTaxpayerNumberConstraintValidator implements ConstraintValidator<ValidTaxpayerNumber, Object> {
 
-    public void initialize(ValidTaxpayerNumber constraintAnnotation) {
+    @Override
+    public void initialize(final ValidTaxpayerNumber constraintAnnotation) {
     }
 
-    public boolean isValid(Object value, ConstraintValidatorContext cvc) {
+    @Override
+    public boolean isValid(final Object value, final ConstraintValidatorContext cvc) {
 	if (value == null)
 	    return true;
 

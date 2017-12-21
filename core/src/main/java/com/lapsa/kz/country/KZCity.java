@@ -114,23 +114,23 @@ public enum KZCity implements LocalizedElement {
     //
 
     private KZCity() {
-	this.typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
-	this.type = KZCityType.UNDEFINED;
-	this.area = KZArea.UNDEFINED;
-	this.selectable = true;
+	typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
+	type = KZCityType.UNDEFINED;
+	area = KZArea.UNDEFINED;
+	selectable = true;
     }
 
-    private KZCity(KZTypeOfSettlement typeOfSettlement, KZCityType type, KZArea area) {
+    private KZCity(final KZTypeOfSettlement typeOfSettlement, final KZCityType type, final KZArea area) {
 	this.typeOfSettlement = MyObjects.requireNonNull(typeOfSettlement);
 	this.type = MyObjects.requireNonNull(type);
 	this.area = MyObjects.requireNonNull(area);
-	this.selectable = true;
+	selectable = true;
     }
 
-    private KZCity(boolean selectable) {
-	this.typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
-	this.type = KZCityType.UNDEFINED;
-	this.area = KZArea.UNDEFINED;
+    private KZCity(final boolean selectable) {
+	typeOfSettlement = KZTypeOfSettlement.UNDEFINED;
+	type = KZCityType.UNDEFINED;
+	area = KZArea.UNDEFINED;
 	this.selectable = selectable;
     }
 
@@ -176,7 +176,7 @@ public enum KZCity implements LocalizedElement {
 
     //
 
-    public static final KZCity[] regionalValuesByArea(KZArea area) {
+    public static final KZCity[] regionalValuesByArea(final KZArea area) {
 	MyObjects.requireNonNull(area, "Area must be provided");
 	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
@@ -186,7 +186,7 @@ public enum KZCity implements LocalizedElement {
 		.toArray(KZCity[]::new);
     }
 
-    public static final KZCity[] selectableValuesByArea(KZArea area) {
+    public static final KZCity[] selectableValuesByArea(final KZArea area) {
 	MyObjects.requireNonNull(area, "Area must be provided");
 	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
@@ -198,13 +198,13 @@ public enum KZCity implements LocalizedElement {
     //
 
     @Override
-    public String localized(LocalizationVariant variant, Locale locale) {
+    public String localized(final LocalizationVariant variant, final Locale locale) {
 	MyObjects.requireNonNull(variant, "Display variant must be provided");
 	MyObjects.requireNonNull(locale, "Locale must be provided");
-	String type = variant == LocalizationVariant.SHORT //
+	final String type = variant == LocalizationVariant.SHORT //
 		? null //
 		: typeOfSettlement.localized(variant, locale);
-	String city = LocalizedElement.super.localized(variant, locale);
+	final String city = LocalizedElement.super.localized(variant, locale);
 	return generateDisplayName(type, city, locale);
     }
 

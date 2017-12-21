@@ -30,12 +30,12 @@ public enum KZEconomicSector implements LocalizedElement {
 
     //
 
-    private KZEconomicSector(String code) {
+    private KZEconomicSector(final String code) {
 	this.code = MyObjects.requireNonNull(code, "Code must be provided");
-	this.selectable = true;
+	selectable = true;
     }
 
-    private KZEconomicSector(String code, boolean selectable) {
+    private KZEconomicSector(final String code, final boolean selectable) {
 	this.code = MyObjects.requireNonNull(code, "Code must be provided");
 	this.selectable = selectable;
     }
@@ -68,7 +68,7 @@ public enum KZEconomicSector implements LocalizedElement {
 
     //
 
-    public static KZEconomicSector forCode(String code) {
+    public static KZEconomicSector forCode(final String code) {
 	return valuesStream() //
 		.filter(x -> x.code.equals(code)) //
 		.findAny() //

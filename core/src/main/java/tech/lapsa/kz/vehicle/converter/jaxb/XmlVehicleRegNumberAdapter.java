@@ -9,14 +9,14 @@ import tech.lapsa.kz.vehicle.VehicleRegNumber;
 public class XmlVehicleRegNumberAdapter extends XmlAdapter<String, VehicleRegNumber> {
 
     @Override
-    public VehicleRegNumber unmarshal(String v) throws Exception {
+    public VehicleRegNumber unmarshal(final String v) throws Exception {
 	return MyStrings.empty(v) //
 		? null //
 		: VehicleRegNumber.assertValid(v);
     }
 
     @Override
-    public String marshal(VehicleRegNumber v) throws Exception {
+    public String marshal(final VehicleRegNumber v) throws Exception {
 	return MyObjects.isNull(v) //
 		? null //
 		: v.getNumber();

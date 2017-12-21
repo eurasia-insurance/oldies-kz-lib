@@ -11,11 +11,13 @@ public class ValidVehicleRegNumberConstraintValidator implements ConstraintValid
 
     private boolean areaIsOptional;
 
-    public void initialize(ValidVehicleRegNumber constraintAnnotation) {
+    @Override
+    public void initialize(final ValidVehicleRegNumber constraintAnnotation) {
 	areaIsOptional = constraintAnnotation.areaIsOptional();
     }
 
-    public boolean isValid(Object value, ConstraintValidatorContext cvc) {
+    @Override
+    public boolean isValid(final Object value, final ConstraintValidatorContext cvc) {
 	if (value == null)
 	    return true;
 

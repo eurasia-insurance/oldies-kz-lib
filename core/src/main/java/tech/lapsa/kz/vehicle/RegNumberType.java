@@ -84,14 +84,14 @@ public enum RegNumberType implements LocalizedElement {
     private final VehicleType vehicleType;
     private final List<Pattern> patterns;
 
-    private RegNumberType(EntityType entityType, VehicleType vehicleType,
-	    List<Pattern> patterns) {
+    private RegNumberType(final EntityType entityType, final VehicleType vehicleType,
+	    final List<Pattern> patterns) {
 	this.entityType = entityType;
 	this.vehicleType = vehicleType;
 	this.patterns = patterns;
     }
 
-    Optional<VehicleRegNumber> parseType(String regNumber) {
+    Optional<VehicleRegNumber> parseType(final String regNumber) {
 	return patterns.stream() //
 		.map(pattern -> pattern.matcher(regNumber)) //
 		.filter(Matcher::matches) //

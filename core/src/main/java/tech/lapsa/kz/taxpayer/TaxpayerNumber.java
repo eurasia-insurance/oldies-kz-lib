@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.StringJoiner;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -35,7 +36,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
     public static TaxpayerNumber assertValid(final String value) throws IllegalArgumentException {
 	try {
 	    return of(value);
-	} catch (IllegalArgumentException e) {
+	} catch (final IllegalArgumentException e) {
 	    return new TaxpayerNumber(value, null, null, false);
 	}
     }
@@ -50,37 +51,44 @@ public final class TaxpayerNumber implements Localized, Serializable {
     public static TaxpayerNumber of(final String value) throws IllegalArgumentException {
 	MyStrings.requireNonEmpty(value, "value");
 	IdNumbers.requireValid(value, "value");
-	LocalDate dob = IdNumbers.dateOfBirthFrom(value).orElse(null);
-	Gender gender = IdNumbers.genderFrom(value).orElse(null);
+	final LocalDate dob = IdNumbers.dateOfBirthFrom(value).orElse(null);
+	final Gender gender = IdNumbers.genderFrom(value).orElse(null);
 	return new TaxpayerNumber(value, dob, gender, true);
     }
 
-    public static boolean valid(String value) {
+    public static boolean valid(final String value) {
 	return TaxpayerNumber.assertValid(value).valid;
     }
 
-    public static boolean nonValid(String value) {
+    public static boolean nonValid(final String value) {
 	return !valid(value);
     }
 
-    public static boolean valid(TaxpayerNumber value) {
+    public static boolean valid(final TaxpayerNumber value) {
 	return value.valid;
     }
 
-    public static boolean nonValid(TaxpayerNumber value) {
+    public static boolean nonValid(final TaxpayerNumber value) {
 	return !valid(value);
     }
 
-    public static TaxpayerNumber requireValid(TaxpayerNumber value) {
+    public static TaxpayerNumber requireValid(final TaxpayerNumber value) throws IllegalArgumentException {
 	if (valid(value))
 	    return value;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value.toString());
+	throw MyExceptions.illegalArgumentPar("Invalid taxpayer number", "value", value.toString());
     }
 
-    public static String requireValid(String value) {
+    public static <X extends Throwable> TaxpayerNumber requireValid(final Function<String, X> creator,
+	    final TaxpayerNumber value) throws X {
 	if (valid(value))
 	    return value;
-	throw MyExceptions.illegalArgumentException("Invalid taxpayer number", "value", value);
+	throw MyExceptions.par(creator, "Invalid taxpayer number", "value", value.toString());
+    }
+
+    public static String requireValid(final String value) throws IllegalArgumentException {
+	if (valid(value))
+	    return value;
+	throw MyExceptions.illegalArgumentPar("Invalid taxpayer number", "value", value);
     }
 
     //
@@ -98,7 +106,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
     private final boolean valid;
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
 	return obj instanceof TaxpayerNumber //
 		&& ((TaxpayerNumber) obj).number.equals(number);
     }
@@ -126,12 +134,12 @@ public final class TaxpayerNumber implements Localized, Serializable {
     }
 
     @Override
-    public String localized(LocalizationVariant variant, Locale locale) {
-	StringBuilder sb = new StringBuilder();
+    public String localized(final LocalizationVariant variant, final Locale locale) {
+	final StringBuilder sb = new StringBuilder();
 
 	sb.append(number);
 
-	StringJoiner sj = new StringJoiner(", ", " ", "");
+	final StringJoiner sj = new StringJoiner(", ", " ", "");
 	sj.setEmptyValue("");
 
 	MyOptionals.of(dateOfBirth) //
@@ -153,7 +161,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	private IdNumbers() {
 	}
 
-	static Optional<LocalDate> dateOfBirthFrom(String idNumber) {
+	static Optional<LocalDate> dateOfBirthFrom(final String idNumber) {
 	    if (nonValid(idNumber))
 		return Optional.empty();
 
@@ -166,7 +174,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
 		month = Integer.parseInt(idNumber.substring(2, 4));
 		dayOfMonth = Integer.parseInt(idNumber.substring(4, 6));
 		code = Integer.parseInt(idNumber.substring(6, 7));
-	    } catch (NumberFormatException e) {
+	    } catch (final NumberFormatException e) {
 		return Optional.empty();
 	    }
 
@@ -193,12 +201,12 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
 	    try {
 		return Optional.of(LocalDate.of(year, month, dayOfMonth));
-	    } catch (DateTimeException e) {
+	    } catch (final DateTimeException e) {
 		return Optional.empty();
 	    }
 	}
 
-	static Optional<Gender> genderFrom(String idNumber) {
+	static Optional<Gender> genderFrom(final String idNumber) {
 	    if (nonValid(idNumber))
 		return Optional.empty();
 
@@ -206,7 +214,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
 	    try {
 		code = Integer.parseInt(idNumber.substring(6, 7));
-	    } catch (NumberFormatException e) {
+	    } catch (final NumberFormatException e) {
 		return Optional.empty();
 	    }
 
@@ -240,9 +248,9 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	    return !valid(taxpayerNumber, true);
 	}
 
-	static void requireValid(String taxpayerNumber, String par) {
+	static void requireValid(final String taxpayerNumber, final String par) throws IllegalArgumentException {
 	    if (nonValid(taxpayerNumber))
-		throw MyExceptions.illegalArgumentException("Invalid taxpayer number", par, taxpayerNumber);
+		throw MyExceptions.illegalArgumentPar("Invalid taxpayer number", par, taxpayerNumber);
 	}
 
 	//
@@ -251,33 +259,33 @@ public final class TaxpayerNumber implements Localized, Serializable {
 
 	/*
 	 * 5. Алгоритм расчета значения контрольного разряда
-	 * 
+	 *
 	 * В целях осуществления контроля и снижения ошибок клавиатурного ввода
 	 * в составе ИИН (БИН) предусматривается наличие контрольного 12-го
 	 * разряда, при расчете которого будет использоваться следующий алгоритм
 	 * в два цикла:
-	 * 
+	 *
 	 * а12=(а1*b1+а2*b2+а3*b3+а4*b4+а5*b5+а6*b6+а7*b7+а8*b8+а9*b9+a10*b10+
 	 * a11* b11) mod 11,
-	 * 
+	 *
 	 * где: ai - значение i-гo разряда;
-	 * 
+	 *
 	 * bi - вес i-гo разряда.
-	 * 
+	 *
 	 * разряд ИИН: 1 2 3 4 5 6 7 8 9 10 11
-	 * 
+	 *
 	 * вес разряда: 1 2 3 4 5 6 7 8 9 10 11.
-	 * 
+	 *
 	 * 1. Если полученное число равно 10, то расчет контрольного разряда
 	 * производится с другой последовательностью весов:
-	 * 
+	 *
 	 * разряд ИИН: 1 2 3 4 5 6 7 8 9 10 11
-	 * 
+	 *
 	 * вес разряда: 3 4 5 6 7 8 9 10 11 1 2.
-	 * 
+	 *
 	 * 2. Если полученное число также равно 10, то данный ИИН не
 	 * используется.
-	 * 
+	 *
 	 * 3. Если полученное число имеет значение от 0 до 9, то данное число
 	 * берется в качестве контрольного разряда.
 	 */
@@ -285,7 +293,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
 		new byte[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2 } };
 
 	private static boolean checkDigit(final String value) {
-	    byte[] iin = new byte[12];
+	    final byte[] iin = new byte[12];
 	    int checksum = 0;
 	    for (int i = 0; i < 12; i++) {
 		iin[i] = Byte.parseByte(Character.toString(value.charAt(i)));
@@ -293,7 +301,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	    }
 	    if (checksum == 0) // check for 000 000 000 000
 		return false;
-	    for (byte[] w : weights) {
+	    for (final byte[] w : weights) {
 		int control = 0;
 		for (int i = 0; i < 11; i++)
 		    control += iin[i] * w[i];

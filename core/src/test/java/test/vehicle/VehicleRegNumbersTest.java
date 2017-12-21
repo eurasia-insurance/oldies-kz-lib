@@ -12,49 +12,49 @@ public class VehicleRegNumbersTest {
 
     @Test
     public void simpleTest1() {
-	VehicleRegNumber vrn1 = VehicleRegNumber.of("237blm01");
+	final VehicleRegNumber vrn1 = VehicleRegNumber.of("237blm01");
 	assertNotNull(vrn1);
 	assertTrue(vrn1.optionalArea().isPresent());
 	assertEquals(vrn1.getArea(), KZArea.GAST);
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 	{
-	    VehicleRegNumber vrn1 = VehicleRegNumber.of("237blm01");
+	    final VehicleRegNumber vrn1 = VehicleRegNumber.of("237blm01");
 	    System.out.println(vrn1);
-	    VehicleRegNumber vrn2 = VehicleRegNumber.of("23701blm");
+	    final VehicleRegNumber vrn2 = VehicleRegNumber.of("23701blm");
 	    System.out.println(vrn2);
 	}
 	{
-	    VehicleRegNumber vrn1 = VehicleRegNumber.of("249anm01");
+	    final VehicleRegNumber vrn1 = VehicleRegNumber.of("249anm01");
 	    System.out.println(vrn1);
-	    VehicleRegNumber vrn2 = VehicleRegNumber.of("24901anm");
+	    final VehicleRegNumber vrn2 = VehicleRegNumber.of("24901anm");
 	    System.out.println(vrn2);
 	}
 	{
-	    VehicleRegNumber vrn = VehicleRegNumber.of("389bk01");
+	    final VehicleRegNumber vrn = VehicleRegNumber.of("389bk01");
 	    System.out.println(vrn);
 	}
 	{
-	    VehicleRegNumber vrn = VehicleRegNumber.of("24901an");
+	    final VehicleRegNumber vrn = VehicleRegNumber.of("24901an");
 	    System.out.println(vrn);
 	}
 	{
-	    VehicleRegNumber vrn1 = VehicleRegNumber.of("2401kb");
+	    final VehicleRegNumber vrn1 = VehicleRegNumber.of("2401kb");
 	    System.out.println(vrn1);
-	    VehicleRegNumber vrn2 = VehicleRegNumber.of("24kb01");
+	    final VehicleRegNumber vrn2 = VehicleRegNumber.of("24kb01");
 	    System.out.println(vrn2);
 	}
 	{
-	    VehicleRegNumber vrn1 = VehicleRegNumber.of("anm0124");
+	    final VehicleRegNumber vrn1 = VehicleRegNumber.of("anm0124");
 	    System.out.println(vrn1);
-	    VehicleRegNumber vrn2 = VehicleRegNumber.of("anm2401");
+	    final VehicleRegNumber vrn2 = VehicleRegNumber.of("anm2401");
 	    System.out.println(vrn2);
 	}
 	{
-	    VehicleRegNumber vrn1 = VehicleRegNumber.of("A105YRO");
+	    final VehicleRegNumber vrn1 = VehicleRegNumber.of("A105YRO");
 	    System.out.println(vrn1);
-	    VehicleRegNumber vrn2 = VehicleRegNumber.of("A105YR");
+	    final VehicleRegNumber vrn2 = VehicleRegNumber.of("A105YR");
 	    System.out.println(vrn2);
 	}
     }

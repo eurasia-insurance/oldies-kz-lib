@@ -27,11 +27,11 @@ public class KZCityCDIBean implements ListingBean<KZCity> {
 	return KZCity.nonSelectableValues();
     }
 
-    public KZCity[] selectableByArea(KZArea area) {
+    public KZCity[] selectableByArea(final KZArea area) {
 	return KZCity.selectableValuesByArea(area);
     }
 
-    public KZCity[] regionalByArea(KZArea area) {
+    public KZCity[] regionalByArea(final KZArea area) {
 	return KZCity.regionalValuesByArea(area);
     }
 }
