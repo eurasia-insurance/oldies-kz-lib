@@ -5,6 +5,7 @@ import static com.lapsa.kz.country.KZCityType.*;
 import static com.lapsa.kz.country.KZTypeOfSettlement.*;
 
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -177,7 +178,7 @@ public enum KZCity implements LocalizedElement {
     //
 
     public static final KZCity[] regionalValuesByArea(final KZArea area) {
-	MyObjects.requireNonNull(area, "Area must be provided");
+	MyObjects.requireNonNull(area, "area");
 	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.filter(KZCity::isRegional) //
@@ -186,13 +187,34 @@ public enum KZCity implements LocalizedElement {
 		.toArray(KZCity[]::new);
     }
 
+    public static final KZCity[] regionalValuesByArea(final Optional<KZArea> area) {
+	MyObjects.requireNonNull(area, "area");
+	Stream<KZCity> stream = valuesStream() //
+		.filter(SELECTABLE_FILTER) //
+		.filter(KZCity::isRegional);
+	if (area.isPresent())
+	    stream = stream.filter(KZCity::hasArea) //
+		    .filter(x -> x.getArea() == area.get());
+	return stream.toArray(KZCity[]::new);
+    }
+
     public static final KZCity[] selectableValuesByArea(final KZArea area) {
-	MyObjects.requireNonNull(area, "Area must be provided");
+	MyObjects.requireNonNull(area, "area");
 	return valuesStream() //
 		.filter(SELECTABLE_FILTER) //
 		.filter(KZCity::hasArea) //
 		.filter(x -> x.getArea() == area) //
 		.toArray(KZCity[]::new);
+    }
+
+    public static final KZCity[] selectableValuesByArea(final Optional<KZArea> area) {
+	MyObjects.requireNonNull(area, "area");
+	Stream<KZCity> stream = valuesStream() //
+		.filter(SELECTABLE_FILTER);
+	if (area.isPresent())
+	    stream = stream.filter(KZCity::hasArea) //
+		    .filter(x -> x.getArea() == area.get());
+	return stream.toArray(KZCity[]::new);
     }
 
     //
