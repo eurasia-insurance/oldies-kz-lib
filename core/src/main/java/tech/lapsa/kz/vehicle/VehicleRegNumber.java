@@ -68,7 +68,7 @@ public final class VehicleRegNumber implements Localized, Serializable {
 	return !valid(value);
     }
 
-    public static <X extends Throwable> VehicleRegNumber requireValid(final Function<String, X> creator,
+    public static <X extends Exception> VehicleRegNumber requireValid(final Function<String, X> creator,
 	    final VehicleRegNumber value) throws X {
 	if (valid(value))
 	    return value;
@@ -89,7 +89,7 @@ public final class VehicleRegNumber implements Localized, Serializable {
 	return !valid(value);
     }
 
-    public static <X extends Throwable> String requireValid(final Function<String, X> creator,
+    public static <X extends Exception> String requireValid(final Function<String, X> creator,
 	    final String value) throws X {
 	if (valid(value))
 	    return value;
