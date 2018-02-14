@@ -11,6 +11,9 @@ import java.util.StringJoiner;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import tech.lapsa.java.commons.function.MyExceptions;
 import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
@@ -96,9 +99,30 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	this.valid = valid;
     }
 
+    private static class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
+
+	@Override
+	public LocalDate unmarshal(final String v) throws Exception {
+	    if (v == null || v.isEmpty())
+		return null;
+	    return LocalDate.parse(v);
+	}
+
+	@Override
+	public String marshal(final LocalDate v) throws Exception {
+	    if (v == null)
+		return null;
+	    return v.toString();
+	}
+    }
+
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private final LocalDate dateOfBirth;
+
     private final Gender gender;
+
     private final String number;
+
     private final boolean valid;
 
     @Override
