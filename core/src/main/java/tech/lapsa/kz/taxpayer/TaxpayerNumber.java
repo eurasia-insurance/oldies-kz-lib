@@ -74,7 +74,7 @@ public final class TaxpayerNumber implements Localized, Serializable {
 	throw MyExceptions.illegalArgumentPar("Invalid taxpayer number", "value", value.toString());
     }
 
-    public static <X extends Throwable> TaxpayerNumber requireValid(final Function<String, X> creator,
+    public static <X extends Exception> TaxpayerNumber requireValid(final Function<String, X> creator,
 	    final TaxpayerNumber value) throws X {
 	if (valid(value))
 	    return value;
