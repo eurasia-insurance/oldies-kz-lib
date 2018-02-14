@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.lapsa.kz-lib</groupId>
 		<artifactId>kz-root</artifactId>
-		<version>3.2.3-SNAPSHOT</version>
+		<version>3.2.3</version>
 	</parent>
 
 	<artifactId>kz-core</artifactId>
