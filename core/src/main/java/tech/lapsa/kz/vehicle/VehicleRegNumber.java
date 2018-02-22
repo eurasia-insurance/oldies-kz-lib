@@ -97,7 +97,8 @@ public final class VehicleRegNumber implements Localized, Serializable {
     }
 
     public static String normalizeNumber(final String number) throws IllegalArgumentException {
-	MyStrings.requireNonEmpty(number);
+	if (MyObjects.isNull(number))
+	    return null;
 	final char[] cyrs = { 'А', 'В', 'С', 'Е', 'К', 'М', 'О', 'Р', 'Т' };
 	final char[] lats = { 'A', 'B', 'C', 'E', 'K', 'M', 'O', 'P', 'T' };
 	String num = number.toUpperCase().replaceAll("\\s", "");
