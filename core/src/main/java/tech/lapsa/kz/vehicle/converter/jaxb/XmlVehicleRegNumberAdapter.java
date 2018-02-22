@@ -12,7 +12,7 @@ public class XmlVehicleRegNumberAdapter extends XmlAdapter<String, VehicleRegNum
     public VehicleRegNumber unmarshal(final String v) throws Exception {
 	return MyStrings.empty(v) //
 		? null //
-		: VehicleRegNumber.assertValid(v);
+		: VehicleRegNumber.assertValid(VehicleRegNumber.normalizeNumber(v));
     }
 
     @Override

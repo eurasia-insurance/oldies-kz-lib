@@ -96,6 +96,20 @@ public final class VehicleRegNumber implements Localized, Serializable {
 	return requireValid(IllegalArgumentException::new, value);
     }
 
+    public static String normalizeNumber(final String number) throws IllegalArgumentException {
+	if (MyObjects.isNull(number))
+	    return null;
+	final char[] cyrs = { 'А', 'В', 'С', 'Е', 'К', 'М', 'О', 'Р', 'Т' };
+	final char[] lats = { 'A', 'B', 'C', 'E', 'K', 'M', 'O', 'P', 'T' };
+	String num = number.toUpperCase().replaceAll("\\s", "");
+	for (int i = 0; i < cyrs.length; i++) {
+	    final char from = cyrs[i];
+	    final char to = lats[i];
+	    num = num.replace(from, to);
+	}
+	return num;
+    }
+
     //
 
     VehicleRegNumber(final String number, final RegNumberType regNumberType, final EntityType entityType,
