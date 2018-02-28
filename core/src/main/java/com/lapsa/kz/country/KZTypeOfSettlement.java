@@ -58,4 +58,11 @@ public enum KZTypeOfSettlement implements LocalizedElement {
     public boolean isSelectable() {
 	return selectable;
     }
+
+    public boolean in(KZTypeOfSettlement ... typesOfSettlement) {
+	for (KZTypeOfSettlement a : typesOfSettlement)
+	    if (a.equals(this))
+		return true;
+	return false;
+    }
 }
