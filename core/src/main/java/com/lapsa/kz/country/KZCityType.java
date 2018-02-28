@@ -79,4 +79,11 @@ public enum KZCityType implements LocalizedElement {
     public boolean isRegional() {
 	return regional;
     }
+
+    public boolean in(KZCityType ... cityTypes) {
+	for (KZCityType a : cityTypes)
+	    if (a.equals(this))
+		return true;
+	return false;
+    }
 }

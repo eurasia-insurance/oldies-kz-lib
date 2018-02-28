@@ -275,4 +275,11 @@ public enum KZCity implements LocalizedElement {
     public KZArea getArea() {
 	return area;
     }
+
+    public boolean in(KZCity ... cities) {
+	for (KZCity a : cities)
+	    if (a.equals(this))
+		return true;
+	return false;
+    }
 }
