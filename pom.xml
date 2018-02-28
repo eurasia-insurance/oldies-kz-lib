@@ -9,7 +9,7 @@
 
 	<groupId>com.lapsa.kz-lib</groupId>
 	<artifactId>kz-root</artifactId>
-	<version>3.2.4</version>
+	<version>3.2.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>KZ Lib</name>
