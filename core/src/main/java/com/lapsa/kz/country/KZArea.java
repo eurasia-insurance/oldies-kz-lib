@@ -78,10 +78,6 @@ public enum KZArea implements LocalizedElement {
 		.findAny();
     }
 
-    public static void main(final String[] args) {
-	System.out.println(KZArea.optionalForAutoCode("O"));
-    }
-
     //
 
     private static final Predicate<KZArea> SELECTABLE_FILTER = KZArea::isSelectable;
