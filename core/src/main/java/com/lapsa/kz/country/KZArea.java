@@ -111,4 +111,11 @@ public enum KZArea implements LocalizedElement {
     public String getCode() {
 	return code;
     }
+
+    public boolean in(KZArea... areas) {
+	for (KZArea a : areas)
+	    if (a.equals(this))
+		return true;
+	return false;
+    }
 }
