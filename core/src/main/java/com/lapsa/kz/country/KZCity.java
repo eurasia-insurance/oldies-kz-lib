@@ -83,7 +83,7 @@ public enum KZCity implements LocalizedElement {
     TEKEL(CITY, REGIONAL_SUBORDINATION, OALM), // Текели
     TEMIR(CITY, DISTINCT_SUBORDINATION, OAKT), // Темир
     TEMRT(CITY, REGIONAL_SUBORDINATION, OKGD), // Темиртау
-    TURK(CITY, REGIONAL_SUBORDINATION, OUK), // Туркестан
+    TURK(CITY, REGIONAL_CENTER, OUK), // Туркестан
     URALS(CITY, REGIONAL_CENTER, OZK), // Уральск
     UKAM(CITY, REGIONAL_CENTER, OVK), // Усть-Каменогорск
     USHAR(CITY, DISTINCT_CENTER, OALM), // Ушарал
@@ -96,7 +96,7 @@ public enum KZCity implements LocalizedElement {
     SHKH(CITY, REGIONAL_SUBORDINATION, OKGD), // Шахтинск
     SHMN(CITY, DISTINCT_CENTER, OVK), // Шемонаиха
     SHU(CITY, DISTINCT_CENTER, OZHM), // Шу
-    SHYM(CITY, REGIONAL_CENTER, OUK), // Шымкент
+    SHYM(CITY, REGIONAL_SUBORDINATION, OUK), // Шымкент
     SCHU(CITY, DISTINCT_CENTER, OAKM), // Щучинск
     EKIB(CITY, REGIONAL_SUBORDINATION, OPVL), // Экибастуз
     EMBA(CITY, DISTINCT_SUBORDINATION, OAKT), // Эмба
