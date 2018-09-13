@@ -23,7 +23,7 @@ public enum KZCity implements LocalizedElement {
     ALM(CITY, MAJOR, GALM), // Алматы
     ARAL(CITY, DISTINCT_CENTER, OKZL), // Аральск
     ARKAL(CITY, REGIONAL_SUBORDINATION, OKST), // Аркалык
-    ARYS(CITY, REGIONAL_SUBORDINATION, OUK), // Арысь
+    ARYS(CITY, REGIONAL_SUBORDINATION, OTRK), // Арысь
     AST(CITY, MAJOR, GAST), // Астана
     ATB(CITY, DISTINCT_CENTER, OAKM), // Атбасар
     ATY(CITY, REGIONAL_CENTER, OATY), // Атырау
@@ -40,7 +40,7 @@ public enum KZCity implements LocalizedElement {
     ZHARK(CITY, DISTINCT_CENTER, OALM), // Жаркент
     ZHZKZ(CITY, REGIONAL_SUBORDINATION, OKGD), // Жезказган
     ZHEM(CITY, DISTINCT_SUBORDINATION, OAKT), // Жем
-    ZHETYSAY(CITY, DISTINCT_CENTER, OUK), // Жетысай
+    ZHETYSAY(CITY, DISTINCT_CENTER, OTRK), // Жетысай
     ZHITIKARA(CITY, DISTINCT_CENTER, OKST), // Житикара
     ZAISAN(CITY, DISTINCT_CENTER, OVK), // Зайсан
     ZYRIAN(CITY, DISTINCT_SUBORDINATION, OVK), // Зыряновск
@@ -52,13 +52,13 @@ public enum KZCity implements LocalizedElement {
     KARAT(CITY, DISTINCT_CENTER, OZHM), // Каратау
     KARKAR(CITY, DISTINCT_CENTER, OKGD), // Каркаралинск
     KASKEL(CITY, DISTINCT_CENTER, OALM), // Каскелен
-    KENTAU(CITY, REGIONAL_SUBORDINATION, OUK), // Кентау
+    KENTAU(CITY, REGIONAL_SUBORDINATION, OTRK), // Кентау
     KOKSH(CITY, REGIONAL_CENTER, OAKM), // Кокшетау
     KOSTN(CITY, REGIONAL_CENTER, OKST), // Костанай
     KYLSAR(CITY, DISTINCT_CENTER, OATY), // Кульсары
     KURCH(CITY, REGIONAL_SUBORDINATION, OVK), // Курчатов
     KYZYL(CITY, REGIONAL_CENTER, OKZL), // Кызылорда
-    LENGER(CITY, DISTINCT_CENTER, OUK), // Ленгер
+    LENGER(CITY, DISTINCT_CENTER, OTRK), // Ленгер
     LISAK(CITY, REGIONAL_SUBORDINATION, OKST), // Лисаковск
     MAKIN(CITY, DISTINCT_CENTER, OAKM), // Макинск
     MAMLY(CITY, DISTINCT_CENTER, OSK), // Мамлютка
@@ -69,7 +69,7 @@ public enum KZCity implements LocalizedElement {
     RUDNI(CITY, REGIONAL_SUBORDINATION, OKST), // Рудный
     SARAN(CITY, REGIONAL_SUBORDINATION, OKGD), // Сарань
     SARKND(CITY, DISTINCT_CENTER, OALM), // Сарканд
-    SARYAG(CITY, DISTINCT_CENTER, OUK), // Сарыагаш
+    SARYAG(CITY, DISTINCT_CENTER, OTRK), // Сарыагаш
     SATP(CITY, REGIONAL_SUBORDINATION, OKGD), // Сатпаев
     SEMEI(CITY, REGIONAL_SUBORDINATION, OVK), // Семей
     SERGEE(CITY, DISTINCT_CENTER, OSK), // Сергеевка
@@ -83,20 +83,20 @@ public enum KZCity implements LocalizedElement {
     TEKEL(CITY, REGIONAL_SUBORDINATION, OALM), // Текели
     TEMIR(CITY, DISTINCT_SUBORDINATION, OAKT), // Темир
     TEMRT(CITY, REGIONAL_SUBORDINATION, OKGD), // Темиртау
-    TURK(CITY, REGIONAL_CENTER, OUK), // Туркестан
+    TURK(CITY, REGIONAL_CENTER, OTRK), // Туркестан
     URALS(CITY, REGIONAL_CENTER, OZK), // Уральск
     UKAM(CITY, REGIONAL_CENTER, OVK), // Усть-Каменогорск
     USHAR(CITY, DISTINCT_CENTER, OALM), // Ушарал
     USHTB(CITY, DISTINCT_CENTER, OALM), // Уштобе
     FRSH(CITY, REGIONAL_SUBORDINATION, OMNG), // Форт-Шевченко
     HROM(CITY, DISTINCT_CENTER, OAKT), // Хромтау
-    SHARD(CITY, DISTINCT_CENTER, OUK), // Шардара
+    SHARD(CITY, DISTINCT_CENTER, OTRK), // Шардара
     SHALK(CITY, DISTINCT_CENTER, OAKT), // Шалкар
     SHAR(CITY, REGIONAL_SUBORDINATION, OVK), // Шар
     SHKH(CITY, REGIONAL_SUBORDINATION, OKGD), // Шахтинск
     SHMN(CITY, DISTINCT_CENTER, OVK), // Шемонаиха
     SHU(CITY, DISTINCT_CENTER, OZHM), // Шу
-    SHYM(CITY, REGIONAL_SUBORDINATION, OUK), // Шымкент
+    SHYM(CITY, MAJOR, GSHM), // Шымкент
     SCHU(CITY, DISTINCT_CENTER, OAKM), // Щучинск
     EKIB(CITY, REGIONAL_SUBORDINATION, OPVL), // Экибастуз
     EMBA(CITY, DISTINCT_SUBORDINATION, OAKT), // Эмба
@@ -276,7 +276,7 @@ public enum KZCity implements LocalizedElement {
 	return area;
     }
 
-    public boolean in(KZCity ... cities) {
+    public boolean in(KZCity... cities) {
 	for (KZCity a : cities)
 	    if (a.equals(this))
 		return true;
