@@ -9,7 +9,7 @@
 
 	<groupId>com.lapsa.kz-lib</groupId>
 	<artifactId>kz-root</artifactId>
-	<version>3.3-SNAPSHOT</version>
+	<version>3.3</version>
 	<packaging>pom</packaging>
 
 	<name>KZ Lib</name>
@@ -86,7 +86,7 @@
 	<scm>
 		<connection>scm:git:https://gitlab.lapsa.tech/lapsa/kz-lib.git</connection>
 		<developerConnection>scm:git:https://gitlab.lapsa.tech/lapsa/kz-lib.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>v3.3</tag>
 	</scm>
 
 	<issueManagement>
