@@ -8,8 +8,8 @@ import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.localization.LocalizedElement;
 
 public enum KZArea implements LocalizedElement {
-    GAST("01", "Z"), // Астана - код 01
-    GALM("02", "A"), // Алматы - код 02
+    GAST("01", true, true, "Z"), // Астана - код 01
+    GALM("02", true, true, "A"), // Алматы - код 02
     OAKM("03", "C", "O", "W"), // Акмолинская область - код 03
     OAKT("04", "D"), // Актюбинская область - код 04
     OALM("05", "B", "V"), // Алматинская область - код 05
@@ -21,11 +21,11 @@ public enum KZArea implements LocalizedElement {
     OKZL("11", "N"), // Кызылординская область - код 11
     OMNG("12", "R"), // Мангистауская область - код 12
     OTRK("13", "X"), // Туркестанская область - код 13
-//    OUK("13", false, "X"), // Восточно-казахстанская область - код 13
+    // OUK("13", false, "X"), // Восточно-казахстанская область - код 13
     OPVL("14", "S"), // Павлодарская область - код 14
     OSK("15", "T", "O"), // Северо-Казахстанская область - код 15
     OVK("16", "F", "U"), // Восточно-Казахстанская область - код 16
-    GSHM("17", "Y"), // Шымкент - код 17
+    GSHM("17", true, true, "Y"), // Шымкент - код 17
 
     UNDEFINED("-", false),
     ;
@@ -35,18 +35,28 @@ public enum KZArea implements LocalizedElement {
     private final boolean selectable;
     private final String code;
     private final String[] autoCodes;
+    private final boolean monoCity;
 
     //
 
     private KZArea(final String code, final String... autoCodes) {
 	this.code = MyObjects.requireNonNull(code);
-	selectable = true;
+	this.selectable = true;
+	this.monoCity = false;
 	this.autoCodes = autoCodes;
     }
 
     private KZArea(final String code, final boolean selectable, final String... autoCodes) {
 	this.code = MyObjects.requireNonNull(code);
 	this.selectable = selectable;
+	this.monoCity = false;
+	this.autoCodes = autoCodes;
+    }
+
+    private KZArea(final String code, final boolean selectable, boolean monoCity, final String... autoCodes) {
+	this.code = MyObjects.requireNonNull(code);
+	this.selectable = selectable;
+	this.monoCity = monoCity;
 	this.autoCodes = autoCodes;
     }
 
@@ -105,6 +115,10 @@ public enum KZArea implements LocalizedElement {
 
     public boolean isSelectable() {
 	return selectable;
+    }
+    
+    public boolean isMonoCity() {
+        return monoCity;
     }
 
     public String getCode() {
