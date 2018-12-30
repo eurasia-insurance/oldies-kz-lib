@@ -25,4 +25,9 @@ public class KZAreaCDIBean implements ListingBean<KZArea> {
     public KZArea[] getNonSelectable() {
 	return KZArea.nonSelectableValues();
     }
+
+    @Override
+    public KZArea byName(String name) {
+	return KZArea.valueOf(name);
+    }
 }

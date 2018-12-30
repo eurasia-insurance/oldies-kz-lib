@@ -25,4 +25,9 @@ public class KZEconomicSectorCDIBean implements ListingBean<KZEconomicSector> {
     public KZEconomicSector[] getNonSelectable() {
 	return KZEconomicSector.nonSelectableValues();
     }
+
+    @Override
+    public KZEconomicSector byName(String name) {
+	return KZEconomicSector.valueOf(name);
+    }
 }
