@@ -25,4 +25,9 @@ public class KZTypeOfSettlementCDIBean implements ListingBean<KZTypeOfSettlement
     public KZTypeOfSettlement[] getNonSelectable() {
 	return KZTypeOfSettlement.nonSelectableValues();
     }
+
+    @Override
+    public KZTypeOfSettlement byName(String name) {
+	return KZTypeOfSettlement.valueOf(name);
+    }
 }

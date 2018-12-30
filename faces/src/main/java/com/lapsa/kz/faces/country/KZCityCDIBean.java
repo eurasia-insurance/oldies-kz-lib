@@ -43,4 +43,9 @@ public class KZCityCDIBean implements ListingBean<KZCity> {
     public KZCity[] regionalByAreaOrAll(final KZArea area) {
 	return KZCity.regionalValuesByArea(MyOptionals.of(area));
     }
+
+    @Override
+    public KZCity byName(String name) {
+	return KZCity.valueOf(name);
+    }
 }

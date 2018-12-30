@@ -29,4 +29,9 @@ public class KZCityTypeCDIBean implements ListingBean<KZCityType> {
     public KZCityType[] getRegional() {
 	return KZCityType.regionalValues();
     }
+
+    @Override
+    public KZCityType byName(String name) {
+	return KZCityType.valueOf(name);
+    }
 }
