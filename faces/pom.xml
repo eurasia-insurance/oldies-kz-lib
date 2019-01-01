@@ -10,7 +10,7 @@
 	<artifactId>kz-faces</artifactId>
 	<packaging>jar</packaging>
 
-	<name>KZ Lib : Faces utility</name>
+	<name>Oldies Lib : KZ Lib : Faces</name>
 
 	<dependencies>
 		<!-- tech -->

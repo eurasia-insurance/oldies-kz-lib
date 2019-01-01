@@ -10,7 +10,7 @@
 	<artifactId>kz-core</artifactId>
 	<packaging>jar</packaging>
 
-	<name>KZ Lib : Core POJOs</name>
+	<name>Oldies Lib : KZ Lib : Core POJOs</name>
 
 	<dependencies>
 		<!-- tech -->

@@ -12,7 +12,7 @@
 	<version>CURRENT-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>KZ Lib</name>
+	<name>Oldies Lib : KZ Lib</name>
 
 	<modules>
 		<module>core</module>

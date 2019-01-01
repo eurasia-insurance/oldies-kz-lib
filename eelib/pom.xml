@@ -10,7 +10,7 @@
 	<artifactId>kz-eelib</artifactId>
 	<packaging>jar</packaging>
 
-	<name>KZ Lib : Java EE library</name>
+	<name>Oldies Lib : KZ Lib : Java EE</name>
 
 	<dependencies>
 		<!-- tech -->
