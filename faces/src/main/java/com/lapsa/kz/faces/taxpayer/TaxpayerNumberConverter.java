@@ -9,7 +9,7 @@ import tech.lapsa.java.commons.function.MyObjects;
 import tech.lapsa.java.commons.function.MyOptionals;
 import tech.lapsa.kz.taxpayer.TaxpayerNumber;
 
-@FacesConverter(value = "taxpayerNumberConverter", forClass = TaxpayerNumber.class)
+@FacesConverter(forClass = TaxpayerNumber.class)
 public class TaxpayerNumberConverter implements Converter {
 
     @Override
