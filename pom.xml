@@ -9,7 +9,7 @@
 
 	<groupId>com.lapsa.kz-lib</groupId>
 	<artifactId>kz-root</artifactId>
-	<version>20190113r3</version>
+	<version>CURRENT-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Oldies Lib : KZ Lib</name>
@@ -86,7 +86,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/eurasia-insurance/oldies-kz-lib.git</connection>
 		<developerConnection>scm:git:https://github.com/eurasia-insurance/oldies-kz-lib.git</developerConnection>
-		<tag>v20190113r3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 </project>
