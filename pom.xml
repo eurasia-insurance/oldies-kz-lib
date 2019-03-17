@@ -22,11 +22,11 @@
 
 	<properties>
 		<!-- BOMS -->
-		<javax-javaee-bom.version>20190317r6</javax-javaee-bom.version>
-		<java-commons.version>20190317r6</java-commons.version>
-		<javax-faces-commons.version>20190317r6</javax-faces-commons.version>
-		<javax-rs-commons.version>20190317r6</javax-rs-commons.version>
-		<payara-bom.version>20190317r6</payara-bom.version>
+		<javax-javaee-bom.version>CURRENT-SNAPSHOT</javax-javaee-bom.version>
+		<java-commons.version>CURRENT-SNAPSHOT</java-commons.version>
+		<javax-faces-commons.version>CURRENT-SNAPSHOT</javax-faces-commons.version>
+		<javax-rs-commons.version>CURRENT-SNAPSHOT</javax-rs-commons.version>
+		<payara-bom.version>CURRENT-SNAPSHOT</payara-bom.version>
 	</properties>
 
 	<dependencyManagement>
